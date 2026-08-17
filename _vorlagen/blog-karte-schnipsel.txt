@@ -1,0 +1,14 @@
+KARTE FÜR DIE BLOG-ÜBERSICHT
+════════════════════════════════════════════════════════
+Diesen Block in blog/index.html einfügen — direkt nach
+<div class="grid grid--3">, damit der neue Beitrag oben steht.
+
+<article class="post rv">
+  <a href="/blog/URL-KUERZEL/" class="post__cover"><b>03</b></a>
+  <div class="post__body">
+    <span class="post__meta">KATEGORIE · 5 Min.</span>
+    <h3><a href="/blog/URL-KUERZEL/">TITEL DES BEITRAGS</a></h3>
+    <p>BESCHREIBUNG in ein bis zwei Sätzen.</p>
+    <a href="/blog/URL-KUERZEL/" class="post__more">Weiterlesen →</a>
+  </div>
+</article>

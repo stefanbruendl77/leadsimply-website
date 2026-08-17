@@ -1,0 +1,597 @@
+<style>
+.calc{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.calc__head{background:var(--navy);padding:26px 32px}
+.calc__head h3{color:#fff;margin:0;font-size:23px}
+.calc__head p{color:rgba(255,255,255,.5);font-size:14px;margin-top:5px}
+.calc__body{padding:32px}
+.slider{margin-bottom:26px}
+.slider__top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:11px}
+.slider__top label{font-size:14.5px;color:var(--muted);font-weight:400}
+.slider__top b{font-family:'Cormorant Garamond',serif;font-size:23px;color:var(--navy)}
+.slider input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;
+  border-radius:3px;background:var(--pale);outline:none;cursor:pointer}
+.slider input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;
+  width:22px;height:22px;border-radius:50%;background:var(--navy);cursor:pointer;
+  border:3px solid #fff;box-shadow:0 2px 8px rgba(27,45,79,.3)}
+.slider input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;
+  background:var(--navy);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(27,45,79,.3)}
+.calc__hint{font-size:13px;color:var(--blue);font-weight:600;margin-top:6px}
+.bar{margin-bottom:16px}
+.bar__top{display:flex;justify-content:space-between;align-items:baseline;
+  font-size:14.5px;margin-bottom:7px;gap:12px}
+.bar__top span{color:var(--muted)}
+.bar__top b{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--navy);white-space:nowrap}
+.bar__track{height:8px;background:var(--pale);border-radius:4px;overflow:hidden}
+.bar__fill{height:100%;border-radius:4px;transition:width .45s cubic-bezier(.4,0,.2,1)}
+.calc__total{background:var(--navy-d);border-radius:11px;padding:26px 30px;margin-top:28px;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.calc__total span{font-size:14.5px;color:rgba(255,255,255,.55)}
+.calc__total b{font-family:'Cormorant Garamond',serif;font-size:38px;color:var(--amber);line-height:1}
+@media(max-width:860px){.calc__body{padding:24px 20px}.calc__head{padding:22px 20px}
+ .calc__total{flex-direction:column;align-items:flex-start;gap:8px;padding:22px}
+ .calc__total b{font-size:31px}}
+</style><!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fluktuationskosten-Rechner — Was Sie Abgänge kosten | LeadSimply</title>
+<meta name="description" content="Berechnen Sie in 30 Sekunden, was Ihre Mitarbeiterfluktuation pro Jahr kostet — aufgeschlüsselt nach direkten, indirekten und versteckten Kosten. Kostenlos und ohne Anmeldung.">
+<meta name="keywords" content="Fluktuationskosten berechnen, Kosten Mitarbeiterabgang, Fluktuation Rechner, Personalkosten Kündigung">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="Stefan Bründl">
+<link rel="canonical" href="https://www.leadsimply.de/rechner/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LeadSimply">
+<meta property="og:locale" content="de_DE">
+<meta property="og:url" content="https://www.leadsimply.de/rechner/">
+<meta property="og:title" content="Fluktuationskosten-Rechner — Was Sie Abgänge kosten | LeadSimply">
+<meta property="og:description" content="Berechnen Sie in 30 Sekunden, was Ihre Mitarbeiterfluktuation pro Jahr kostet — aufgeschlüsselt nach direkten, indirekten und versteckten Kosten. Kostenlos und ohne Anmeldung.">
+<meta property="og:image" content="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161210c03f3dfbe646b23.png">
+<meta property="og:image:alt" content="Stefan Bründl — LeadSimply">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fluktuationskosten-Rechner — Was Sie Abgänge kosten | LeadSimply">
+<meta name="twitter:description" content="Berechnen Sie in 30 Sekunden, was Ihre Mitarbeiterfluktuation pro Jahr kostet — aufgeschlüsselt nach direkten, indirekten und versteckten Kosten. Kostenlos und ohne Anmeldung.">
+<meta name="twitter:image" content="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161210c03f3dfbe646b23.png">
+<meta name="geo.region" content="DE-BW">
+<meta name="geo.placename" content="Weil der Stadt">
+<meta name="geo.position" content="48.7503;8.8706">
+<meta name="ICBM" content="48.7503, 8.8706">
+<meta name="theme-color" content="#0d1a2e">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#1B2D4F; --navy-d:#0d1a2e; --navy-m:#243a60;
+  --blue:#6096ba; --blue-l:#abcef1;
+  --amber:#E09B2D; --amber-d:#c8881f;
+  --pale:#e7ecef; --off:#f6f8fb; --white:#fff;
+  --text:#1a2035; --muted:#64708a; --line:rgba(27,45,79,.09);
+  --wrap:1120px; --pad:56px; --radius:14px;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Outfit',system-ui,sans-serif;
+  background:var(--off); color:var(--text);
+  line-height:1.7; font-weight:300;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden; width:100%;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad);width:100%}
+
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;line-height:1.12;letter-spacing:-.015em;color:var(--navy)}
+h1{font-size:clamp(38px,5.4vw,68px)}
+h2{font-size:clamp(30px,3.9vw,50px)}
+h3{font-size:clamp(19px,1.5vw,23px);line-height:1.3}
+p{font-size:17px;line-height:1.8}
+em{font-style:italic}
+
+.eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--blue);margin-bottom:16px}
+.eyebrow--light{color:var(--blue-l)}
+.lead{font-size:19px;line-height:1.8;color:var(--muted);max-width:60ch}
+
+/* ─── BUTTONS ─── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  background:var(--amber);color:var(--navy-d);
+  padding:16px 30px;border-radius:9px;
+  font-weight:700;font-size:15px;font-family:'Outfit',sans-serif;
+  transition:background .2s,transform .2s,box-shadow .2s;
+  box-shadow:0 4px 20px rgba(224,155,45,.24);border:none;cursor:pointer}
+.btn:hover{background:var(--amber-d);transform:translateY(-2px);box-shadow:0 8px 28px rgba(224,155,45,.34)}
+.btn--ghost{background:transparent;color:var(--navy);border:1.5px solid var(--line);box-shadow:none}
+.btn--ghost:hover{background:var(--white);border-color:var(--blue);transform:translateY(-2px);box-shadow:0 4px 16px var(--line)}
+.btn--ghost-light{background:transparent;color:rgba(255,255,255,.85);border:1.5px solid rgba(171,206,241,.25);box-shadow:none}
+.btn--ghost-light:hover{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(171,206,241,.5)}
+.btn--sm{padding:10px 20px;font-size:13px;box-shadow:none}
+.textlink{color:var(--blue);font-weight:500;font-size:15px;border-bottom:1px solid transparent;transition:border-color .2s}
+.textlink:hover{border-bottom-color:var(--blue)}
+
+/* ─── NAV ─── */
+.nav{position:fixed;inset:0 0 auto 0;z-index:500;height:68px;
+  background:rgba(13,26,46,.94);backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(171,206,241,.1);transition:height .25s}
+.nav__in{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad);height:100%;
+  display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav__logo img{height:25px;width:auto}
+.nav__links{display:flex;align-items:center;gap:30px}
+.nav__links a{color:rgba(255,255,255,.62);font-size:14.5px;font-weight:400;transition:color .2s}
+.nav__links a:hover{color:#fff}
+.nav__toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.nav__toggle span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:transform .3s,opacity .2s}
+.nav.is-open .nav__toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav.is-open .nav__toggle span:nth-child(2){opacity:0}
+.nav.is-open .nav__toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav__drawer{display:none}
+
+/* ─── HERO (dunkel) ─── */
+.dark{background:var(--navy-d);color:#fff;position:relative;overflow:hidden}
+.dark h1,.dark h2,.dark h3{color:#fff}
+.dark::before{content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(171,206,241,.022) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(171,206,241,.022) 1px,transparent 1px);
+  background-size:64px 64px}
+.dark__glow{position:absolute;top:-15%;right:-8%;width:640px;height:640px;border-radius:50%;
+  background:radial-gradient(circle,rgba(96,150,186,.13) 0%,transparent 62%);pointer-events:none}
+.dark > *{position:relative;z-index:1}
+
+.hero{padding:150px 0 96px}
+.hero__grid{display:grid;grid-template-columns:1fr 400px;gap:72px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:9px;
+  background:rgba(224,155,45,.1);border:1px solid rgba(224,155,45,.28);
+  color:var(--amber);font-size:11px;font-weight:700;padding:6px 15px;border-radius:100px;
+  letter-spacing:.12em;text-transform:uppercase;margin-bottom:26px}
+.pill::before{content:'';width:5px;height:5px;background:var(--amber);border-radius:50%}
+.hero h1 em{color:var(--blue-l)}
+.hero__sub{font-size:clamp(17px,1.75vw,21px);color:rgba(255,255,255,.62);
+  line-height:1.72;max-width:30ch;margin:22px 0 36px;font-weight:300}
+.hero__actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.hero__note{font-size:13.5px;color:rgba(255,255,255,.4);margin-top:20px}
+
+/* Foto */
+.photo-frame{position:relative;width:100%;max-width:400px;margin-left:auto}
+.photo-frame img{width:100%;border-radius:18px;
+  box-shadow:0 30px 70px rgba(0,0,0,.45),0 0 0 1px rgba(171,206,241,.08)}
+.photo-frame::before{content:'';position:absolute;inset:0;border:1px solid rgba(171,206,241,.2);
+  border-radius:20px;pointer-events:none;z-index:2}
+.badge-num{position:absolute;bottom:38px;left:-26px;z-index:3;
+  background:rgba(10,20,40,.96);border:1px solid rgba(224,155,45,.45);
+  border-radius:12px;padding:13px 19px;backdrop-filter:blur(16px);
+  box-shadow:0 10px 32px rgba(0,0,0,.45)}
+.badge-num b{display:block;font-family:'Cormorant Garamond',serif;font-size:27px;
+  font-weight:700;color:var(--amber);line-height:1}
+.badge-num span{display:block;font-size:11px;color:rgba(255,255,255,.5);margin-top:4px;line-height:1.4}
+.badge-ww{position:absolute;top:26px;right:-18px;z-index:3;
+  background:rgba(255,255,255,.95);border-radius:11px;padding:9px 15px;
+  box-shadow:0 6px 24px rgba(13,26,46,.28)}
+.badge-ww img{height:52px;width:auto}
+
+/* ─── PROOF-LEISTE ─── */
+.proof{background:var(--navy);padding:22px 0;border-top:1px solid rgba(171,206,241,.07)}
+.proof__in{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad);
+  display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.proof__label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.34);font-weight:600;margin-right:6px}
+.proof__chip{background:rgba(255,255,255,.06);border:1px solid rgba(171,206,241,.13);
+  border-radius:100px;padding:7px 16px;font-size:13px;color:rgba(255,255,255,.72);
+  display:flex;align-items:center;gap:8px}
+.proof__chip img{height:20px;width:auto}
+
+/* ─── SEKTIONEN ─── */
+.sec{padding:112px 0}
+.sec--tight{padding:84px 0}
+.sec--white{background:var(--white)}
+.sec--off{background:var(--off)}
+.sec__head{max-width:64ch;margin-bottom:56px}
+.sec__head--center{margin-left:auto;margin-right:auto;text-align:center}
+.sec__head p{margin-top:16px}
+
+/* Karten-Raster */
+.grid{display:grid;gap:22px}
+.grid--2{grid-template-columns:repeat(2,1fr)}
+.grid--3{grid-template-columns:repeat(3,1fr)}
+.grid--4{grid-template-columns:repeat(4,1fr)}
+
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 34px rgba(27,45,79,.09);border-color:rgba(96,150,186,.3)}
+.card h3{margin-bottom:10px}
+.card p{font-size:15.5px;color:var(--muted);line-height:1.75}
+.card__icon{width:44px;height:44px;border-radius:11px;background:rgba(96,150,186,.1);
+  display:flex;align-items:center;justify-content:center;font-size:21px;margin-bottom:18px}
+.card--dark{background:rgba(255,255,255,.045);border-color:rgba(171,206,241,.12)}
+.card--dark h3{color:#fff}
+.card--dark p{color:rgba(255,255,255,.58)}
+.card--dark:hover{border-color:rgba(171,206,241,.3);box-shadow:0 12px 34px rgba(0,0,0,.3)}
+
+/* Nummerierte Schritte */
+.steps{display:flex;flex-direction:column}
+.step{display:grid;grid-template-columns:60px 1fr;gap:26px;padding:32px 0;
+  border-bottom:1px solid var(--line);align-items:start}
+.step:last-child{border-bottom:none}
+.step__n{width:46px;height:46px;border-radius:50%;background:var(--navy);color:#fff;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:700}
+.step h3{margin-bottom:8px}
+.step p{font-size:16px;color:var(--muted)}
+.step__meta{display:inline-block;margin-top:11px;background:rgba(224,155,45,.1);
+  border:1px solid rgba(224,155,45,.22);color:#a86f14;
+  font-size:11px;font-weight:700;padding:4px 11px;border-radius:100px;
+  letter-spacing:.09em;text-transform:uppercase}
+
+/* Zahlen */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;
+  padding-top:40px;margin-top:44px;border-top:1px solid rgba(171,206,241,.14)}
+.stat b{display:block;font-family:'Cormorant Garamond',serif;font-size:34px;
+  font-weight:700;color:#fff;line-height:1}
+.stat span{display:block;font-size:12.5px;color:rgba(255,255,255,.42);margin-top:6px;line-height:1.45}
+.stats--light{border-top-color:var(--line)}
+.stats--light b{color:var(--navy)}
+.stats--light span{color:var(--muted)}
+
+/* Testimonials */
+.quote{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px;display:flex;flex-direction:column;height:100%}
+.quote__text{font-size:16px;line-height:1.82;color:var(--muted);font-style:italic;flex:1;margin-bottom:22px}
+.quote__who{display:flex;align-items:center;gap:13px}
+.quote__who img{width:46px;height:46px;border-radius:50%;object-fit:cover;
+  border:2px solid var(--pale);flex-shrink:0}
+.quote__who b{display:block;font-size:14.5px;font-weight:600;color:var(--navy)}
+.quote__who span{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+
+/* Über-Block */
+.about{display:grid;grid-template-columns:340px 1fr;gap:64px;align-items:start}
+.about__photo{position:relative}
+.about__photo img{width:100%;border-radius:var(--radius);
+  box-shadow:0 18px 44px rgba(27,45,79,.15)}
+.about__ww{position:absolute;bottom:-16px;right:-14px;background:var(--white);
+  border-radius:11px;padding:9px 14px;box-shadow:0 8px 26px rgba(27,45,79,.16)}
+.about__ww img{height:46px;width:auto}
+.about__facts{list-style:none;margin-top:26px;border-top:1px solid var(--line)}
+.about__facts li{display:flex;gap:14px;align-items:baseline;
+  padding:13px 0;border-bottom:1px solid var(--line);font-size:15.5px;color:var(--muted)}
+.about__facts b{font-family:'Cormorant Garamond',serif;font-size:21px;
+  color:var(--navy);min-width:96px;flex-shrink:0}
+
+/* Leistungs-Karten */
+.offer{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:32px;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s,border-color .25s}
+.offer:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(27,45,79,.1);border-color:rgba(96,150,186,.35)}
+.offer--featured{border-color:var(--amber);box-shadow:0 10px 34px rgba(224,155,45,.14)}
+.offer__tag{display:inline-block;align-self:flex-start;font-size:10.5px;font-weight:700;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+.offer--featured .offer__tag{color:var(--amber-d)}
+.offer h3{margin-bottom:10px}
+.offer__desc{font-size:15.5px;color:var(--muted);line-height:1.75;margin-bottom:20px;flex:1}
+.offer__for{font-size:13.5px;color:var(--navy);background:var(--off);
+  border-radius:9px;padding:12px 15px;margin-bottom:20px;line-height:1.6}
+.offer__for b{font-weight:600}
+
+/* CTA-Band */
+.cta{padding:104px 0;text-align:center}
+.cta h2{margin-bottom:16px}
+.cta p{color:rgba(255,255,255,.58);max-width:52ch;margin:0 auto 34px}
+.cta__points{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+.cta__points span{font-size:13.5px;color:rgba(255,255,255,.5);
+  display:flex;align-items:center;gap:7px}
+.cta__points span::before{content:'✓';color:var(--amber);font-weight:700}
+
+/* FAQ */
+.faq{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--white)}
+.faq__item{border-bottom:1px solid var(--line)}
+.faq__item:last-child{border-bottom:none}
+.faq__q{width:100%;text-align:left;background:none;border:none;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+  padding:24px 28px;font-family:'Outfit',sans-serif;font-size:17px;font-weight:600;
+  color:var(--navy);line-height:1.45;transition:background .2s}
+.faq__q:hover{background:var(--off)}
+.faq__q::after{content:'+';font-size:22px;font-weight:300;color:var(--blue);
+  flex-shrink:0;transition:transform .3s}
+.faq__item.is-open .faq__q::after{transform:rotate(45deg)}
+.faq__item.is-open .faq__q{background:var(--off)}
+.faq__a{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.4,0,.2,1);background:var(--off)}
+.faq__item.is-open .faq__a{max-height:620px}
+.faq__a p{font-size:16px;line-height:1.82;color:var(--muted);padding:0 28px 22px}
+.faq__a p + p{padding-top:0}
+
+/* Hinweis-Box */
+.note{display:flex;gap:16px;align-items:flex-start;
+  background:rgba(224,155,45,.07);border:1px solid rgba(224,155,45,.24);
+  border-radius:var(--radius);padding:24px 26px}
+.note__icon{font-size:22px;flex-shrink:0;line-height:1.3}
+.note b{display:block;font-weight:600;color:var(--navy);margin-bottom:5px;font-size:16px}
+.note p{font-size:15.5px;color:var(--muted);line-height:1.75}
+
+/* Fließtext (Blog / Recht) */
+.prose{max-width:70ch}
+.prose h2{font-size:clamp(25px,2.6vw,34px);margin:52px 0 16px}
+.prose h3{font-size:21px;margin:34px 0 10px}
+.prose p{margin-bottom:18px;color:var(--muted)}
+.prose ul,.prose ol{margin:0 0 20px 22px;color:var(--muted)}
+.prose li{margin-bottom:9px;font-size:17px;line-height:1.75}
+.prose strong{color:var(--navy);font-weight:600}
+.prose a{color:var(--blue);border-bottom:1px solid rgba(96,150,186,.35)}
+.prose blockquote{border-left:3px solid var(--amber);padding:6px 0 6px 22px;
+  margin:28px 0;font-style:italic;color:var(--navy);font-size:19px;line-height:1.7}
+
+/* Blog-Karten */
+.post{display:flex;flex-direction:column;background:var(--white);
+  border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  transition:transform .25s,box-shadow .25s}
+.post:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(27,45,79,.1)}
+.post__cover{height:150px;background:var(--navy);display:flex;align-items:center;
+  justify-content:center;position:relative;overflow:hidden}
+.post__cover::after{content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(171,206,241,.05) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(171,206,241,.05) 1px,transparent 1px);
+  background-size:30px 30px}
+.post__cover b{font-family:'Cormorant Garamond',serif;font-size:40px;
+  color:var(--amber);position:relative;z-index:1}
+.post__body{padding:26px;display:flex;flex-direction:column;flex:1}
+.post__meta{font-size:12px;color:var(--blue);font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:11px}
+.post__body h3{margin-bottom:10px;font-size:21px}
+.post__body p{font-size:15px;color:var(--muted);line-height:1.72;flex:1;margin-bottom:18px}
+.post__more{font-size:14px;font-weight:600;color:var(--blue)}
+
+/* Footer */
+.foot{background:var(--navy-d);padding:56px 0 30px;color:rgba(255,255,255,.5)}
+.foot__top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:44px;
+  padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.08)}
+.foot__brand img{height:24px;width:auto;opacity:.85;margin-bottom:16px}
+.foot__brand p{font-size:14.5px;line-height:1.75;color:rgba(255,255,255,.42);max-width:34ch}
+.foot__col b{display:block;color:#fff;font-size:13px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:15px}
+.foot__col a{display:block;font-size:14.5px;color:rgba(255,255,255,.48);
+  padding:5px 0;transition:color .2s}
+.foot__col a:hover{color:#fff}
+.foot__bottom{display:flex;justify-content:space-between;align-items:center;
+  gap:18px;padding-top:24px;flex-wrap:wrap;font-size:12.5px;color:rgba(255,255,255,.3)}
+
+/* Reveal-Animation */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}}
+
+/* ══════════ RESPONSIVE ══════════ */
+@media(max-width:1040px){
+  :root{--pad:34px}
+  .hero__grid{grid-template-columns:1fr 330px;gap:44px}
+  .about{grid-template-columns:280px 1fr;gap:44px}
+}
+@media(max-width:860px){
+  :root{--pad:22px}
+  .nav__links{display:none}
+  .nav__toggle{display:flex}
+  .nav__drawer{display:block;position:fixed;top:68px;left:0;right:0;
+    background:rgba(13,26,46,.99);backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(171,206,241,.12);
+    max-height:0;overflow:hidden;transition:max-height .32s ease;z-index:499}
+  .nav.is-open .nav__drawer{max-height:340px}
+  .nav__drawer a{display:block;padding:15px var(--pad);font-size:16px;
+    color:rgba(255,255,255,.75);border-bottom:1px solid rgba(255,255,255,.06)}
+  .nav__drawer .btn{margin:16px var(--pad) 22px;width:calc(100% - var(--pad)*2)}
+
+  .hero{padding:112px 0 68px}
+  .hero__grid{display:flex;flex-direction:column;gap:38px}
+  .hero__sub{max-width:100%}
+  .hero__actions{flex-direction:column;align-items:stretch;width:100%}
+  .hero__actions .btn{width:100%}
+  .hero__actions .textlink{text-align:center;padding:4px 0}
+  .photo-frame{max-width:280px;margin:0 auto}
+  .badge-num{left:-10px;bottom:22px;padding:11px 15px}
+  .badge-num b{font-size:22px}
+  .badge-ww{right:-10px;top:16px;padding:7px 11px}
+  .badge-ww img{height:38px}
+
+  .stats{grid-template-columns:1fr 1fr;gap:22px;padding-top:32px;margin-top:34px}
+  .stat b{font-size:29px}
+
+  .sec{padding:72px 0}
+  .sec--tight{padding:56px 0}
+  .sec__head{margin-bottom:38px}
+  .grid--2,.grid--3,.grid--4{grid-template-columns:1fr}
+  .about{display:flex;flex-direction:column;gap:34px}
+  .about__photo{max-width:320px}
+  .step{grid-template-columns:44px 1fr;gap:18px;padding:26px 0}
+  .step__n{width:38px;height:38px;font-size:18px}
+  .cta{padding:72px 0}
+  .cta__points{flex-direction:column;align-items:center;gap:9px}
+  .faq__q{padding:20px 20px;font-size:16px}
+  .faq__a p{padding:0 20px 18px;font-size:15.5px}
+  .foot__top{grid-template-columns:1fr;gap:32px}
+  .foot__bottom{flex-direction:column;text-align:center;gap:10px}
+  .proof__label{display:none}
+}
+@media(max-width:420px){
+  h1{font-size:clamp(30px,8.6vw,40px)}
+  .card,.offer,.quote{padding:24px}
+  .photo-frame{max-width:240px}
+}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Fluktuationskosten-Rechner", "url": "https://www.leadsimply.de/rechner/", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "inLanguage": "de-DE", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "publisher": {"@type": "Organization", "name": "LeadSimply", "@id": "https://www.leadsimply.de/#org"}}</script>
+</head>
+<body><header class="nav" id="nav">
+  <div class="nav__in">
+    <a class="nav__logo" href="/" aria-label="LeadSimply Startseite"><img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161216dd61c546ac58ab5.png" alt="LeadSimply" width="140" height="25"></a>
+    <nav class="nav__links" aria-label="Hauptnavigation">
+      <a href="/abwerber-perspektive/">Meine Geschichte</a>
+      <a href="/leistungen/">Leistungen</a>
+      <a href="/ueber-stefan/">Über Stefan</a>
+      <a href="/rechner/" style="color:#fff">Kostenrechner</a>
+      <a href="/blog/">Blog</a>
+      <a href="/analyse-call/" class="btn btn--sm">Analyse-Call buchen</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__drawer" id="navDrawer">
+    <a href="/abwerber-perspektive/">Meine Geschichte</a>
+      <a href="/leistungen/">Leistungen</a>
+    <a href="/ueber-stefan/">Über Stefan</a>
+    <a href="/leitfaden/">Leitfaden</a>
+    <a href="/blog/">Blog</a>
+    <a href="/analyse-call/" class="btn">Analyse-Call buchen</a>
+  </div>
+</header><main>
+<section class="dark hero" style="padding-top:140px;padding-bottom:64px">
+  <span class="dark__glow"></span>
+  <div class="wrap">
+    <span class="pill">Kostenrechner</span>
+    <h1 style="max-width:17ch">Was kostet Fluktuation <em>Ihr</em> Unternehmen?</h1>
+    <p class="hero__sub" style="max-width:56ch">Drei Regler, dreißig Sekunden. Sie sehen sofort, was Ihre aktuelle Fluktuationsquote pro Jahr kostet — aufgeschlüsselt nach direkten, indirekten und versteckten Kosten.</p>
+  </div>
+</section>
+
+<section class="sec sec--white" style="padding-top:60px">
+  <div class="wrap" style="max-width:880px">
+    <div class="calc rv">
+      <div class="calc__head">
+        <h3>Ihre Zahlen</h3>
+        <p>Grobe Werte genügen — es geht um die Größenordnung</p>
+      </div>
+      <div class="calc__body">
+        <div class="slider">
+          <div class="slider__top"><label for="r-ma">Mitarbeitende</label><b id="v-ma">50</b></div>
+          <input type="range" id="r-ma" min="10" max="300" step="5" value="50" aria-label="Anzahl Mitarbeitende">
+        </div>
+        <div class="slider">
+          <div class="slider__top"><label for="r-fl">Fluktuationsquote pro Jahr</label><b id="v-fl">20 %</b></div>
+          <input type="range" id="r-fl" min="3" max="60" step="1" value="20" aria-label="Fluktuationsquote in Prozent">
+          <p class="calc__hint" id="v-ab">10 Abgänge pro Jahr</p>
+        </div>
+        <div class="slider" style="margin-bottom:32px">
+          <div class="slider__top"><label for="r-gh">Durchschnittliches Jahresgehalt</label><b id="v-gh">45.000 €</b></div>
+          <input type="range" id="r-gh" min="25000" max="150000" step="1000" value="45000" aria-label="Durchschnittliches Jahresgehalt">
+        </div>
+
+        <div style="border-top:1px solid var(--line);padding-top:26px">
+          <div class="bar">
+            <div class="bar__top"><span>Direkte Kosten — Recruiting, Einarbeitung, Abfindung</span><b id="r-d">–</b></div>
+            <div class="bar__track"><div class="bar__fill" id="b-d" style="background:var(--navy);width:100%"></div></div>
+          </div>
+          <div class="bar">
+            <div class="bar__top"><span>Indirekte Kosten — Produktivitätsverlust, Führungsaufwand</span><b id="r-i">–</b></div>
+            <div class="bar__track"><div class="bar__fill" id="b-i" style="background:var(--blue)"></div></div>
+          </div>
+          <div class="bar">
+            <div class="bar__top"><span>Versteckte Kosten — Wissen, Kundenbeziehungen, Teamdynamik</span><b id="r-v">–</b></div>
+            <div class="bar__track"><div class="bar__fill" id="b-v" style="background:var(--amber)"></div></div>
+          </div>
+        </div>
+
+        <div class="calc__total">
+          <span>Geschätzte Gesamtkosten pro Jahr</span>
+          <b id="r-t">–</b>
+        </div>
+        <p style="font-size:14.5px;color:var(--muted);margin-top:18px;line-height:1.7">
+          Bei einer Senkung um 30 Prozent — realistisch bei systematischem Vorgehen — sparen Sie
+          <b style="color:var(--navy);font-weight:600" id="r-s">–</b> pro Jahr.
+        </p>
+      </div>
+    </div>
+
+    <div class="note rv" style="margin-top:28px">
+      <span class="note__icon">ℹ️</span>
+      <div><b>Wie gerechnet wird.</b>
+      <p>Die Schätzung folgt gängigen Erfahrungswerten: rund 70 % eines Jahresgehalts für direkte Wiederbesetzungskosten, etwa 25 % für Produktivitätsverluste in der Übergangszeit und rund 30 % für schwer bezifferbare Effekte wie Wissensverlust. Je nach Rolle und Branche liegen die realen Werte darüber oder darunter — für Führungspositionen und Spezialisten meist deutlich darüber.</p></div>
+    </div>
+
+    <div class="rv" style="text-align:center;margin-top:40px">
+      <a href="/analyse-call/" class="btn">Zahlen im Analyse-Call besprechen</a>
+      <p style="font-size:14px;color:var(--muted);margin-top:14px">45 Minuten · kostenlos · mit konkretem nächsten Schritt</p>
+    </div>
+  </div>
+</section>
+</main><script>
+(function(){
+  var ma=document.getElementById('r-ma'), fl=document.getElementById('r-fl'), gh=document.getElementById('r-gh');
+  if(!ma||!fl||!gh) return;
+  function eur(n){return n.toLocaleString('de-DE')+' \u20AC';}
+  function calc(){
+    var m=+ma.value, f=+fl.value, g=+gh.value;
+    document.getElementById('v-ma').textContent=m;
+    document.getElementById('v-fl').textContent=f+' %';
+    document.getElementById('v-gh').textContent=g.toLocaleString('de-DE')+' \u20AC';
+    var ab=Math.round(m*f/100);
+    document.getElementById('v-ab').textContent=ab+(ab===1?' Abgang':' Abgänge')+' pro Jahr';
+    var d=Math.round(ab*g*0.70), i=Math.round(ab*g*0.25), v=Math.round(ab*g*0.30);
+    var t=d+i+v;
+    document.getElementById('r-d').textContent=eur(d);
+    document.getElementById('r-i').textContent=eur(i);
+    document.getElementById('r-v').textContent=eur(v);
+    document.getElementById('r-t').textContent=eur(t);
+    document.getElementById('r-s').textContent=eur(Math.round(t*0.30));
+    var mx=Math.max(d,1);
+    document.getElementById('b-d').style.width='100%';
+    document.getElementById('b-i').style.width=(i/mx*100)+'%';
+    document.getElementById('b-v').style.width=(v/mx*100)+'%';
+    [[ma,10,300],[fl,3,60],[gh,25000,150000]].forEach(function(x){
+      var p=(x[0].value-x[1])/(x[2]-x[1])*100;
+      x[0].style.background='linear-gradient(to right,#6096ba 0%,#6096ba '+p+'%,#e7ecef '+p+'%,#e7ecef 100%)';
+    });
+  }
+  [ma,fl,gh].forEach(function(el){el.addEventListener('input',calc);});
+  calc();
+})();
+</script><footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <div class="foot__brand">
+        <img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161216dd61c546ac58ab5.png" alt="LeadSimply" width="130" height="24">
+        <p>Stefan Bründl hilft Geschäftsführern mittelständischer Unternehmen, ihre Leistungsträger zu halten — bevor die Kündigung auf dem Tisch liegt.</p>
+      </div>
+      <div class="foot__col">
+        <b>Leistungen</b>
+        <a href="/fluktuation-diagnose/">Fluktuation-Diagnose</a>
+        <a href="/90-tage-programm/">90-Tage-Programm</a>
+        <a href="/retainer/">Sparring-Retainer</a>
+        <a href="/leitfaden/">Leitfaden</a>
+      </div>
+      <div class="foot__col">
+        <b>Kontakt &amp; Recht</b>
+        <a href="/analyse-call/">Analyse-Call buchen</a>
+        <a href="https://www.linkedin.com/in/stefan-bruendl/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="/presse/">Presse</a>
+        <a href="/impressum/">Impressum</a>
+        <a href="/datenschutz/">Datenschutz</a>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <span>© 2026 LeadSimply · Vario Brüdoservice GmbH · Neckarstrasse 2, 71263 Weil der Stadt</span>
+      <span>Beratung deutschlandweit — remote und vor Ort</span>
+    </div>
+  </div>
+</footer><script>
+(function(){
+  var nav=document.getElementById('nav'),tg=document.getElementById('navToggle');
+  if(tg){tg.addEventListener('click',function(){
+    var o=nav.classList.toggle('is-open');
+    tg.setAttribute('aria-expanded',o?'true':'false');
+    tg.setAttribute('aria-label',o?'Menü schließen':'Menü öffnen');
+  });}
+  document.querySelectorAll('.nav__drawer a').forEach(function(a){
+    a.addEventListener('click',function(){nav.classList.remove('is-open');});
+  });
+  document.querySelectorAll('.faq__q').forEach(function(q){
+    q.addEventListener('click',function(){
+      var it=q.parentElement, open=it.classList.contains('is-open');
+      it.parentElement.querySelectorAll('.faq__item').forEach(function(x){x.classList.remove('is-open');});
+      if(!open) it.classList.add('is-open');
+    });
+  });
+  var rv=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window && rv.length){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+    },{threshold:.12,rootMargin:'0px 0px -50px 0px'});
+    rv.forEach(function(el){io.observe(el);});
+  } else { rv.forEach(function(el){el.classList.add('in');}); }
+})();
+</script>
+</body>
+</html>
