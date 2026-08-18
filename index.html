@@ -1,11 +1,61 @@
-<!DOCTYPE html>
+<style>.mini{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;box-shadow:0 10px 40px rgba(27,45,79,.07)}
+.mini__grid{display:grid;grid-template-columns:1fr 300px}
+.mini__in{padding:34px}
+.mini__out{background:var(--navy-d);padding:34px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.mini__out::before{content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(171,206,241,.03) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(171,206,241,.03) 1px,transparent 1px);background-size:36px 36px}
+.mini__out > *{position:relative;z-index:1}
+.sl{margin-bottom:22px}
+.sl:last-of-type{margin-bottom:6px}
+.sl__top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px;gap:12px}
+.sl__top label{font-size:14px;color:var(--muted)}
+.sl__top b{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--navy);white-space:nowrap}
+.sl input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;
+  background:var(--pale);outline:none;cursor:pointer;display:block}
+.sl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:21px;height:21px;
+  border-radius:50%;background:var(--navy);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(27,45,79,.32)}
+.sl input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;background:var(--navy);
+  cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(27,45,79,.32)}
+.sl__hint{font-size:12.5px;color:var(--blue);font-weight:600;margin-top:7px}
+.mini__label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.4);font-weight:700;margin-bottom:12px}
+.mini__sum{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,3.6vw,46px);
+  font-weight:700;color:var(--amber);line-height:1.05;margin-bottom:6px}
+.mini__per{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:22px}
+.mini__split{border-top:1px solid rgba(255,255,255,.11);padding-top:16px}
+.mini__row{display:flex;justify-content:space-between;gap:10px;font-size:13px;
+  color:rgba(255,255,255,.52);padding:5px 0}
+.mini__row b{color:rgba(255,255,255,.85);font-weight:500;white-space:nowrap}
+.mini__foot{padding:18px 34px;background:var(--off);border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.mini__foot span{font-size:13.5px;color:var(--muted)}
+@media(max-width:860px){
+  .mini__grid{grid-template-columns:1fr}
+  .mini__in,.mini__out{padding:26px 22px}
+  .mini__foot{padding:18px 22px;flex-direction:column;align-items:stretch;text-align:center}
+  .mini__foot .btn{width:100%}
+}
+</style><style>
+@media(max-width:860px){
+  :root{--pad:26px}
+  .hero{padding:108px 0 60px}
+  .photo-frame{max-width:250px}
+  .hero-photo,.photo-frame img{max-height:none}
+  .guide-teaser{grid-template-columns:1fr!important;gap:32px!important}
+  .proof__in{gap:9px}
+  .proof__chip{font-size:12.5px;padding:6px 13px}
+}
+@media(max-width:420px){:root{--pad:22px}}
+</style><!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LeadSimply — Fluktuation senken im Mittelstand | Stefan Bründl</title>
-<meta name="description" content="Leistungsträger kündigen leise — meist 6 bis 18 Monate bevor es sichtbar wird. Stefan Bründl hilft Geschäftsführern im Mittelstand, Fluktuation systematisch zu senken. Kostenloser Analyse-Call.">
-<meta name="keywords" content="Fluktuation senken, Mitarbeiterbindung Mittelstand, Leistungsträger halten, Mitarbeiterfluktuation reduzieren, Retention Beratung, Führungsberatung KMU, Stefan Bründl, LeadSimply">
+<title>Fluktuation senken im Mittelstand — LeadSimply | Stefan Bründl</title>
+<meta name="description" content="Niemand wird abgeworben, der zufrieden ist. Stefan Bründl kennt den Arbeitsmarkt aus drei Rollen und zeigt Geschäftsführern, woran sie eine Kündigung Monate vorher erkennen.">
+<meta name="keywords" content="Fluktuation senken, Mitarbeiterbindung Mittelstand, Leistungsträger halten, Abwerbung verhindern, Stefan Bründl">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Stefan Bründl">
 <link rel="canonical" href="https://www.leadsimply.de/">
@@ -13,18 +63,25 @@
 <meta property="og:site_name" content="LeadSimply">
 <meta property="og:locale" content="de_DE">
 <meta property="og:url" content="https://www.leadsimply.de/">
-<meta property="og:title" content="LeadSimply — Fluktuation senken im Mittelstand | Stefan Bründl">
-<meta property="og:description" content="Leistungsträger kündigen leise — meist 6 bis 18 Monate bevor es sichtbar wird. Stefan Bründl hilft Geschäftsführern im Mittelstand, Fluktuation systematisch zu senken. Kostenloser Analyse-Call.">
-<meta property="og:image" content="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161210c03f3dfbe646b23.png">
+<meta property="og:title" content="Fluktuation senken im Mittelstand — Stefan Bründl">
+<meta property="og:description" content="Niemand wird abgeworben, der zufrieden ist. Stefan Bründl kennt den Arbeitsmarkt aus drei Rollen und zeigt Geschäftsführern, woran sie eine Kündigung Monate vorher erkennen.">
+<meta property="og:image" content="https://www.leadsimply.de/og-bild.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:alt" content="Stefan Bründl — LeadSimply">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="LeadSimply — Fluktuation senken im Mittelstand | Stefan Bründl">
-<meta name="twitter:description" content="Leistungsträger kündigen leise — meist 6 bis 18 Monate bevor es sichtbar wird. Stefan Bründl hilft Geschäftsführern im Mittelstand, Fluktuation systematisch zu senken. Kostenloser Analyse-Call.">
-<meta name="twitter:image" content="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161210c03f3dfbe646b23.png">
+<meta name="twitter:title" content="Fluktuation senken im Mittelstand — Stefan Bründl">
+<meta name="twitter:description" content="Niemand wird abgeworben, der zufrieden ist. Stefan Bründl kennt den Arbeitsmarkt aus drei Rollen und zeigt Geschäftsführern, woran sie eine Kündigung Monate vorher erkennen.">
+<meta name="twitter:image" content="https://www.leadsimply.de/og-bild.jpg">
 <meta name="geo.region" content="DE-BW">
 <meta name="geo.placename" content="Weil der Stadt">
 <meta name="geo.position" content="48.7503;8.8706">
 <meta name="ICBM" content="48.7503, 8.8706">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="format-detection" content="telephone=no">
 <meta name="theme-color" content="#0d1a2e">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -145,7 +202,7 @@ em{font-style:italic}
 .proof__chip{background:rgba(255,255,255,.06);border:1px solid rgba(171,206,241,.13);
   border-radius:100px;padding:7px 16px;font-size:13px;color:rgba(255,255,255,.72);
   display:flex;align-items:center;gap:8px}
-.proof__chip img{height:20px;width:auto}
+.proof__chip img{height:30px;width:auto}
 
 /* ─── SEKTIONEN ─── */
 .sec{padding:112px 0}
@@ -331,7 +388,7 @@ em{font-style:italic}
   .about{grid-template-columns:280px 1fr;gap:44px}
 }
 @media(max-width:860px){
-  :root{--pad:22px}
+  :root{--pad:26px}
   .nav__links{display:none}
   .nav__toggle{display:flex}
   .nav__drawer{display:block;position:fixed;top:68px;left:0;right:0;
@@ -375,108 +432,37 @@ em{font-style:italic}
   .proof__label{display:none}
 }
 @media(max-width:420px){
+  :root{--pad:22px}
   h1{font-size:clamp(30px,8.6vw,40px)}
   .card,.offer,.quote{padding:24px}
   .photo-frame{max-width:240px}
 }
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://www.leadsimply.de/#stefan", "name": "Stefan Bründl", "jobTitle": "Berater für Mitarbeiterbindung und Führung", "description": "Stefan Bründl berät Geschäftsführer mittelständischer Unternehmen dabei, Fluktuation systematisch zu senken. Über 20 Jahre Führungserfahrung, Verantwortung für mehr als 1.300 Mitarbeitende.", "url": "https://www.leadsimply.de", "image": "https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161210c03f3dfbe646b23.png", "sameAs": ["https://www.linkedin.com/in/stefan-bruendl/"], "worksFor": {"@id": "https://www.leadsimply.de/#org"}, "knowsAbout": ["Mitarbeiterbindung", "Fluktuation", "Führungskräfteentwicklung", "Retention Management", "Mittelstand"]}, {"@type": ["ProfessionalService", "LocalBusiness"], "@id": "https://www.leadsimply.de/#org", "name": "LeadSimply", "legalName": "Vario Brüdoservice GmbH", "description": "Beratung für Geschäftsführer im Mittelstand: Fluktuation senken, Leistungsträger halten, Führung systematisieren.", "url": "https://www.leadsimply.de", "logo": "https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161216dd61c546ac58ab5.png", "image": "https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161210c03f3dfbe646b23.png", "address": {"@type": "PostalAddress", "streetAddress": "Neckarstrasse 2", "addressLocality": "Weil der Stadt", "postalCode": "71263", "addressRegion": "Baden-Württemberg", "addressCountry": "DE"}, "geo": {"@type": "GeoCoordinates", "latitude": 48.7503, "longitude": 8.8706}, "areaServed": {"@type": "Country", "name": "Deutschland"}, "founder": {"@id": "https://www.leadsimply.de/#stefan"}, "makesOffer": [{"@type": "Offer", "name": "Fluktuation-Diagnose", "url": "https://www.leadsimply.de/fluktuation-diagnose/"}, {"@type": "Offer", "name": "90-Tage-Programm", "url": "https://www.leadsimply.de/90-tage-programm/"}, {"@type": "Offer", "name": "Sparring-Retainer", "url": "https://www.leadsimply.de/retainer/"}]}, {"@type": "WebSite", "@id": "https://www.leadsimply.de/#website", "url": "https://www.leadsimply.de", "name": "LeadSimply", "inLanguage": "de-DE", "publisher": {"@id": "https://www.leadsimply.de/#org"}}, {"@type": "FAQPage", "@id": "https://www.leadsimply.de/#faq", "mainEntity": [{"@type": "Question", "name": "Was passiert im kostenlosen Analyse-Call?", "acceptedAnswer": {"@type": "Answer", "text": "In 45 Minuten gehen wir strukturiert durch Ihre Situation: Wer geht, wann im Lebenszyklus, und was steckt dahinter. Sie gehen mit drei Dingen raus — einer Einschätzung Ihrer Fluktuation, dem größten Hebel und einem konkreten nächsten Schritt. Kein Verkaufsgespräch."}}, {"@type": "Question", "name": "Funktioniert das auch ohne eigene HR-Abteilung?", "acceptedAnswer": {"@type": "Answer", "text": "Ja, gerade dann. Ohne HR-Abteilung ersetzt die Zusammenarbeit das fehlende Know-how in genau diesem Bereich. Mit HR-Abteilung ergänzt sie es. Entscheidend ist nicht die Struktur, sondern der Wille, das Thema systematisch anzugehen."}}, {"@type": "Question", "name": "Wie viel Zeit muss ich als Geschäftsführer investieren?", "acceptedAnswer": {"@type": "Answer", "text": "Der Analyse-Call dauert 45 Minuten. Bei der Diagnose kommen zwei Termine über zwei bis drei Wochen dazu. Im 90-Tage-Programm rechnen Sie mit rund 90 Minuten alle zwei Wochen. Der Aufwand ist so gebaut, dass er in einen vollen Führungsalltag passt."}}, {"@type": "Question", "name": "Was unterscheidet Sie von klassischen HR-Beratern?", "acceptedAnswer": {"@type": "Answer", "text": "Praxis statt Theorie. Über 20 Jahre eigene Führungsverantwortung in Wachstum, Restrukturierung und Krise, dazu Erfahrung als Personaldienstleister. Ich kenne beide Seiten — Recruiting und Retention — aus der operativen Verantwortung, nicht aus dem Seminarraum."}}, {"@type": "Question", "name": "Läuft die Zusammenarbeit remote oder vor Ort?", "acceptedAnswer": {"@type": "Answer", "text": "Schwerpunkt remote — das spart Zeit auf beiden Seiten und funktioniert für diese Art der Arbeit sehr gut. Wenn ein Vor-Ort-Termin sinnvoll ist, komme ich gern. Das stimmen wir individuell ab."}}, {"@type": "Question", "name": "Woran messe ich, ob die Zusammenarbeit wirkt?", "acceptedAnswer": {"@type": "Answer", "text": "Mittelfristig an den Abgangszahlen — das ist hart messbar. Vorher merken Sie es an weicheren Signalen: Gespräche laufen anders, Themen werden früher angesprochen. Zu Beginn definieren wir gemeinsam KPIs, damit das Ergebnis nicht Gefühlssache bleibt."}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://www.leadsimply.de/#stefan", "name": "Stefan Bründl", "jobTitle": "Berater für Mitarbeiterbindung", "url": "https://www.leadsimply.de", "image": "https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161210c03f3dfbe646b23.png", "description": "Stefan Bründl kennt den Arbeitsmarkt aus drei Rollen: als Führungskraft, als Personalvermittler und als Einstellender. Heute berät er Geschäftsführer im Mittelstand zur Senkung von Fluktuation.", "sameAs": ["https://www.linkedin.com/in/stefan-bruendl/"], "worksFor": {"@id": "https://www.leadsimply.de/#org"}}, {"@type": ["ProfessionalService", "LocalBusiness"], "@id": "https://www.leadsimply.de/#org", "name": "LeadSimply", "legalName": "Vario Brüdoservice GmbH", "url": "https://www.leadsimply.de", "logo": "https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161216dd61c546ac58ab5.png", "description": "Beratung für Geschäftsführer im Mittelstand: Fluktuation senken, Leistungsträger halten.", "address": {"@type": "PostalAddress", "streetAddress": "Neckarstrasse 2", "addressLocality": "Weil der Stadt", "postalCode": "71263", "addressRegion": "Baden-Württemberg", "addressCountry": "DE"}, "geo": {"@type": "GeoCoordinates", "latitude": 48.7503, "longitude": 8.8706}, "areaServed": {"@type": "Country", "name": "Deutschland"}, "founder": {"@id": "https://www.leadsimply.de/#stefan"}}, {"@type": "WebSite", "@id": "https://www.leadsimply.de/#website", "url": "https://www.leadsimply.de", "name": "LeadSimply", "inLanguage": "de-DE", "publisher": {"@id": "https://www.leadsimply.de/#org"}}]}</script>
 <style>
-.mini{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
-  overflow:hidden;box-shadow:0 10px 40px rgba(27,45,79,.07)}
-.mini__grid{display:grid;grid-template-columns:1fr 300px}
-.mini__in{padding:34px}
-.mini__out{background:var(--navy-d);padding:34px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
-.mini__out::before{content:'';position:absolute;inset:0;pointer-events:none;
-  background-image:linear-gradient(rgba(171,206,241,.03) 1px,transparent 1px),
-                   linear-gradient(90deg,rgba(171,206,241,.03) 1px,transparent 1px);background-size:36px 36px}
-.mini__out > *{position:relative;z-index:1}
-.sl{margin-bottom:22px}
-.sl:last-of-type{margin-bottom:6px}
-.sl__top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px;gap:12px}
-.sl__top label{font-size:14px;color:var(--muted)}
-.sl__top b{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--navy);white-space:nowrap}
-.sl input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;
-  background:var(--pale);outline:none;cursor:pointer;display:block}
-.sl input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:21px;height:21px;
-  border-radius:50%;background:var(--navy);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(27,45,79,.32)}
-.sl input[type=range]::-moz-range-thumb{width:21px;height:21px;border-radius:50%;background:var(--navy);
-  cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(27,45,79,.32)}
-.sl__hint{font-size:12.5px;color:var(--blue);font-weight:600;margin-top:7px}
-.mini__label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
-  color:rgba(255,255,255,.4);font-weight:700;margin-bottom:12px}
-.mini__sum{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,3.6vw,46px);
-  font-weight:700;color:var(--amber);line-height:1.05;margin-bottom:6px}
-.mini__per{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:22px}
-.mini__split{border-top:1px solid rgba(255,255,255,.11);padding-top:16px}
-.mini__row{display:flex;justify-content:space-between;gap:10px;font-size:13px;
-  color:rgba(255,255,255,.52);padding:5px 0}
-.mini__row b{color:rgba(255,255,255,.85);font-weight:500;white-space:nowrap}
-.mini__foot{padding:18px 34px;background:var(--off);border-top:1px solid var(--line);
-  display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.mini__foot span{font-size:13.5px;color:var(--muted)}
+.clarity{background:var(--white);border-bottom:1px solid var(--line)}
+.clarity__in{max-width:var(--wrap);margin:0 auto;padding:26px var(--pad);
+  display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.clarity__item{display:flex;flex-direction:column;gap:5px;
+  padding-left:16px;border-left:2px solid var(--pale)}
+.clarity__item:first-child{border-left-color:var(--amber)}
+.clarity__item b{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--blue);font-weight:700}
+.clarity__item span{font-size:15px;color:var(--navy);font-weight:500;line-height:1.45}
 @media(max-width:860px){
-  .mini__grid{grid-template-columns:1fr}
-  .mini__in,.mini__out{padding:26px 22px}
-  .mini__foot{padding:18px 22px;flex-direction:column;align-items:stretch;text-align:center}
-  .mini__foot .btn{width:100%}
+  .clarity__in{grid-template-columns:1fr 1fr;gap:18px;padding:22px var(--pad)}
+  .clarity__item span{font-size:14px}
 }
-</style>
-<style>
-.curve{position:relative;margin-top:52px}
-.curve__track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
-.curve__track::before{content:'';position:absolute;top:26px;left:8%;right:8%;height:2px;
-  background:linear-gradient(90deg,#6096ba 0%,#8fa8c4 35%,#E09B2D 68%,#c0392b 100%);opacity:.55}
-.ph{position:relative;padding:0 12px;text-align:center}
-.ph__dot{width:54px;height:54px;border-radius:50%;margin:0 auto 20px;
-  display:flex;align-items:center;justify-content:center;position:relative;z-index:2;
-  font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:700;
-  border:3px solid var(--white);box-shadow:0 4px 18px rgba(27,45,79,.18)}
-.ph--1 .ph__dot{background:#6096ba;color:#fff}
-.ph--2 .ph__dot{background:#8fa8c4;color:#fff}
-.ph--3 .ph__dot{background:var(--amber);color:var(--navy-d)}
-.ph--4 .ph__dot{background:#c0392b;color:#fff}
-.ph__time{font-size:11px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:7px}
-.ph h3{font-size:20px;margin-bottom:9px}
-.ph p{font-size:14.5px;color:var(--muted);line-height:1.7;text-align:left}
-.ph__see{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);
-  font-size:13px;color:var(--navy);line-height:1.6;text-align:left}
-.ph__see b{display:block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--blue);margin-bottom:4px;font-weight:700}
-.ph--3{background:rgba(224,155,45,.06);border-radius:12px;padding:22px 16px;
-  border:1px solid rgba(224,155,45,.28);margin-top:-22px}
-.curve__key{margin-top:44px;background:var(--navy-d);border-radius:var(--radius);
-  padding:34px 40px;position:relative;overflow:hidden}
-.curve__key::before{content:'';position:absolute;inset:0;pointer-events:none;
-  background-image:linear-gradient(rgba(171,206,241,.03) 1px,transparent 1px),
-                   linear-gradient(90deg,rgba(171,206,241,.03) 1px,transparent 1px);background-size:40px 40px}
-.curve__key > *{position:relative;z-index:1}
-.curve__key p{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.2vw,27px);
-  color:#fff;line-height:1.45;font-weight:600}
-.curve__key p em{color:var(--amber);font-style:normal}
-.curve__key span{display:block;font-size:14.5px;color:rgba(255,255,255,.5);
-  margin-top:14px;font-family:'Outfit',sans-serif;line-height:1.7}
-@media(max-width:860px){
-  .curve__track{grid-template-columns:1fr;gap:12px}
-  .curve__track::before{top:0;bottom:0;left:26px;right:auto;width:2px;height:auto;
-    background:linear-gradient(180deg,#6096ba 0%,#8fa8c4 35%,#E09B2D 68%,#c0392b 100%)}
-  .ph{display:grid;grid-template-columns:54px 1fr;gap:18px;text-align:left;padding:14px 0}
-  .ph__dot{margin:0}
-  .ph--3{margin-top:0;padding:18px 16px}
-  .ph--3 .ph__dot{margin-left:-16px}
-  .curve__key{padding:26px 22px}
-}
+@media(max-width:420px){.clarity__in{grid-template-columns:1fr}}
 </style>
 </head>
 <body><header class="nav" id="nav">
   <div class="nav__in">
     <a class="nav__logo" href="/" aria-label="LeadSimply Startseite"><img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161216dd61c546ac58ab5.png" alt="LeadSimply" width="140" height="25"></a>
     <nav class="nav__links" aria-label="Hauptnavigation">
-      <a href="/abwerber-perspektive/">Meine Geschichte</a>
       <a href="/leistungen/">Leistungen</a>
       <a href="/ueber-stefan/">Über Stefan</a>
-      <a href="/leitfaden/">Leitfaden</a>
+      <a href="/rechner/">Kostenrechner</a>
       <a href="/blog/">Blog</a>
       <a href="/analyse-call/" class="btn btn--sm">Analyse-Call buchen</a>
     </nav>
@@ -487,7 +473,7 @@ em{font-style:italic}
   <div class="nav__drawer" id="navDrawer">
     <a href="/leistungen/">Leistungen</a>
     <a href="/ueber-stefan/">Über Stefan</a>
-    <a href="/leitfaden/">Leitfaden</a>
+    <a href="/rechner/">Kostenrechner</a>
     <a href="/blog/">Blog</a>
     <a href="/analyse-call/" class="btn">Analyse-Call buchen</a>
   </div>
@@ -500,172 +486,75 @@ em{font-style:italic}
   <div class="wrap">
     <div class="hero__grid">
       <div>
-        <span class="pill">Mitarbeiterbindung im Mittelstand</span>
-        <h1>Ich war jahrelang<br>auf der Seite, die<br>Ihnen die Leute<br><em>wegholt.</em></h1>
-        <p class="hero__sub">Ich habe Fachkräfte abgeworben, vermittelt und selbst eingestellt. Das heißt: Ich habe die ehrlichen Kündigungsgründe gehört — im Bewerbungsgespräch, nicht im Austrittsgespräch.</p>
+        <span class="pill">Fluktuationsberatung für den Mittelstand</span>
+        <h1>Ich war auf der Seite,<br>die Ihnen die Leute<br><em>wegholt.</em></h1>
+        <p class="hero__sub">Ich war Personaldienstleister. Heute helfe ich Geschäftsführern mit <strong style="color:#fff;font-weight:600">10 bis 300 Mitarbeitenden</strong>, ihre Fluktuation zu senken — indem ich zeige, woran man eine Kündigung Monate vorher erkennt.</p>
         <div class="hero__actions">
-          <a href="/analyse-call/" class="btn">Kostenlosen Analyse-Call buchen</a>
-          <a href="/abwerber-perspektive/" class="textlink">Die ganze Geschichte →</a>
+          <a href="/analyse-call/" class="btn">Kostenloses Erstgespräch</a>
+          <a href="/abwerber-perspektive/" class="textlink">Wie ich darauf komme →</a>
         </div>
         <p class="hero__note">45 Minuten · kostenlos · kein Verkaufsgespräch</p>
       </div>
       <div class="photo-frame rv">
-        <img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161210c03f3dfbe646b23.png" alt="Stefan Bründl, Berater für Mitarbeiterbindung" width="400" height="600" fetchpriority="high">
+        <img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161210c03f3dfbe646b23.png" alt="Stefan Bründl" width="400" height="600" fetchpriority="high">
         <div class="badge-ww"><img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a316121dd7879239a2efce2.png" alt="Bekannt aus WirtschaftsWoche" width="80" height="52"></div>
-        <div class="badge-num"><b>20+</b><span>Jahre Führungs-<br>verantwortung</span></div>
       </div>
-    </div>
-    <div class="stats">
-      <div class="stat rv"><b>1.300+</b><span>Mitarbeitende geführt</span></div>
-      <div class="stat rv"><b>135 Mio. €</b><span>Umsatzverantwortung</span></div>
-      <div class="stat rv"><b>3 Rollen</b><span>Führungskraft, Vermittler, Einstellender</span></div>
-      <div class="stat rv"><b>78.000 €</b><span>Ø Kosten pro Abgang</span></div>
     </div>
   </div>
 </section>
 
-<!-- ══ 2 · VERTRAUEN ══ -->
-<div class="proof">
-  <div class="proof__in">
-    <span class="proof__label">Bekannt aus</span>
-    <span class="proof__chip"><img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a316121dd7879239a2efce2.png" alt="WirtschaftsWoche" width="30" height="20"></span>
-    <span class="proof__chip">Podcasts &amp; Fachbeiträge</span>
-    <span class="proof__chip">LinkedIn · 60.000+ Impressionen</span>
-    <span class="proof__chip">INSEAD · London Business School</span>
+<!-- ══ 2 · KLARHEIT ══ -->
+<div class="clarity">
+  <div class="clarity__in">
+    <div class="clarity__item"><b>Was</b><span>Fluktuation systematisch senken</span></div>
+    <div class="clarity__item"><b>Für wen</b><span>Geschäftsführer, 10–300 Mitarbeitende</span></div>
+    <div class="clarity__item"><b>Wie</b><span>Analyse, Umsetzung, Begleitung</span></div>
+    <div class="clarity__item"><b>Start</b><span>45 Minuten, kostenlos</span></div>
   </div>
 </div>
 
-<!-- ══ 3 · DAS PROBLEM ══ -->
+<!-- ══ 3 · VERTRAUEN ══ -->
+<div class="proof">
+  <div class="proof__in">
+    <span class="proof__chip">20+ Jahre Führungsverantwortung</span>
+    <span class="proof__chip">1.300+ Mitarbeitende geführt</span>
+    <span class="proof__chip">135 Mio. € Umsatzverantwortung</span>
+    <span class="proof__chip" style="padding:5px 15px"><img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a316121dd7879239a2efce2.png" alt="Bekannt aus WirtschaftsWoche" style="height:30px;width:auto"></span>
+  </div>
+</div>
+
+<!-- ══ 4 · DAS PROBLEM ══ -->
 <section class="sec sec--white">
   <div class="wrap">
     <div class="sec__head rv">
-      <span class="eyebrow">Das eigentliche Problem</span>
-      <h2>Ihre Besten werden<br>nicht abgeworben.<br>Sie werden <em style='color:var(--blue)'>abgeholt.</em></h2>
-      <p class="lead">Der Unterschied ist wichtig. Abwerbung klingt nach Angriff von außen — als wären Sie das Opfer. Tatsächlich wird niemand abgeworben, der nicht vorher innerlich bereit war. Der Anruf ist der letzte Schritt, nicht der erste.</p>
+      <span class="eyebrow">Das Problem</span>
+      <h2>Niemand wird abgeworben,<br>der zufrieden ist.</h2>
+      <p class="lead">Wer beim ersten Anruf zuhört, hat vorher innerlich abgeschlossen — meist sechs bis achtzehn Monate vorher. Der Anruf von außen ist der letzte Schritt, nicht der erste.</p>
     </div>
     <div class="grid grid--3">
       <article class="card rv">
-        <div class="card__icon">🔇</div>
-        <h3>Der Anruf ist nie die Ursache</h3>
-        <p>Wer zufrieden ist, sagt beim ersten Kontakt ab — freundlich und in dreißig Sekunden. Wer zuhört, hatte den Riss schon vorher.</p>
+        <h3>Es passiert leise</h3>
+        <p>Kein Konflikt, kein Streit. Meist ein Nicht-Ereignis: das Gespräch, das nicht stattfand. Die Person funktioniert weiter — und steht auf keiner Beobachtungsliste.</p>
       </article>
       <article class="card rv">
-        <div class="card__icon">↔️</div>
         <h3>Es trifft die Falschen</h3>
-        <p>Angesprochen wird, wer sichtbar gut ist. Wer Optionen hat, geht zuerst — wer keine hat, bleibt. Das verschiebt die Qualität Ihres Teams schleichend in die falsche Richtung.</p>
+        <p>Wer Optionen hat, geht zuerst. Wer keine hat, bleibt. Das verschiebt die Qualität Ihres Teams, ohne dass jemand eine Entscheidung getroffen hätte.</p>
       </article>
       <article class="card rv">
-        <div class="card__icon">💸</div>
-        <h3>Und es wiederholt sich</h3>
-        <p>Wer einmal erfolgreich abgeworben wurde, steht in Datenbanken. Beim nächsten Mal geht es schneller — und der Nachfolger wird gleich mit angesprochen.</p>
+        <h3>Es ist rechtzeitig sichtbar</h3>
+        <p>Sechs bis achtzehn Monate sind kein Risiko, sondern ein Handlungsfenster. Vorausgesetzt, Sie wissen, worauf Sie schauen. <a class="textlink" href="/abwerber-perspektive/">Wie das aussieht →</a></p>
       </article>
-    </div>
     </div>
   </div>
 </section>
 
-
-<!-- ══ DREI PERSPEKTIVEN ══ -->
-<section class="dark sec" id="perspektiven">
-  <span class="dark__glow"></span>
-  <div class="wrap">
-    <div class="sec__head rv">
-      <span class="eyebrow eyebrow--light">Warum ich das beurteilen kann</span>
-      <h2>Drei Rollen. Drei Blick&shy;winkel<br>auf dieselbe Bewegung.</h2>
-      <p class="lead" style="color:rgba(255,255,255,.58)">Die meisten kennen Fluktuation aus einer Richtung. Ich habe sie aus drei erlebt — und die dritte ist die, über die niemand spricht.</p>
-    </div>
-    <div class="grid grid--3">
-
-      <article class="card card--dark rv">
-        <div class="card__icon" style="background:rgba(96,150,186,.16)">👔</div>
-        <h3>Als Führungskraft</h3>
-        <p>Über 20 Jahre eigene Verantwortung, mehr als 1.300 Mitarbeitende. Ich habe Menschen verloren, die ich nicht verlieren wollte — und dabei gelernt, wie sich das anfühlt und wie teuer es wird.</p>
-      </article>
-
-      <article class="card card--dark rv">
-        <div class="card__icon" style="background:rgba(224,155,45,.16)">📞</div>
-        <h3>Als Vermittler</h3>
-        <p>Ich habe Fachkräfte angesprochen, die in Anstellung waren. Ich weiß, wer zuhört und wer sofort ablehnt — und dass dieser Unterschied nichts mit dem Angebot zu tun hat, sondern mit dem, was vorher passiert ist.</p>
-      </article>
-
-      <article class="card card--dark rv" style="border-color:rgba(224,155,45,.4)">
-        <div class="card__icon" style="background:rgba(224,155,45,.2)">🪑</div>
-        <h3>Als Einstellender</h3>
-        <p><b style="color:#fff">Die entscheidende Rolle.</b> Ich saß Menschen gegenüber, die gerade jemand anderen verließen. Und im Bewerbungsgespräch sagen Menschen die Wahrheit — weil sie nichts kostet.</p>
-      </article>
-
-    </div>
-
-    <div class="curve__key rv" style="background:rgba(255,255,255,.04);border:1px solid rgba(171,206,241,.14);margin-top:38px">
-      <p>Austrittsgespräche liefern <em>höfliche</em> Gründe.<br>Bewerbungsgespräche liefern <em>echte</em>.</p>
-      <span>„Zu wenig Gehalt" ist die sozial verträglichste Antwort — sie beschuldigt niemanden und beendet das Gespräch. Was Menschen sagen, wenn sie sich woanders bewerben, klingt anders. Und es ist meistens dieselbe Geschichte: Es hat sich seit zwei Jahren niemand dafür interessiert, wohin ich eigentlich will.</span>
-    </div>
-  </div>
-</section>
-
-<!-- ══ ABWANDERUNGSKURVE ══ -->
-<section class="sec sec--white" id="kurve">
-  <div class="wrap">
-    <div class="sec__head rv">
-      <span class="eyebrow">Das Modell dahinter</span>
-      <h2>Die Abwanderungskurve</h2>
-      <p class="lead">Eine Kündigung ist kein Ereignis, sondern ein Prozess in vier Phasen. Ich habe ihn aus allen drei Rollen gesehen — als Führungskraft, die Menschen verlor, als Vermittler, der wusste, wann jemand ansprechbar wird, und als Einstellender, der hörte, warum sie wirklich gingen.</p>
-    </div>
-
-    <div class="curve rv">
-      <div class="curve__track">
-
-        <div class="ph ph--1">
-          <div class="ph__dot">1</div>
-          <div class="ph__time">Monat 0</div>
-          <h3>Der Riss</h3>
-          <p>Ein einzelnes Nicht-Ereignis. Das Gespräch, das nicht stattfand. Die Beförderung, über die niemand sprach. Nichts Dramatisches — genau deshalb bemerkt es niemand.</p>
-          <div class="ph__see"><b>Von außen sichtbar</b>Nichts.</div>
-        </div>
-
-        <div class="ph ph--2">
-          <div class="ph__dot">2</div>
-          <div class="ph__time">Monat 1–4</div>
-          <h3>Die Rechtfertigung</h3>
-          <p>Die Person erklärt sich innerlich, warum es hier nicht mehr passt. Jedes weitere Ärgernis bestätigt die These. Ab hier arbeitet die Wahrnehmung gegen Sie.</p>
-          <div class="ph__see"><b>Von außen sichtbar</b>Die Kritik hört auf. Wer sich innerlich rechtfertigt, diskutiert nicht mehr.</div>
-        </div>
-
-        <div class="ph ph--3">
-          <div class="ph__dot">3</div>
-          <div class="ph__time">Monat 4–12</div>
-          <h3>Die Öffnung</h3>
-          <p>Die Person sucht nicht. Sie ist ansprechbar. Ein Anruf zur richtigen Zeit genügt jetzt.<br><b style="color:var(--navy)">Das ist die Phase, in der Leute wie ich früher angerufen haben.</b></p>
-          <div class="ph__see"><b>Von außen sichtbar</b>Der Zeithorizont schrumpft. Keine Fragen zur eigenen Zukunft mehr.</div>
-        </div>
-
-        <div class="ph ph--4">
-          <div class="ph__dot">4</div>
-          <div class="ph__time">Monat 12–18</div>
-          <h3>Der Absprung</h3>
-          <p>Gespräche laufen, der Vertrag kommt, die Kündigung folgt. Jedes Gegenangebot wirkt jetzt wie das Eingeständnis, dass es vorher auch möglich gewesen wäre.</p>
-          <div class="ph__see"><b>Von außen sichtbar</b>Resturlaub wird geplant, Überstunden abgebaut.</div>
-        </div>
-
-      </div>
-
-      <div class="curve__key">
-        <p>Die meisten Unternehmen reagieren in <em>Phase 4</em>.<br>Da ist es zu spät.</p>
-        <span>Retention findet in Phase 2 statt. Da kostet sie ein Gespräch. In Phase 4 kostet sie ein Jahresgehalt — und Sie verlieren trotzdem.</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ RECHNER ══ -->
+<!-- ══ 5 · RECHNER ══ -->
 <section class="sec sec--off" id="rechner">
   <div class="wrap">
     <div class="sec__head sec__head--center rv">
       <span class="eyebrow">Die Rechnung, die selten gemacht wird</span>
-      <h2>Was kostet Fluktuation<br><em style="color:var(--blue)">Ihr</em> Unternehmen?</h2>
-      <p class="lead" style="margin-left:auto;margin-right:auto">Drei Regler. Sie sehen sofort, was Ihre aktuelle Quote pro Jahr kostet — und warum das Thema auf die Geschäftsführungsagenda gehört und nicht in den Personalbericht.</p>
+      <h2>Was kostet Sie das im Jahr?</h2>
     </div>
-
     <div class="mini rv">
       <div class="mini__grid">
         <div class="mini__in">
@@ -674,7 +563,7 @@ em{font-style:italic}
             <input type="range" id="c-ma" min="10" max="300" step="5" value="50" aria-label="Anzahl Mitarbeitende">
           </div>
           <div class="sl">
-            <div class="sl__top"><label for="c-fl">Fluktuationsquote pro Jahr</label><b id="c-vfl">20 %</b></div>
+            <div class="sl__top"><label for="c-fl">Fluktuationsquote</label><b id="c-vfl">20 %</b></div>
             <input type="range" id="c-fl" min="3" max="60" step="1" value="20" aria-label="Fluktuationsquote">
             <p class="sl__hint" id="c-ab">entspricht 10 Abgängen pro Jahr</p>
           </div>
@@ -686,7 +575,7 @@ em{font-style:italic}
         <div class="mini__out">
           <div class="mini__label">Kosten pro Jahr</div>
           <div class="mini__sum" id="c-sum">–</div>
-          <div class="mini__per">Direkte, indirekte und versteckte Kosten zusammen</div>
+          <div class="mini__per">Direkte, indirekte und versteckte Kosten</div>
           <div class="mini__split">
             <div class="mini__row"><span>Recruiting &amp; Einarbeitung</span><b id="c-d">–</b></div>
             <div class="mini__row"><span>Produktivitätsverlust</span><b id="c-i">–</b></div>
@@ -695,224 +584,98 @@ em{font-style:italic}
         </div>
       </div>
       <div class="mini__foot">
-        <span>Erschreckt Sie die Zahl? Dann lohnt sich ein Blick auf die Ursachen.</span>
-        <a href="/analyse-call/" class="btn">Analyse-Call buchen</a>
+        <span>Erschreckt Sie die Zahl? Dann lohnt ein Blick auf die Ursachen.</span>
+        <a href="/analyse-call/" class="btn">Erstgespräch buchen</a>
       </div>
     </div>
-
-    <p class="rv" style="text-align:center;font-size:13.5px;color:var(--muted);margin-top:18px">
-      Schätzung nach gängigen Erfahrungswerten · <a class="textlink" href="/rechner/">Berechnungsgrundlage ansehen</a>
-    </p>
   </div>
 </section>
 
-<!-- ══ 4 · ÜBER STEFAN ══ -->
-<section class="sec sec--off" id="ueber">
+<!-- ══ 6 · WARUM ICH ══ -->
+<section class="sec sec--white" id="stefan">
   <div class="wrap">
     <div class="about">
       <div class="about__photo rv">
-        <img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161210a683b64fe7e9406.jpg" alt="Stefan Bründl, Gründer von LeadSimply" width="340" height="227" loading="lazy">
-        <div class="about__ww"><img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a316121dd7879239a2efce2.png" alt="WirtschaftsWoche" width="70" height="46"></div>
+        <img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161210a683b64fe7e9406.jpg" alt="Stefan Bründl" width="340" height="227" loading="lazy">
       </div>
       <div class="rv">
-        <span class="eyebrow">Wer Ihnen gegenübersitzt</span>
-        <h2>Ich habe selbst geführt.<br>Im Wachstum und in der Krise.</h2>
-        <p class="lead" style="margin-top:16px">Über zwanzig Jahre Führungsverantwortung — Aufbau, Wachstum, Restrukturierung. Dazu Jahre als Personaldienstleister, in denen HR nicht Nebenthema war, sondern Kerngeschäft. Ich kenne beide Seiten des Arbeitsmarkts.</p>
-        <p style="color:var(--muted);margin-top:14px">Was ich heute anbiete, habe ich vorher selbst gebaut und unter echtem Druck getestet. Keine Modelle aus dem Seminarraum — Werkzeuge, die im Führungsalltag standhalten.</p>
-        <ul class="about__facts">
-          <li><b>20+ Jahre</b> Führungsverantwortung in unterschiedlichen Branchen</li>
-          <li><b>1.300+</b> Mitarbeitende in direkter und indirekter Verantwortung</li>
-          <li><b>135 Mio. €</b> jährliche Umsatzverantwortung</li>
-          <li><b>INSEAD</b> Paris · London Business School · Dipl.-Betriebswirt</li>
-        </ul>
-        <p style="margin-top:26px"><a href="/ueber-stefan/" class="textlink">Mehr über meinen Weg →</a></p>
+        <span class="eyebrow">Warum ausgerechnet ich</span>
+        <h2>Ich kenne den Arbeitsmarkt<br>aus drei Rollen.</h2>
+        <p class="lead" style="margin-top:16px">Über zwanzig Jahre habe ich selbst geführt. Dazwischen war ich Personaldienstleister — ich habe Fachkräfte angesprochen, vermittelt und selbst eingestellt.</p>
+        <p style="color:var(--muted);margin-top:14px">Aus der letzten Rolle stammt die Beobachtung, die meine Arbeit bestimmt: <strong>Im Austrittsgespräch sagen Menschen „zu wenig Gehalt", weil Ehrlichkeit dort ein Zeugnis kostet. Im Bewerbungsgespräch beim Nächsten sagen sie die Wahrheit</strong> — und die lautet fast nie Gehalt.</p>
+        <p style="margin-top:24px"><a href="/abwerber-perspektive/" class="textlink">Die ganze Geschichte lesen →</a></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ 5 · SO ARBEITE ICH ══ -->
-<section class="sec sec--white" id="so-arbeite-ich">
-  <div class="wrap">
-    <div class="sec__head sec__head--center rv">
-      <span class="eyebrow">So arbeite ich</span>
-      <h2>Verstehen. Handeln. Verankern.</h2>
-      <p class="lead" style="margin-left:auto;margin-right:auto">Drei Schritte — keiner davon beginnt mit einem fertigen Konzept. Wir starten immer mit dem, was bei Ihnen tatsächlich passiert.</p>
-    </div>
-    <div class="steps">
-      <div class="step rv">
-        <div class="step__n">1</div>
-        <div>
-          <h3>Verstehen, was wirklich passiert</h3>
-          <p>Wer geht, wann im Lebenszyklus, und aus welchem Grund. Wir schauen auf Muster statt auf Einzelfälle — und trennen das, was Sie beeinflussen können, von dem, was Sie nicht ändern.</p>
-          <span class="step__meta">Analyse</span>
-        </div>
-      </div>
-      <div class="step rv">
-        <div class="step__n">2</div>
-        <div>
-          <h3>Am größten Hebel ansetzen</h3>
-          <p>Nicht zwanzig Maßnahmen gleichzeitig, sondern die zwei oder drei, die bei Ihnen den Unterschied machen. Umsetzbar im laufenden Betrieb, sichtbar in wenigen Wochen.</p>
-          <span class="step__meta">Umsetzung</span>
-        </div>
-      </div>
-      <div class="step rv">
-        <div class="step__n">3</div>
-        <div>
-          <h3>Im System verankern</h3>
-          <p>Damit Führung nicht vom einzelnen Menschen abhängt: klare Gesprächsrhythmen, Frühwarnsignale, messbare Kennzahlen. Es läuft weiter, auch wenn ich nicht mehr dabei bin.</p>
-          <span class="step__meta">Verankerung</span>
-        </div>
-      </div>
-    </div>
-    <div class="rv" style="text-align:center;margin-top:44px">
-      <a href="/leistungen/" class="btn btn--ghost">Die drei Formate im Detail</a>
-    </div>
-  </div>
-</section>
-
-<!-- ══ STIMMEN ══ -->
-<section class="sec sec--white">
-  <div class="wrap">
-    <div class="sec__head sec__head--center rv">
-      <span class="eyebrow">Stimmen aus meinem Netzwerk</span>
-      <h2>Was Menschen sagen,<br>die mich kennen</h2>
-      <p class="lead" style="margin-left:auto;margin-right:auto">Geschäftsführer und Führungskräfte, mit denen ich über Jahre zusammengearbeitet oder mich fachlich ausgetauscht habe.</p>
-    </div>
-    <div class="grid grid--3">
-      <blockquote class="quote rv">
-        <p class="quote__text">„Stefan stellt die Fragen, die man sich selbst nicht stellt. Er redet nicht um den heißen Brei herum — und genau das braucht man, wenn es um Führung geht."</p>
-        <footer class="quote__who">
-          <img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a31612122582c14f122571f.png" alt="Marco Keenisch" width="46" height="46" loading="lazy">
-          <span><b>Marco Keenisch</b><span>Geschäftsführer</span></span>
-        </footer>
-      </blockquote>
-      <blockquote class="quote rv">
-        <p class="quote__text">„Was ihn ausmacht: Er kommt nicht mit Theorie, sondern mit Erfahrung. Man merkt in jedem Gespräch, dass er die Situationen selbst verantwortet hat."</p>
-        <footer class="quote__who">
-          <img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a316122c87bd94b121d2625.png" alt="Steffen Wetzel" width="46" height="46" loading="lazy">
-          <span><b>Steffen Wetzel</b><span>Geschäftsführer</span></span>
-        </footer>
-      </blockquote>
-      <blockquote class="quote rv">
-        <p class="quote__text">„Ein klarer Kopf für ein Thema, das viele unterschätzen. Stefan macht sichtbar, was im Alltag untergeht — und bleibt dabei angenehm unaufgeregt."</p>
-        <footer class="quote__who">
-          <img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161211b95dbb2c22514a0.png" alt="Bernd Austermann" width="46" height="46" loading="lazy">
-          <span><b>Bernd Austermann</b><span>Geschäftsführer</span></span>
-        </footer>
-      </blockquote>
-    </div>
-    <p class="rv" style="text-align:center;font-size:14px;color:var(--muted);margin-top:26px">
-      Weitere Empfehlungen finden Sie auf
-      <a class="textlink" href="https://www.linkedin.com/in/stefan-bruendl/" target="_blank" rel="noopener">meinem LinkedIn-Profil</a>.
-    </p>
-  </div>
-</section>
-
-
-<!-- ══ LEITFADEN ══ -->
+<!-- ══ 7 · LEITFADEN ══ -->
 <section class="dark sec--tight" style="padding-top:76px;padding-bottom:76px">
   <span class="dark__glow"></span>
   <div class="wrap">
-    <div style="display:grid;grid-template-columns:1fr 300px;gap:56px;align-items:center" class="guide-teaser">
+    <div class="guide-teaser" style="display:grid;grid-template-columns:1fr 260px;gap:56px;align-items:center">
       <div class="rv">
         <span class="eyebrow eyebrow--light">Kostenloser Leitfaden</span>
-        <h2 style="font-size:clamp(27px,3.2vw,40px)">12 Frühwarnsignale,<br>bevor jemand kündigt</h2>
-        <p style="color:rgba(255,255,255,.58);font-size:17px;line-height:1.78;margin:16px 0 26px;max-width:50ch">
-          Sechs Seiten, keine Werbung: die zwölf Signale nach vier Bereichen sortiert, dazu die vier Fragen, mit denen Sie das Gespräch führen, ohne dass es zum Verhör wird.
+        <h2 style="font-size:clamp(26px,3vw,38px)">12 Frühwarnsignale,<br>bevor jemand kündigt</h2>
+        <p style="color:rgba(255,255,255,.58);font-size:17px;line-height:1.75;margin:16px 0 26px;max-width:48ch">
+          Sechs Seiten, keine Werbung: die zwölf Signale in vier Bereichen — und die vier Fragen, mit denen Sie das Gespräch führen, ohne dass es zum Verhör wird.
         </p>
-        <a href="/leitfaden/" class="btn">Leitfaden kostenlos anfordern</a>
-        <p style="font-size:13px;color:rgba(255,255,255,.38);margin-top:16px">PDF · 6 Seiten · sofort per E-Mail</p>
+        <a href="/leitfaden/" class="btn">Leitfaden anfordern</a>
       </div>
       <div class="rv" style="display:flex;justify-content:center">
-        <div style="width:190px;aspect-ratio:1/1.414;background:#16253f;border-radius:6px;
-                    border:1px solid rgba(171,206,241,.16);box-shadow:0 24px 60px rgba(0,0,0,.5);
-                    padding:26px 20px;position:relative;transform:rotate(-2.5deg)">
-          <div style="width:24px;height:2px;background:var(--amber);margin-bottom:12px"></div>
-          <div style="font-size:7.5px;letter-spacing:.13em;color:var(--amber);font-weight:700;margin-bottom:14px">LEITFADEN</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:23px;color:#fff;line-height:1.15;font-weight:700">12 Früh&shy;warn&shy;signale</div>
-          <div style="font-size:9.5px;color:#abcef1;margin-top:9px;line-height:1.45">Woran Sie erkennen, dass ein Leistungsträger innerlich gekündigt hat</div>
-          <div style="position:absolute;bottom:22px;left:20px;right:20px">
-            <div style="height:1px;background:rgba(171,206,241,.16);margin-bottom:9px"></div>
-            <div style="font-size:8px;color:rgba(255,255,255,.34)">Stefan Bründl · LeadSimply</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<style>@media(max-width:860px){.guide-teaser{grid-template-columns:1fr!important;gap:34px!important}}</style>
-
-<!-- ══ 7 · FAQ ══ -->
-<section class="sec sec--white">
-  <div class="wrap" style="max-width:840px">
-    <div class="sec__head sec__head--center rv">
-      <span class="eyebrow">Häufige Fragen</span>
-      <h2>Was Geschäftsführer<br>meistens fragen</h2>
-    </div>
-    <div class="faq rv">
-      <div class="faq__item">
-        <button class="faq__q">Was passiert im kostenlosen Analyse-Call?</button>
-        <div class="faq__a">
-          <p>In 45 Minuten gehen wir strukturiert durch Ihre Situation: Wer geht, wann im Lebenszyklus, und was steckt dahinter. Das ist eine Schnellanalyse, keine vollständige Diagnose — aber Sie bekommen ein sehr klares Gefühl dafür, wo der Blick hingehört.</p>
-          <p>Sie gehen mit drei Dingen raus: einer Einschätzung Ihrer Fluktuation, dem größten Hebel und einem konkreten nächsten Schritt. Ob und wie es danach weitergeht, besprechen wir offen am Ende.</p>
-        </div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q">Funktioniert das auch ohne eigene HR-Abteilung?</button>
-        <div class="faq__a">
-          <p>Ja — gerade dann. Ohne HR-Abteilung ersetzt die Zusammenarbeit das fehlende Know-how in genau diesem Bereich. Sie bekommen externe Expertise, ohne eine Stelle aufbauen zu müssen.</p>
-          <p>Mit HR-Abteilung ergänzt sie das vorhandene Wissen gezielt. Entscheidend ist nicht die Struktur, sondern ob Sie das Thema systematisch angehen wollen.</p>
-        </div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q">Wie viel Zeit muss ich investieren?</button>
-        <div class="faq__a">
-          <p>Der Analyse-Call dauert 45 Minuten. Bei der Diagnose kommen zwei Termine über zwei bis drei Wochen dazu — zusammen rund zweieinhalb Stunden Ihrer Zeit.</p>
-          <p>Im 90-Tage-Programm rechnen Sie mit etwa 90 Minuten alle zwei Wochen, plus kurze Abstimmungen. Der Aufwand ist bewusst so gebaut, dass er in einen vollen Führungsalltag passt.</p>
-        </div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q">Was unterscheidet Sie von klassischen HR-Beratern?</button>
-        <div class="faq__a">
-          <p>Praxis statt Theorie. Über zwanzig Jahre eigene Führungsverantwortung — nicht nur in Wachstumsphasen, sondern auch in Restrukturierungen und Krisen. Dazu Jahre als Personaldienstleister, in denen HR das Kerngeschäft war.</p>
-          <p>Ich kenne beide Seiten des Arbeitsmarkts: Recruiting und Retention. Und ich verkaufe keine Frameworks, sondern zeige Ihnen, was in Ihrem konkreten Unternehmen funktioniert.</p>
-        </div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q">Remote oder vor Ort?</button>
-        <div class="faq__a">
-          <p>Schwerpunkt remote — das spart Zeit auf beiden Seiten und funktioniert für diese Art der Zusammenarbeit sehr gut. Wenn ein Termin vor Ort sinnvoll ist, komme ich gern. Das stimmen wir individuell ab.</p>
-        </div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q">Woran messe ich, ob es wirkt?</button>
-        <div class="faq__a">
-          <p>Mittelfristig an den Abgangszahlen — das ist hart messbar. Vorher merken Sie es an weicheren Signalen: Gespräche laufen anders, Themen kommen früher auf den Tisch.</p>
-          <p>Zu Beginn definieren wir gemeinsam Kennzahlen — Fluktuationsquote, Abgangszeitpunkte im Lebenszyklus, Ergebnisse aus Bindungsgesprächen. Damit das Ergebnis nicht Gefühlssache bleibt.</p>
+        <div style="width:172px;aspect-ratio:1/1.414;background:#16253f;border-radius:6px;
+                    border:1px solid rgba(171,206,241,.16);box-shadow:0 22px 54px rgba(0,0,0,.5);
+                    padding:24px 18px;transform:rotate(-2.5deg)">
+          <div style="width:22px;height:2px;background:var(--amber);margin-bottom:11px"></div>
+          <div style="font-size:7px;letter-spacing:.13em;color:var(--amber);font-weight:700;margin-bottom:12px">LEITFADEN</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:21px;color:#fff;line-height:1.15;font-weight:700">12 Früh&shy;warn&shy;signale</div>
+          <div style="font-size:9px;color:#abcef1;margin-top:8px;line-height:1.45">Woran Sie erkennen, dass jemand innerlich gekündigt hat</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ 8 · ABSCHLUSS-CTA ══ -->
+<!-- ══ 8 · ABSCHLUSS ══ -->
 <section class="dark cta">
   <span class="dark__glow"></span>
   <div class="wrap">
     <span class="eyebrow eyebrow--light">Der nächste Schritt</span>
     <h2>45 Minuten, die Ihnen<br>Klarheit verschaffen.</h2>
-    <p>Kein Pitch, keine Präsentation. Wir schauen auf Ihre Zahlen, Ihre Situation und die Frage, wo Sie Ihre Leistungsträger tatsächlich verlieren.</p>
-    <a href="/analyse-call/" class="btn">Kostenlosen Analyse-Call buchen</a>
+    <p>Kein Pitch. Wir schauen auf Ihre Zahlen und die Frage, wo Sie Ihre Leistungsträger tatsächlich verlieren.</p>
+    <a href="/analyse-call/" class="btn">Kostenloses Erstgespräch buchen</a>
     <div class="cta__points">
-      <span>Kostenlos und unverbindlich</span>
-      <span>Direkt mit Stefan Bründl</span>
-      <span>Drei konkrete Erkenntnisse</span>
+      <span>Kostenlos</span><span>Direkt mit mir</span><span>Drei konkrete Erkenntnisse</span>
     </div>
   </div>
 </section>
 
-</main><footer class="foot">
+</main><script>
+(function(){
+  var a=document.getElementById('c-ma'),b=document.getElementById('c-fl'),d=document.getElementById('c-gh');
+  if(!a||!b||!d)return;
+  function eur(n){return n.toLocaleString('de-DE')+'\u00A0\u20AC';}
+  function go(){
+    var m=+a.value,f=+b.value,g=+d.value;
+    document.getElementById('c-vma').textContent=m;
+    document.getElementById('c-vfl').textContent=f+'\u00A0%';
+    document.getElementById('c-vgh').textContent=g.toLocaleString('de-DE')+'\u00A0\u20AC';
+    var ab=Math.round(m*f/100);
+    document.getElementById('c-ab').textContent='entspricht '+ab+(ab===1?' Abgang':' Abg\u00e4ngen')+' pro Jahr';
+    var di=Math.round(ab*g*0.70),ind=Math.round(ab*g*0.25),ver=Math.round(ab*g*0.30);
+    document.getElementById('c-sum').textContent=eur(di+ind+ver);
+    document.getElementById('c-d').textContent=eur(di);
+    document.getElementById('c-i').textContent=eur(ind);
+    document.getElementById('c-v').textContent=eur(ver);
+    [[a,10,300],[b,3,60],[d,25000,150000]].forEach(function(x){
+      var p=(x[0].value-x[1])/(x[2]-x[1])*100;
+      x[0].style.background='linear-gradient(to right,#6096ba 0%,#6096ba '+p+'%,#e7ecef '+p+'%,#e7ecef 100%)';
+    });
+  }
+  [a,b,d].forEach(function(e){e.addEventListener('input',go);});
+  go();
+})();
+</script><footer class="foot">
   <div class="wrap">
     <div class="foot__top">
       <div class="foot__brand">
@@ -924,13 +687,12 @@ em{font-style:italic}
         <a href="/fluktuation-diagnose/">Fluktuation-Diagnose</a>
         <a href="/90-tage-programm/">90-Tage-Programm</a>
         <a href="/retainer/">Sparring-Retainer</a>
-        <a href="/leitfaden/">Leitfaden</a>
+        <a href="/rechner/">Kostenrechner</a>
       </div>
       <div class="foot__col">
         <b>Kontakt &amp; Recht</b>
         <a href="/analyse-call/">Analyse-Call buchen</a>
         <a href="https://www.linkedin.com/in/stefan-bruendl/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="/presse/">Presse</a>
         <a href="/impressum/">Impressum</a>
         <a href="/datenschutz/">Datenschutz</a>
       </div>
@@ -965,32 +727,6 @@ em{font-style:italic}
     },{threshold:.12,rootMargin:'0px 0px -50px 0px'});
     rv.forEach(function(el){io.observe(el);});
   } else { rv.forEach(function(el){el.classList.add('in');}); }
-})();
-</script>
-<script>
-(function(){
-  var a=document.getElementById('c-ma'),b=document.getElementById('c-fl'),d=document.getElementById('c-gh');
-  if(!a||!b||!d)return;
-  function eur(n){return n.toLocaleString('de-DE')+'\u00A0\u20AC';}
-  function go(){
-    var m=+a.value,f=+b.value,g=+d.value;
-    document.getElementById('c-vma').textContent=m;
-    document.getElementById('c-vfl').textContent=f+'\u00A0%';
-    document.getElementById('c-vgh').textContent=g.toLocaleString('de-DE')+'\u00A0\u20AC';
-    var ab=Math.round(m*f/100);
-    document.getElementById('c-ab').textContent='entspricht '+ab+(ab===1?' Abgang':' Abg\u00e4ngen')+' pro Jahr';
-    var di=Math.round(ab*g*0.70),ind=Math.round(ab*g*0.25),ver=Math.round(ab*g*0.30);
-    document.getElementById('c-sum').textContent=eur(di+ind+ver);
-    document.getElementById('c-d').textContent=eur(di);
-    document.getElementById('c-i').textContent=eur(ind);
-    document.getElementById('c-v').textContent=eur(ver);
-    [[a,10,300],[b,3,60],[d,25000,150000]].forEach(function(x){
-      var p=(x[0].value-x[1])/(x[2]-x[1])*100;
-      x[0].style.background='linear-gradient(to right,#6096ba 0%,#6096ba '+p+'%,#e7ecef '+p+'%,#e7ecef 100%)';
-    });
-  }
-  [a,b,d].forEach(function(e){e.addEventListener('input',go);});
-  go();
 })();
 </script>
 </body>
