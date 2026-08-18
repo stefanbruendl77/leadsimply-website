@@ -455,6 +455,57 @@ em{font-style:italic}
 }
 @media(max-width:420px){.clarity__in{grid-template-columns:1fr}}
 </style>
+<style>
+.hero__badge-line{margin:22px 0 30px;padding-left:15px;border-left:2px solid var(--amber)}
+.hero__badge-line span{font-size:15.5px;color:var(--blue-l);line-height:1.6;display:block;max-width:44ch}
+.facts{background:var(--white);border-bottom:1px solid var(--line)}
+.facts__in{max-width:var(--wrap);margin:0 auto;padding:34px var(--pad);
+  display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.fact{text-align:center}
+.fact b{display:block;font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.2vw,40px);
+  font-weight:700;color:var(--navy);line-height:1}
+.fact span{display:block;font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.5}
+.way{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px;position:relative;transition:transform .25s,box-shadow .25s}
+.way:hover{transform:translateY(-3px);box-shadow:0 12px 34px rgba(27,45,79,.09)}
+.way__n{width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;
+  display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+  font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:700}
+.way h3{margin-bottom:10px}
+.way p{font-size:15.5px;color:var(--muted);line-height:1.75}
+@media(max-width:860px){
+  .facts__in{grid-template-columns:1fr 1fr;gap:24px 18px;padding:28px var(--pad)}
+  .fact span{font-size:12.5px}
+  .hero__badge-line{margin:18px 0 26px}
+  .hero__badge-line span{font-size:15px}
+}
+</style>
+<style>
+.press-card{display:flex;flex-direction:column;background:var(--white);
+  border:1px solid var(--line);border-radius:var(--radius);padding:28px;
+  transition:transform .25s,box-shadow .25s,border-color .25s}
+.press-card:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(27,45,79,.1);
+  border-color:rgba(96,150,186,.35)}
+.press-card__label{font-size:11px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+.press-card h3{font-size:19px;margin-bottom:10px}
+.press-card p{font-size:15px;color:var(--muted);line-height:1.7;flex:1;margin-bottom:16px}
+.press-card__more{font-size:14px;font-weight:600;color:var(--blue)}
+</style>
+<style>
+.ww-mark{display:inline-flex;align-items:center;justify-content:flex-start;
+  width:132px;height:36px;overflow:hidden}
+.ww-mark img{max-width:100%;max-height:100%;width:auto;height:auto;
+  object-fit:contain;object-position:left center;display:block}
+.ww-mark--sm{width:78px;height:22px}
+.ww-mark--sm img{object-position:center}
+.ww-mark--badge{width:76px;height:26px;justify-content:center}
+.ww-mark--badge img{object-position:center}
+@media(max-width:860px){
+  .ww-mark{width:112px;height:30px}
+  .ww-mark--badge{width:62px;height:22px}
+}
+</style>
 </head>
 <body><header class="nav" id="nav">
   <div class="nav__in">
@@ -487,31 +538,34 @@ em{font-style:italic}
     <div class="hero__grid">
       <div>
         <span class="pill">Fluktuationsberatung für den Mittelstand</span>
-        <h1>Ich war auf der Seite,<br>die Ihnen die Leute<br><em>wegholt.</em></h1>
-        <p class="hero__sub">Ich war Personaldienstleister. Heute helfe ich Geschäftsführern mit <strong style="color:#fff;font-weight:600">10 bis 300 Mitarbeitenden</strong>, ihre Fluktuation zu senken — indem ich zeige, woran man eine Kündigung Monate vorher erkennt.</p>
+        <h1>Der Berater für<br>Geschäftsführer, die ihre<br><em>besten Leute verlieren.</em></h1>
+        <p class="hero__sub">Senken Sie Ihre Fluktuation messbar, halten Sie Ihre Leistungsträger und bauen Sie Führungsroutinen, die auch bei vollem Kalender stattfinden. Für Unternehmen mit 10 bis 300 Mitarbeitenden.</p>
+        <div class="hero__badge-line">
+          <span>Ich war selbst Personaldienstleister — ich weiß, wie Ihre Leute abgeworben werden.</span>
+        </div>
         <div class="hero__actions">
           <a href="/analyse-call/" class="btn">Kostenloses Erstgespräch</a>
-          <a href="/abwerber-perspektive/" class="textlink">Wie ich darauf komme →</a>
+          <a href="/abwerber-perspektive/" class="textlink">Meine Geschichte →</a>
         </div>
         <p class="hero__note">45 Minuten · kostenlos · kein Verkaufsgespräch</p>
       </div>
       <div class="photo-frame rv">
         <img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161210c03f3dfbe646b23.png" alt="Stefan Bründl" width="400" height="600" fetchpriority="high">
-        <div class="badge-ww"><img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a316121dd7879239a2efce2.png" alt="Bekannt aus WirtschaftsWoche" width="80" height="52"></div>
+        <div class="badge-ww"><span class="ww-mark ww-mark--badge"><img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a316121dd7879239a2efce2.png" alt="Bekannt aus WirtschaftsWoche"></span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ 2 · KLARHEIT ══ -->
-<div class="clarity">
-  <div class="clarity__in">
-    <div class="clarity__item"><b>Was</b><span>Fluktuation systematisch senken</span></div>
-    <div class="clarity__item"><b>Für wen</b><span>Geschäftsführer, 10–300 Mitarbeitende</span></div>
-    <div class="clarity__item"><b>Wie</b><span>Analyse, Umsetzung, Begleitung</span></div>
-    <div class="clarity__item"><b>Start</b><span>45 Minuten, kostenlos</span></div>
+<!-- ══ 2 · ZAHLEN ══ -->
+<section class="facts">
+  <div class="facts__in">
+    <div class="fact rv"><b>20+</b><span>Jahre eigene Führungs&shy;verantwortung</span></div>
+    <div class="fact rv"><b>1.300+</b><span>Mitarbeitende in Verantwortung</span></div>
+    <div class="fact rv"><b>135 Mio. €</b><span>Umsatz&shy;verantwortung</span></div>
+    <div class="fact rv"><b>3 Rollen</b><span>Führungskraft, Vermittler, Einstellender</span></div>
   </div>
-</div>
+</section>
 
 <!-- ══ 3 · VERTRAUEN ══ -->
 <div class="proof">
@@ -519,7 +573,7 @@ em{font-style:italic}
     <span class="proof__chip">20+ Jahre Führungsverantwortung</span>
     <span class="proof__chip">1.300+ Mitarbeitende geführt</span>
     <span class="proof__chip">135 Mio. € Umsatzverantwortung</span>
-    <span class="proof__chip" style="padding:5px 15px"><img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a316121dd7879239a2efce2.png" alt="Bekannt aus WirtschaftsWoche" style="height:30px;width:auto"></span>
+    <span class="proof__chip" style="padding:5px 14px"><span class="ww-mark ww-mark--sm"><img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a316121dd7879239a2efce2.png" alt="Bekannt aus WirtschaftsWoche"></span></span>
   </div>
 </div>
 
@@ -609,7 +663,37 @@ em{font-style:italic}
   </div>
 </section>
 
-<!-- ══ 7 · LEITFADEN ══ -->
+<!-- ══ BELEGE ══ -->
+<section class="sec sec--off" style="padding:64px 0">
+  <div class="wrap">
+    <div class="sec__head sec__head--center rv" style="margin-bottom:34px">
+      <span class="eyebrow">Bekannt aus</span>
+      <h2 style="font-size:clamp(24px,2.6vw,32px)">Wo über meine Arbeit<br>gesprochen wird</h2>
+    </div>
+    <div class="grid grid--3">
+      <a href="/presse/" class="press-card rv">
+        <span class="ww-mark" style="margin-bottom:16px"><img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a316121dd7879239a2efce2.png" alt="WirtschaftsWoche"></span>
+        <h3>Ausgabe 07/2026</h3>
+        <p>Porträtiert im Beitrag „Der Mehraufwand" — über Führungskräfte, die nach Restrukturierungen doppelt so viele Teams verantworten.</p>
+        <span class="press-card__more">Zur Übersicht →</span>
+      </a>
+      <a href="https://podcasts.apple.com/de/podcast/der-personalberater-coach-podcast-branchen-insights/id1450833845" target="_blank" rel="noopener" class="press-card rv">
+        <div class="press-card__label">Podcast · Folge 241</div>
+        <h3>Der Personalberater Coach</h3>
+        <p>Warum Fluktuation eines der am meisten unterschätzten Risiken für die Profitabilität ist — und wie das Halten von Leistungsträgern zum Wachstumshebel wird.</p>
+        <span class="press-card__more">Anhören →</span>
+      </a>
+      <a href="https://superpapa.podigee.io/114-new-episode" target="_blank" rel="noopener" class="press-card rv">
+        <div class="press-card__label">Podcast · Folge 113</div>
+        <h3>Superpapa</h3>
+        <p>Führung in der heutigen Zeit — über Verantwortung, Erwartungsdruck und die Frage, was gute Führung im Alltag konkret bedeutet.</p>
+        <span class="press-card__more">Anhören →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 8 · LEITFADEN ══ -->
 <section class="dark sec--tight" style="padding-top:76px;padding-bottom:76px">
   <span class="dark__glow"></span>
   <div class="wrap">
@@ -636,7 +720,35 @@ em{font-style:italic}
   </div>
 </section>
 
-<!-- ══ 8 · ABSCHLUSS ══ -->
+<!-- ══ 8 · IHR WEG ══ -->
+<section class="sec sec--white">
+  <div class="wrap">
+    <div class="sec__head sec__head--center rv">
+      <span class="eyebrow">Wie es abläuft</span>
+      <h2>Ihr Weg zu mir</h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto">Drei Schritte. Nach dem ersten wissen Sie, ob es passt — und zwar bevor Sie sich zu irgendetwas verpflichten.</p>
+    </div>
+    <div class="grid grid--3">
+      <article class="way rv">
+        <div class="way__n">1</div>
+        <h3>Termin wählen</h3>
+        <p>Sie buchen im Kalender einen Termin, der Ihnen passt. Kein Formular, keine Rückfrage per E-Mail, keine Wartezeit.</p>
+      </article>
+      <article class="way rv">
+        <div class="way__n">2</div>
+        <h3>Erstgespräch</h3>
+        <p>45 Minuten, in denen wir Ihre Situation strukturiert durchgehen. Sie gehen mit einer Einschätzung Ihrer Fluktuation, dem größten Hebel und einem nächsten Schritt raus.</p>
+      </article>
+      <article class="way rv">
+        <div class="way__n">3</div>
+        <h3>Entscheidung</h3>
+        <p>Am Ende sage ich Ihnen offen, ob und wie ich helfen kann — inklusive Konditionen. Passt es nicht, sage ich das auch. Sie behalten die Erkenntnisse in jedem Fall.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 9 · ABSCHLUSS ══ -->
 <section class="dark cta">
   <span class="dark__glow"></span>
   <div class="wrap">

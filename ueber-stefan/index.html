@@ -388,6 +388,20 @@ em{font-style:italic}
   .photo-frame{max-width:240px}
 }
 </style>
+<style>
+.ww-mark{display:inline-flex;align-items:center;justify-content:flex-start;
+  width:132px;height:36px;overflow:hidden}
+.ww-mark img{max-width:100%;max-height:100%;width:auto;height:auto;
+  object-fit:contain;object-position:left center;display:block}
+.ww-mark--sm{width:78px;height:22px}
+.ww-mark--sm img{object-position:center}
+.ww-mark--badge{width:76px;height:26px;justify-content:center}
+.ww-mark--badge img{object-position:center}
+@media(max-width:860px){
+  .ww-mark{width:112px;height:30px}
+  .ww-mark--badge{width:62px;height:22px}
+}
+</style>
 </head>
 <body><header class="nav" id="nav">
   <div class="nav__in">
@@ -397,6 +411,7 @@ em{font-style:italic}
       <a href="/leistungen/">Leistungen</a>
       <a href="/ueber-stefan/" style="color:#fff">Über Stefan</a>
       <a href="/leitfaden/">Leitfaden</a>
+      <a href="/blog/">Blog</a>
       <a href="/analyse-call/" class="btn btn--sm">Analyse-Call buchen</a>
     </nav>
     <button class="nav__toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">
@@ -408,6 +423,7 @@ em{font-style:italic}
       <a href="/leistungen/">Leistungen</a>
     <a href="/ueber-stefan/">Über Stefan</a>
     <a href="/leitfaden/">Leitfaden</a>
+    <a href="/blog/">Blog</a>
     <a href="/analyse-call/" class="btn">Analyse-Call buchen</a>
   </div>
 </header><main>
@@ -426,7 +442,7 @@ em{font-style:italic}
       </div>
       <div class="photo-frame rv">
         <img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161210c03f3dfbe646b23.png" alt="Stefan Bründl" width="400" height="600">
-        <div class="badge-ww"><img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a316121dd7879239a2efce2.png" alt="WirtschaftsWoche" width="80" height="52"></div>
+        <div class="badge-ww"><span class="ww-mark ww-mark--badge"><img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a316121dd7879239a2efce2.png" alt="WirtschaftsWoche"></span></div>
       </div>
     </div>
   </div>
@@ -458,7 +474,7 @@ em{font-style:italic}
       <li>135 Mio. € jährliche Umsatzverantwortung</li>
       <li>Jahre als Personaldienstleister — HR als Kerngeschäft, nicht als Nebenthema</li>
       <li>Universität Stuttgart · Universität Hohenheim · London Business School · TIAS Tilburg · INSEAD Paris</li>
-      <li>Fachbeiträge in der WirtschaftsWoche, Podcasts, über 60.000 Impressionen auf LinkedIn</li>
+      <li>Porträtiert in der WirtschaftsWoche, Gast in mehreren Podcasts, über 60.000 Impressionen auf LinkedIn</li>
     </ul>
   </div>
 </section>
