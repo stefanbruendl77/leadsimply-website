@@ -21,4 +21,4 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: https://www.leadsimply.de/sitemap.xml
+Sitemap: https://leadsimply.de/sitemap.xml
