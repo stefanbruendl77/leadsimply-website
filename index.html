@@ -494,7 +494,7 @@ em{font-style:italic}
 </style>
 <style>
 .ww-mark{display:inline-flex;align-items:center;justify-content:flex-start;
-  width:132px;height:36px;overflow:hidden}
+  width:168px;height:44px;overflow:hidden}
 .ww-mark img{max-width:100%;max-height:100%;width:auto;height:auto;
   object-fit:contain;object-position:left center;display:block}
 .ww-mark--sm{width:78px;height:22px}
@@ -505,6 +505,31 @@ em{font-style:italic}
   .ww-mark{width:112px;height:30px}
   .ww-mark--badge{width:62px;height:22px}
 }
+</style>
+<style>
+.proof__chip--ww{display:inline-flex;align-items:center;gap:12px;
+  background:rgba(255,255,255,.94);border-color:rgba(255,255,255,.94);
+  padding:8px 18px 8px 14px}
+.ww-logo{display:inline-flex;align-items:center;justify-content:center;
+  width:104px;height:26px;overflow:hidden;flex-shrink:0}
+.ww-logo img{max-width:100%;max-height:100%;width:auto;height:auto;
+  object-fit:contain;display:block}
+.proof__chip--ww .proof__chip-text{font-size:13px;color:var(--navy);
+  font-weight:500;white-space:nowrap;padding-left:12px;
+  border-left:1px solid rgba(27,45,79,.15)}
+@media(max-width:860px){
+  .proof__chip--ww{gap:9px;padding:7px 14px 7px 11px}
+  .ww-logo{width:88px;height:22px}
+  .proof__chip--ww .proof__chip-text{font-size:12px;padding-left:9px}
+}
+@media(max-width:420px){
+  .proof__chip--ww .proof__chip-text{display:none}
+  .proof__chip--ww{padding:8px 14px}
+}
+</style>
+<style>
+.proof__chip--press{background:rgba(224,155,45,.13);border-color:rgba(224,155,45,.34);
+  color:#f2ddb6;font-weight:500}
 </style>
 </head>
 <body><header class="nav" id="nav">
@@ -573,7 +598,7 @@ em{font-style:italic}
     <span class="proof__chip">20+ Jahre Führungsverantwortung</span>
     <span class="proof__chip">1.300+ Mitarbeitende geführt</span>
     <span class="proof__chip">135 Mio. € Umsatzverantwortung</span>
-    <span class="proof__chip" style="padding:5px 14px"><span class="ww-mark ww-mark--sm"><img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a316121dd7879239a2efce2.png" alt="Bekannt aus WirtschaftsWoche"></span></span>
+    <span class="proof__chip proof__chip--press">Porträtiert in der WirtschaftsWoche</span>
   </div>
 </div>
 
