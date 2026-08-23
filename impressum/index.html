@@ -387,6 +387,17 @@ em{font-style:italic}
   .photo-frame{max-width:240px}
 }
 </style>
+<style>
+/* Globale Absicherung gegen überlaufende Rasterinhalte */
+.grid > *, .hero__grid > *, .about > *, .call-grid > *, .lg > *{min-width:0}
+iframe, embed, object{max-width:100%!important}
+@media(max-width:960px){
+  [style*="grid-template-columns:1fr 360px"],
+  [style*="grid-template-columns:1fr 340px"],
+  [style*="grid-template-columns:1fr 300px"],
+  [style*="grid-template-columns:1fr 260px"]{grid-template-columns:1fr!important;gap:28px!important}
+}
+</style>
 </head>
 <body><header class="nav" id="nav">
   <div class="nav__in">
