@@ -33,7 +33,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="format-detection" content="telephone=no">
 <meta name="theme-color" content="#0d1a2e">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -415,10 +415,33 @@ iframe, embed, object{max-width:100%!important}
   [style*="grid-template-columns:1fr 260px"]{grid-template-columns:1fr!important;gap:28px!important}
 }
 </style>
+<style>
+.consent{padding:52px 30px;text-align:center;background:var(--off);
+  border-radius:11px;margin:6px}
+.consent__icon{font-size:34px;margin-bottom:16px}
+.consent h4{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:700;
+  color:var(--navy);margin-bottom:12px}
+.consent p{font-size:15px;color:var(--muted);line-height:1.7;
+  max-width:46ch;margin:0 auto 22px}
+.consent__legal{font-size:12.5px!important;color:var(--muted);margin-top:18px!important;
+  margin-bottom:0!important;line-height:1.6}
+.consent__legal a{color:var(--blue);border-bottom:1px solid rgba(96,150,186,.35)}
+@media(max-width:860px){.consent{padding:38px 20px}}
+</style>
+<link rel="preload" href="/fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300 700;
+  font-display:swap;src:url('/fonts/cormorant.woff2') format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300 700;
+  font-display:swap;src:url('/fonts/cormorant-italic.woff2') format('woff2')}
+@font-face{font-family:'Outfit';font-style:normal;font-weight:100 900;
+  font-display:swap;src:url('/fonts/outfit.woff2') format('woff2')}
+</style>
 </head>
 <body><header class="nav" id="nav">
   <div class="nav__in">
-    <a class="nav__logo" href="/" aria-label="LeadSimply Startseite"><img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161216dd61c546ac58ab5.png" alt="LeadSimply" width="140" height="25"></a>
+    <a class="nav__logo" href="/" aria-label="LeadSimply Startseite"><img src="/bilder/logo.png" alt="LeadSimply" width="140" height="25"></a>
     <nav class="nav__links" aria-label="Hauptnavigation">
       <a href="/abwerber-perspektive/">Meine Geschichte</a>
       <a href="/leistungen/">Leistungen</a>
@@ -449,7 +472,7 @@ iframe, embed, object{max-width:100%!important}
         <p class="hero__sub" style="max-width:52ch">45 Minuten. Kein Skript, keine Präsentation. Wir schauen gemeinsam auf Ihre Situation — und Sie gehen mit drei konkreten Erkenntnissen raus.</p>
       </div>
       <div class="photo-frame rv" style="max-width:300px">
-        <img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161210c03f3dfbe646b23.png" alt="Stefan Bründl" width="300" height="450">
+        <img src="/bilder/stefan-hero.png" alt="Stefan Bründl" width="300" height="450">
       </div>
     </div>
   </div>
@@ -466,9 +489,15 @@ iframe, embed, object{max-width:100%!important}
             <p style="color:rgba(255,255,255,.5);font-size:13.5px;margin-top:4px">Direkt buchbar — kein Hin und Her per E-Mail</p>
           </div>
           <div style="padding:6px">
-            <div class="tidycal-embed" data-path="stefanbruendl77/analysecall"></div>
-            <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
-            <noscript><p style="padding:24px;color:var(--muted)">Bitte aktivieren Sie JavaScript, um den Kalender zu sehen — oder buchen Sie direkt über <a class="textlink" href="https://tidycal.com/stefanbruendl77/analysecall">tidycal.com/stefanbruendl77/analysecall</a>.</p></noscript>
+            <div id="calWrap">
+              <div id="calConsent" class="consent">
+                <div class="consent__icon">📅</div>
+                <h4>Kalender laden</h4>
+                <p>Der Buchungskalender wird von <strong>TidyCal</strong> bereitgestellt. Beim Laden werden Daten an TidyCal übertragen — darunter Ihre IP-Adresse. Es können Cookies gesetzt werden.</p>
+                <button type="button" id="calLoad" class="btn">Kalender laden und Termin wählen</button>
+                <p class="consent__legal">Mit dem Klick stimmen Sie der Übertragung zu. Details in der <a href="/datenschutz/">Datenschutzerklärung</a>. Alternativ buchen Sie direkt über <a href="https://tidycal.com/stefanbruendl77/analysecall" target="_blank" rel="noopener">tidycal.com</a>.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -579,7 +608,7 @@ iframe, embed, object{max-width:100%!important}
   <div class="wrap">
     <div class="foot__top">
       <div class="foot__brand">
-        <img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161216dd61c546ac58ab5.png" alt="LeadSimply" width="130" height="24">
+        <img src="/bilder/logo.png" alt="LeadSimply" width="130" height="24">
         <p>Stefan Bründl hilft Geschäftsführern mittelständischer Unternehmen, ihre Leistungsträger zu halten — bevor die Kündigung auf dem Tisch liegt.</p>
       </div>
       <div class="foot__col">
@@ -628,6 +657,25 @@ iframe, embed, object{max-width:100%!important}
     },{threshold:.12,rootMargin:'0px 0px -50px 0px'});
     rv.forEach(function(el){io.observe(el);});
   } else { rv.forEach(function(el){el.classList.add('in');}); }
+})();
+</script>
+<script>
+(function(){
+  var btn = document.getElementById('calLoad');
+  if(!btn) return;
+  btn.addEventListener('click', function(){
+    var wrap = document.getElementById('calWrap');
+    wrap.innerHTML = '<div class="tidycal-embed" data-path="stefanbruendl77/analysecall"></div>';
+    var sc = document.createElement('script');
+    sc.src = 'https://asset-tidycal.b-cdn.net/js/embed.js';
+    sc.async = true;
+    document.body.appendChild(sc);
+    try{ localStorage.setItem('cal-ok','1'); }catch(e){}
+  });
+  // Wer schon einmal zugestimmt hat, bekommt den Kalender direkt
+  try{
+    if(localStorage.getItem('cal-ok') === '1') btn.click();
+  }catch(e){}
 })();
 </script>
 </body>

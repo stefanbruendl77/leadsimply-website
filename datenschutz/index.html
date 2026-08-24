@@ -32,7 +32,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="format-detection" content="telephone=no">
 <meta name="theme-color" content="#0d1a2e">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -398,10 +398,20 @@ iframe, embed, object{max-width:100%!important}
   [style*="grid-template-columns:1fr 260px"]{grid-template-columns:1fr!important;gap:28px!important}
 }
 </style>
+<link rel="preload" href="/fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300 700;
+  font-display:swap;src:url('/fonts/cormorant.woff2') format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300 700;
+  font-display:swap;src:url('/fonts/cormorant-italic.woff2') format('woff2')}
+@font-face{font-family:'Outfit';font-style:normal;font-weight:100 900;
+  font-display:swap;src:url('/fonts/outfit.woff2') format('woff2')}
+</style>
 </head>
 <body><header class="nav" id="nav">
   <div class="nav__in">
-    <a class="nav__logo" href="/" aria-label="LeadSimply Startseite"><img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161216dd61c546ac58ab5.png" alt="LeadSimply" width="140" height="25"></a>
+    <a class="nav__logo" href="/" aria-label="LeadSimply Startseite"><img src="/bilder/logo.png" alt="LeadSimply" width="140" height="25"></a>
     <nav class="nav__links" aria-label="Hauptnavigation">
       <a href="/abwerber-perspektive/">Meine Geschichte</a>
       <a href="/leistungen/">Leistungen</a>
@@ -435,19 +445,21 @@ iframe, embed, object{max-width:100%!important}
     <p>Diese Website wird über GitHub Pages gehostet, einen Dienst der GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf der Seite werden technisch notwendige Verbindungsdaten an GitHub übermittelt, insbesondere Ihre IP-Adresse, Datum und Uhrzeit des Zugriffs sowie Angaben zu Browser und Betriebssystem.</p>
     <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO — unser berechtigtes Interesse an einer sicheren und effizienten Bereitstellung der Website. Die Übermittlung in die USA erfolgt auf Grundlage der Standardvertragsklauseln der EU-Kommission. Weitere Informationen: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a>.</p>
 
-    <h2>3. Google Fonts</h2>
-    <p>Zur einheitlichen Darstellung von Schriftarten binden wir Schriften von Google Fonts ein. Anbieter ist Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Beim Seitenaufruf wird eine Verbindung zu Servern von Google hergestellt, wobei Ihre IP-Adresse übermittelt wird.</p>
-    <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Datenschutzerklärung</a>.</p>
+    <h2>3. Schriftarten</h2>
+    <p>Die auf dieser Website verwendeten Schriftarten werden ausschließlich von unserem eigenen Server ausgeliefert. Es besteht <strong>keine Verbindung zu Google Fonts</strong> oder anderen externen Schriftanbietern. Beim Laden der Schriften werden dementsprechend keine Daten an Dritte übermittelt.</p>
 
     <h2>4. Terminbuchung über TidyCal</h2>
-    <p>Für die Buchung des Analyse-Calls nutzen wir TidyCal, einen Dienst der TidyCal LLC (USA). Auf der Seite „Analyse-Call" wird ein Buchungskalender eingebunden. Wenn Sie einen Termin buchen, werden die von Ihnen angegebenen Daten — insbesondere Name, E-Mail-Adresse und freiwillige Angaben — an TidyCal übermittelt und dort verarbeitet.</p>
-    <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, da die Verarbeitung zur Durchführung vorvertraglicher Maßnahmen auf Ihre Anfrage hin erforderlich ist. Weitere Informationen: <a href="https://tidycal.com/privacy" target="_blank" rel="noopener">TidyCal Privacy Policy</a>.</p>
+    <p>Für die Buchung des Erstgesprächs nutzen wir TidyCal, einen Dienst der TidyCal LLC (USA). Der Buchungskalender wird <strong>nicht automatisch geladen</strong>. Er erscheint erst, wenn Sie auf der Seite „Analyse-Call" ausdrücklich auf die Schaltfläche „Kalender laden" klicken.</p>
+    <p>Erst mit diesem Klick wird eine Verbindung zu TidyCal hergestellt und Ihre IP-Adresse übermittelt. TidyCal kann dabei Cookies setzen. Rechtsgrundlage für diese Verarbeitung ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO, die Sie durch den Klick erteilen und jederzeit widerrufen können, indem Sie die Seite verlassen oder den lokalen Speicher Ihres Browsers leeren.</p>
+    <p>Wenn Sie anschließend einen Termin buchen, werden die von Ihnen angegebenen Daten — insbesondere Name, E-Mail-Adresse und freiwillige Angaben — an TidyCal übermittelt und dort verarbeitet. Rechtsgrundlage hierfür ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen). Weitere Informationen: <a href="https://tidycal.com/privacy" target="_blank" rel="noopener">TidyCal Privacy Policy</a>.</p>
 
     <h2>5. Kontaktaufnahme per E-Mail</h2>
     <p>Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir die übermittelten Daten zur Bearbeitung Ihrer Anfrage. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b bzw. lit. f DSGVO. Die Daten werden gelöscht, sobald sie für den Zweck nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
 
     <h2>6. Cookies und Tracking</h2>
-    <p>Diese Website setzt keine eigenen Cookies zu Analyse- oder Marketingzwecken ein. Es findet kein Tracking Ihres Nutzungsverhaltens statt. Eingebundene Drittdienste (Google Fonts, TidyCal) können eigene Cookies setzen — Details entnehmen Sie deren Datenschutzerklärungen.</p>
+    <p>Diese Website setzt <strong>keine eigenen Cookies</strong> zu Analyse- oder Marketingzwecken. Es findet kein Tracking Ihres Nutzungsverhaltens statt. Ein Einwilligungsbanner ist daher nicht erforderlich.</p>
+    <p>Auf der Seite „Analyse-Call" wird im lokalen Speicher Ihres Browsers ein technischer Hinweis abgelegt, sobald Sie dem Laden des Buchungskalenders zugestimmt haben. Dieser Eintrag dient ausschließlich dazu, Ihnen die Zustimmung bei einem erneuten Besuch nicht nochmals abzuverlangen. Er enthält keine personenbezogenen Daten und wird nicht an Dritte übermittelt.</p>
+    <p>Eingebundene Drittdienste können nach Ihrer Zustimmung eigene Cookies setzen. Details entnehmen Sie den jeweiligen Datenschutzerklärungen, die oben verlinkt sind.</p>
 
     <h2>7. Ihre Rechte</h2>
     <p>Sie haben jederzeit das Recht auf:</p>
@@ -472,7 +484,7 @@ iframe, embed, object{max-width:100%!important}
   <div class="wrap">
     <div class="foot__top">
       <div class="foot__brand">
-        <img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161216dd61c546ac58ab5.png" alt="LeadSimply" width="130" height="24">
+        <img src="/bilder/logo.png" alt="LeadSimply" width="130" height="24">
         <p>Stefan Bründl hilft Geschäftsführern mittelständischer Unternehmen, ihre Leistungsträger zu halten — bevor die Kündigung auf dem Tisch liegt.</p>
       </div>
       <div class="foot__col">

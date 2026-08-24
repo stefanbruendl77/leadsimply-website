@@ -83,7 +83,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="format-detection" content="telephone=no">
 <meta name="theme-color" content="#0d1a2e">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -438,7 +438,7 @@ em{font-style:italic}
   .photo-frame{max-width:240px}
 }
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://leadsimply.de/#stefan", "name": "Stefan Bründl", "jobTitle": "Berater für Mitarbeiterbindung", "url": "https://leadsimply.de", "image": "https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161210c03f3dfbe646b23.png", "description": "Stefan Bründl kennt den Arbeitsmarkt aus drei Rollen: als Führungskraft, als Personalvermittler und als Einstellender. Heute berät er Geschäftsführer im Mittelstand zur Senkung von Fluktuation.", "sameAs": ["https://www.linkedin.com/in/stefan-bruendl/"], "worksFor": {"@id": "https://leadsimply.de/#org"}}, {"@type": ["ProfessionalService", "LocalBusiness"], "@id": "https://leadsimply.de/#org", "name": "LeadSimply", "legalName": "Vario Brüdoservice GmbH", "url": "https://leadsimply.de", "logo": "https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161216dd61c546ac58ab5.png", "description": "Beratung für Geschäftsführer im Mittelstand: Fluktuation senken, Leistungsträger halten.", "address": {"@type": "PostalAddress", "streetAddress": "Neckarstrasse 2", "addressLocality": "Weil der Stadt", "postalCode": "71263", "addressRegion": "Baden-Württemberg", "addressCountry": "DE"}, "geo": {"@type": "GeoCoordinates", "latitude": 48.7503, "longitude": 8.8706}, "areaServed": {"@type": "Country", "name": "Deutschland"}, "founder": {"@id": "https://leadsimply.de/#stefan"}}, {"@type": "WebSite", "@id": "https://leadsimply.de/#website", "url": "https://leadsimply.de", "name": "LeadSimply", "inLanguage": "de-DE", "publisher": {"@id": "https://leadsimply.de/#org"}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://leadsimply.de/#stefan", "name": "Stefan Bründl", "jobTitle": "Berater für Mitarbeiterbindung", "url": "https://leadsimply.de", "image": "/bilder/stefan-hero.png", "description": "Stefan Bründl kennt den Arbeitsmarkt aus drei Rollen: als Führungskraft, als Personalvermittler und als Einstellender. Heute berät er Geschäftsführer im Mittelstand zur Senkung von Fluktuation.", "sameAs": ["https://www.linkedin.com/in/stefan-bruendl/"], "worksFor": {"@id": "https://leadsimply.de/#org"}}, {"@type": ["ProfessionalService", "LocalBusiness"], "@id": "https://leadsimply.de/#org", "name": "LeadSimply", "legalName": "Vario Brüdoservice GmbH", "url": "https://leadsimply.de", "logo": "/bilder/logo.png", "description": "Beratung für Geschäftsführer im Mittelstand: Fluktuation senken, Leistungsträger halten.", "address": {"@type": "PostalAddress", "streetAddress": "Neckarstrasse 2", "addressLocality": "Weil der Stadt", "postalCode": "71263", "addressRegion": "Baden-Württemberg", "addressCountry": "DE"}, "geo": {"@type": "GeoCoordinates", "latitude": 48.7503, "longitude": 8.8706}, "areaServed": {"@type": "Country", "name": "Deutschland"}, "founder": {"@id": "https://leadsimply.de/#stefan"}}, {"@type": "WebSite", "@id": "https://leadsimply.de/#website", "url": "https://leadsimply.de", "name": "LeadSimply", "inLanguage": "de-DE", "publisher": {"@id": "https://leadsimply.de/#org"}}]}</script>
 <style>
 .clarity{background:var(--white);border-bottom:1px solid var(--line)}
 .clarity__in{max-width:var(--wrap);margin:0 auto;padding:26px var(--pad);
@@ -542,10 +542,20 @@ iframe, embed, object{max-width:100%!important}
   [style*="grid-template-columns:1fr 260px"]{grid-template-columns:1fr!important;gap:28px!important}
 }
 </style>
+<link rel="preload" href="/fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300 700;
+  font-display:swap;src:url('/fonts/cormorant.woff2') format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300 700;
+  font-display:swap;src:url('/fonts/cormorant-italic.woff2') format('woff2')}
+@font-face{font-family:'Outfit';font-style:normal;font-weight:100 900;
+  font-display:swap;src:url('/fonts/outfit.woff2') format('woff2')}
+</style>
 </head>
 <body><header class="nav" id="nav">
   <div class="nav__in">
-    <a class="nav__logo" href="/" aria-label="LeadSimply Startseite"><img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161216dd61c546ac58ab5.png" alt="LeadSimply" width="140" height="25"></a>
+    <a class="nav__logo" href="/" aria-label="LeadSimply Startseite"><img src="/bilder/logo.png" alt="LeadSimply" width="140" height="25"></a>
     <nav class="nav__links" aria-label="Hauptnavigation">
       <a href="/leistungen/">Leistungen</a>
       <a href="/ueber-stefan/">Über Stefan</a>
@@ -586,8 +596,8 @@ iframe, embed, object{max-width:100%!important}
         <p class="hero__note">45 Minuten · kostenlos · kein Verkaufsgespräch</p>
       </div>
       <div class="photo-frame rv">
-        <img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161210c03f3dfbe646b23.png" alt="Stefan Bründl" width="400" height="600" fetchpriority="high">
-        <div class="badge-ww"><span class="ww-mark ww-mark--badge"><img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a316121dd7879239a2efce2.png" alt="Bekannt aus WirtschaftsWoche"></span></div>
+        <img src="/bilder/stefan-hero.png" alt="Stefan Bründl" width="400" height="600" fetchpriority="high">
+        <div class="badge-ww"><span class="ww-mark ww-mark--badge"><img src="/bilder/wiwo.png" alt="Bekannt aus WirtschaftsWoche"></span></div>
       </div>
     </div>
   </div>
@@ -686,7 +696,7 @@ iframe, embed, object{max-width:100%!important}
   <div class="wrap">
     <div class="about">
       <div class="about__photo rv">
-        <img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161210a683b64fe7e9406.jpg" alt="Stefan Bründl" width="340" height="227" loading="lazy">
+        <img src="/bilder/stefan-about.jpg" alt="Stefan Bründl" width="340" height="227" loading="lazy">
       </div>
       <div class="rv">
         <span class="eyebrow">Warum ausgerechnet ich</span>
@@ -708,7 +718,7 @@ iframe, embed, object{max-width:100%!important}
     </div>
     <div class="grid grid--3">
       <a href="/presse/" class="press-card rv">
-        <span class="ww-mark" style="margin-bottom:16px"><img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a316121dd7879239a2efce2.png" alt="WirtschaftsWoche"></span>
+        <span class="ww-mark" style="margin-bottom:16px"><img src="/bilder/wiwo.png" alt="WirtschaftsWoche"></span>
         <h3>Ausgabe 07/2026</h3>
         <p>Porträtiert im Beitrag „Der Mehraufwand" — über Führungskräfte, die nach Restrukturierungen doppelt so viele Teams verantworten.</p>
         <span class="press-card__more">Zur Übersicht →</span>
@@ -729,7 +739,43 @@ iframe, embed, object{max-width:100%!important}
   </div>
 </section>
 
-<!-- ══ 8 · LEITFADEN ══ -->
+<!-- ══ STIMMEN ══ -->
+<section class="sec sec--white" style="padding-top:80px;padding-bottom:80px">
+  <div class="wrap">
+    <div class="sec__head sec__head--center rv" style="margin-bottom:38px">
+      <span class="eyebrow">Stimmen aus meinem Netzwerk</span>
+      <h2 style="font-size:clamp(25px,2.8vw,34px)">Was Menschen sagen,<br>die mich kennen</h2>
+    </div>
+    <div class="grid grid--3">
+      <blockquote class="quote rv">
+        <p class="quote__text">„Stefan stellt die Fragen, die man sich selbst nicht stellt. Er redet nicht um den heißen Brei herum — und genau das braucht man, wenn es um Führung geht."</p>
+        <footer class="quote__who">
+          <img src="/bilder/marco.jpg" alt="Marco Keenisch" width="50" height="50" loading="lazy">
+          <span><b>Marco Keenisch</b><span>Geschäftsführer</span></span>
+        </footer>
+      </blockquote>
+      <blockquote class="quote rv">
+        <p class="quote__text">„Was ihn ausmacht: Er kommt nicht mit Theorie, sondern mit Erfahrung. Man merkt in jedem Gespräch, dass er die Situationen selbst verantwortet hat."</p>
+        <footer class="quote__who">
+          <img src="/bilder/steffen.jpg" alt="Steffen Wetzel" width="50" height="50" loading="lazy">
+          <span><b>Steffen Wetzel</b><span>Geschäftsführer</span></span>
+        </footer>
+      </blockquote>
+      <blockquote class="quote rv">
+        <p class="quote__text">„Ein klarer Kopf für ein Thema, das viele unterschätzen. Stefan macht sichtbar, was im Alltag untergeht — und bleibt dabei angenehm unaufgeregt."</p>
+        <footer class="quote__who">
+          <img src="/bilder/bernd.jpg" alt="Bernd Austermann" width="50" height="50" loading="lazy">
+          <span><b>Bernd Austermann</b><span>Geschäftsführer</span></span>
+        </footer>
+      </blockquote>
+    </div>
+    <p class="rv" style="text-align:center;font-size:14px;color:var(--muted);margin-top:24px">
+      Weitere Empfehlungen auf <a class="textlink" href="https://www.linkedin.com/in/stefan-bruendl/" target="_blank" rel="noopener">meinem LinkedIn-Profil</a>
+    </p>
+  </div>
+</section>
+
+<!-- ══ 9 · LEITFADEN ══ -->
 <section class="dark sec--tight" style="padding-top:76px;padding-bottom:76px">
   <span class="dark__glow"></span>
   <div class="wrap">
@@ -827,7 +873,7 @@ iframe, embed, object{max-width:100%!important}
   <div class="wrap">
     <div class="foot__top">
       <div class="foot__brand">
-        <img src="https://assets.cdn.filesafe.space/Dn70CR98y3yj84Pw4t5N/media/6a3161216dd61c546ac58ab5.png" alt="LeadSimply" width="130" height="24">
+        <img src="/bilder/logo.png" alt="LeadSimply" width="130" height="24">
         <p>Stefan Bründl hilft Geschäftsführern mittelständischer Unternehmen, ihre Leistungsträger zu halten — bevor die Kündigung auf dem Tisch liegt.</p>
       </div>
       <div class="foot__col">
