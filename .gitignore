@@ -1,1 +1,7 @@
 .DS_Store
+
+# Website-Archive nie deployen (waren oeffentlich abrufbar)
+*.zip
+
+# SEO-Audit: interne Analyse, nicht deployen
+leadsimply.de-audit/

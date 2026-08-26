@@ -9,12 +9,12 @@
 .copybox__len{position:absolute;top:12px;right:16px;font-size:10.5px;
   letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:700}
 .dl{display:flex;flex-direction:column;gap:2px;margin-top:14px}
-.dl a{display:flex;justify-content:space-between;align-items:center;gap:14px;
+.dl a,.dl .dl__item{display:flex;justify-content:space-between;align-items:center;gap:14px;
   padding:13px 0;border-bottom:1px solid var(--line);font-size:15px;
   color:var(--navy);font-weight:500;transition:color .2s}
-.dl a:last-child{border-bottom:none}
+.dl a:last-child,.dl .dl__item:last-child{border-bottom:none}
 .dl a:hover{color:var(--blue)}
-.dl a span{font-size:12.5px;color:var(--muted);font-weight:400;white-space:nowrap}
+.dl a span,.dl .dl__item span{font-size:12.5px;color:var(--muted);font-weight:400;white-space:nowrap}
 .facts{list-style:none}
 .facts li{display:flex;gap:14px;align-items:baseline;padding:11px 0;
   border-bottom:1px solid var(--line);font-size:15px;color:var(--muted)}
@@ -722,10 +722,10 @@ iframe, embed, object{max-width:100%!important}
           Auswahl bisheriger Beiträge und Gespräche.
         </p>
         <div class="dl">
-          <a href="#" target="_blank" rel="noopener">
+          <div class="dl__item">
             WirtschaftsWoche 07/2026 — „Der Mehraufwand"
-            <span>Porträt</span>
-          </a>
+            <span>Porträt, Print</span>
+          </div>
           <a href="https://podcasts.apple.com/de/podcast/der-personalberater-coach-podcast-branchen-insights/id1450833845" target="_blank" rel="noopener">
             Der Personalberater Coach, Folge 241 — Fluktuation als unterschätztes Risiko für die Profitabilität
             <span>Apple</span>
