@@ -640,9 +640,10 @@ iframe, embed, object{max-width:100%!important}
             <input type="text" id="lgFirma" name="unternehmen" placeholder="Ihr Unternehmen" autocomplete="organization">
           </div>
           <input type="hidden" name="_subject" value="Neue Leitfaden-Anforderung über leadsimply.de">
-          <input type="hidden" name="_next" value="https://leadsimply.de/leitfaden/danke/">
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
           <button type="submit" class="btn" id="lgBtn">Leitfaden jetzt anfordern</button>
+          <p class="lg__legal" id="lgMsg" role="alert" hidden
+             style="color:var(--navy);border-left:3px solid var(--amber);padding-left:12px;font-size:13px"></p>
         </form>
 
         <p class="lg__legal">Der Leitfaden steht direkt im Anschluss zum Download bereit. Ihre Daten werden nicht weitergegeben. Weitere Informationen in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p>
@@ -670,13 +671,35 @@ iframe, embed, object{max-width:100%!important}
 </main><script>
 (function(){
   var f=document.getElementById('lgForm'),
-      btn=document.getElementById('lgBtn');
-  if(!f) return;
-  /* Das Formular wird regulaer an Formspree gesendet. Formspree leitet danach
-     ueber das versteckte Feld _next auf /leitfaden/danke/ weiter, wo der
-     Leitfaden zum Download bereitsteht. */
-  f.addEventListener('submit', function(){
+      btn=document.getElementById('lgBtn'),
+      msg=document.getElementById('lgMsg');
+  if(!f||!btn||!msg) return;
+  /* Die Weiterleitung uebernimmt die Seite selbst: Das Formular wird per fetch
+     an Formspree gesendet, danach geht es auf /leitfaden/danke/, wo der
+     Leitfaden zum Download bereitsteht. Ohne JavaScript bleibt das regulaere
+     Absenden ueber action/method bestehen. Die Pflichtfelder prueft weiterhin
+     der Browser ueber required — das submit-Ereignis feuert erst danach. */
+  var label=btn.textContent, sending=false;
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(sending) return;
+    sending=true;
     btn.disabled=true; btn.textContent='Wird gesendet \u2026';
+    msg.hidden=true; msg.textContent='';
+    fetch(f.action, {
+      method:'POST',
+      headers:{'Accept':'application/json'},
+      body:new FormData(f)
+    }).then(function(r){
+      if(!r.ok) throw new Error('Formspree ' + r.status);
+      window.location.href='/leitfaden/danke/';
+    }).catch(function(){
+      sending=false;
+      btn.disabled=false; btn.textContent=label;
+      msg.textContent='Das Absenden hat leider nicht geklappt. Bitte versuchen Sie es '
+        + 'noch einmal \u2014 oder schreiben Sie uns direkt an info@leadsimply.de.';
+      msg.hidden=false;
+    });
   });
 })();
 </script><footer class="foot">
