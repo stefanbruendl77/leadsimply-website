@@ -679,6 +679,7 @@ iframe, embed, object{max-width:100%!important}
      Leitfaden zum Download bereitsteht. Ohne JavaScript bleibt das regulaere
      Absenden ueber action/method bestehen. Die Pflichtfelder prueft weiterhin
      der Browser ueber required — das submit-Ereignis feuert erst danach. */
+  var SHEET_URL='https://script.google.com/macros/s/AKfycbzN8lup_sBCFdyuB2c_ZLCZPASEb5M8ifOki69uF3Rn6pDZY2yizFaTNo4cYdmCL4VxWg/exec';
   var label=btn.textContent, sending=false;
   f.addEventListener('submit', function(e){
     e.preventDefault();
@@ -686,10 +687,23 @@ iframe, embed, object{max-width:100%!important}
     sending=true;
     btn.disabled=true; btn.textContent='Wird gesendet \u2026';
     msg.hidden=true; msg.textContent='';
+    var data=new FormData(f);
+    /* Zweite, unabhaengige Kopie an das Google-Sheet. Laeuft parallel, mit
+       mode:'no-cors' (die Antwort lesen wir ohnehin nicht) und keepalive,
+       damit die Anfrage die Weiterleitung ueberlebt. Fehler werden bewusst
+       verschluckt: Ob es geklappt hat, entscheidet allein Formspree. */
+    try{
+      fetch(SHEET_URL, {
+        method:'POST',
+        mode:'no-cors',
+        keepalive:true,
+        body:data
+      }).catch(function(){});
+    }catch(err){}
     fetch(f.action, {
       method:'POST',
       headers:{'Accept':'application/json'},
-      body:new FormData(f)
+      body:data
     }).then(function(r){
       if(!r.ok) throw new Error('Formspree ' + r.status);
       window.location.href='/leitfaden/danke/';
