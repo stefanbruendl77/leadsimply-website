@@ -1,36 +1,4 @@
-<style>
-.calc{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-.calc__head{background:var(--navy);padding:26px 32px}
-.calc__head h3{color:#fff;margin:0;font-size:23px}
-.calc__head p{color:rgba(255,255,255,.5);font-size:14px;margin-top:5px}
-.calc__body{padding:32px}
-.slider{margin-bottom:26px}
-.slider__top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:11px}
-.slider__top label{font-size:14.5px;color:var(--muted);font-weight:400}
-.slider__top b{font-family:'Cormorant Garamond',serif;font-size:23px;color:var(--navy)}
-.slider input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;
-  border-radius:3px;background:var(--pale);outline:none;cursor:pointer}
-.slider input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;
-  width:22px;height:22px;border-radius:50%;background:var(--navy);cursor:pointer;
-  border:3px solid #fff;box-shadow:0 2px 8px rgba(27,45,79,.3)}
-.slider input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;
-  background:var(--navy);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(27,45,79,.3)}
-.calc__hint{font-size:13px;color:var(--blue);font-weight:600;margin-top:6px}
-.bar{margin-bottom:16px}
-.bar__top{display:flex;justify-content:space-between;align-items:baseline;
-  font-size:14.5px;margin-bottom:7px;gap:12px}
-.bar__top span{color:var(--muted)}
-.bar__top b{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--navy);white-space:nowrap}
-.bar__track{height:8px;background:var(--pale);border-radius:4px;overflow:hidden}
-.bar__fill{height:100%;border-radius:4px;transition:width .45s cubic-bezier(.4,0,.2,1)}
-.calc__total{background:var(--navy-d);border-radius:11px;padding:26px 30px;margin-top:28px;
-  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-.calc__total span{font-size:14.5px;color:rgba(255,255,255,.55)}
-.calc__total b{font-family:'Cormorant Garamond',serif;font-size:38px;color:var(--amber);line-height:1}
-@media(max-width:860px){.calc__body{padding:24px 20px}.calc__head{padding:22px 20px}
- .calc__total{flex-direction:column;align-items:flex-start;gap:8px;padding:22px}
- .calc__total b{font-size:31px}}
-</style><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
@@ -544,6 +512,39 @@ iframe, embed, object{max-width:100%!important}
   }
 }
 </script>
+<style>
+.calc{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.calc__head{background:var(--navy);padding:26px 32px}
+.calc__head h3{color:#fff;margin:0;font-size:23px}
+.calc__head p{color:rgba(255,255,255,.5);font-size:14px;margin-top:5px}
+.calc__body{padding:32px}
+.slider{margin-bottom:26px}
+.slider__top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:11px}
+.slider__top label{font-size:14.5px;color:var(--muted);font-weight:400}
+.slider__top b{font-family:'Cormorant Garamond',serif;font-size:23px;color:var(--navy)}
+.slider input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;
+  border-radius:3px;background:var(--pale);outline:none;cursor:pointer}
+.slider input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;
+  width:22px;height:22px;border-radius:50%;background:var(--navy);cursor:pointer;
+  border:3px solid #fff;box-shadow:0 2px 8px rgba(27,45,79,.3)}
+.slider input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;
+  background:var(--navy);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(27,45,79,.3)}
+.calc__hint{font-size:13px;color:var(--blue);font-weight:600;margin-top:6px}
+.bar{margin-bottom:16px}
+.bar__top{display:flex;justify-content:space-between;align-items:baseline;
+  font-size:14.5px;margin-bottom:7px;gap:12px}
+.bar__top span{color:var(--muted)}
+.bar__top b{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--navy);white-space:nowrap}
+.bar__track{height:8px;background:var(--pale);border-radius:4px;overflow:hidden}
+.bar__fill{height:100%;border-radius:4px;transition:width .45s cubic-bezier(.4,0,.2,1)}
+.calc__total{background:var(--navy-d);border-radius:11px;padding:26px 30px;margin-top:28px;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.calc__total span{font-size:14.5px;color:rgba(255,255,255,.55)}
+.calc__total b{font-family:'Cormorant Garamond',serif;font-size:38px;color:var(--amber);line-height:1}
+@media(max-width:860px){.calc__body{padding:24px 20px}.calc__head{padding:22px 20px}
+ .calc__total{flex-direction:column;align-items:flex-start;gap:8px;padding:22px}
+ .calc__total b{font-size:31px}}
+</style>
 </head>
 <body><header class="nav" id="nav">
   <div class="nav__in">
@@ -674,7 +675,7 @@ iframe, embed, object{max-width:100%!important}
   <div class="wrap">
     <div class="foot__top">
       <div class="foot__brand">
-        <img src="/bilder/logo.png" alt="LeadSimply" width="130" height="24">
+        <img src="/bilder/logo.png" alt="LeadSimply" width="130" height="24" loading="lazy">
         <p>Stefan Bründl hilft Geschäftsführern mittelständischer Unternehmen, ihre Leistungsträger zu halten — bevor die Kündigung auf dem Tisch liegt.</p>
       </div>
       <div class="foot__col">

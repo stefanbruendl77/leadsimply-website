@@ -1,38 +1,4 @@
-<style>
-.lg{display:grid;grid-template-columns:1fr 340px;gap:60px;align-items:start}
-.lg__form{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
-  padding:34px;box-shadow:0 12px 42px rgba(27,45,79,.08);position:sticky;top:92px}
-.lg__form h3{margin-bottom:8px}
-.lg__form > p{font-size:14.5px;color:var(--muted);margin-bottom:22px;line-height:1.7}
-.fld{margin-bottom:16px}
-.fld label{display:block;font-size:13.5px;font-weight:500;color:var(--navy);margin-bottom:6px}
-.fld input{width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:8px;
-  font-family:'Outfit',sans-serif;font-size:15px;color:var(--text);background:var(--white);
-  transition:border-color .2s;outline:none}
-.fld input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(96,150,186,.12)}
-.lg__form .btn{width:100%;margin-top:6px}
-.lg__legal{font-size:11.5px;color:var(--muted);line-height:1.6;margin-top:14px}
-.lg__legal a{color:var(--blue);border-bottom:1px solid rgba(96,150,186,.35)}
-.toc{list-style:none;counter-reset:t}
-.toc li{counter-increment:t;display:flex;gap:15px;align-items:baseline;
-  padding:13px 0;border-bottom:1px solid var(--line);font-size:16px;color:var(--muted)}
-.toc li:last-child{border-bottom:none}
-.toc li::before{content:counter(t,decimal-leading-zero);font-family:'Cormorant Garamond',serif;
-  font-size:17px;color:var(--amber);font-weight:700;min-width:26px;flex-shrink:0}
-.toc li b{color:var(--navy);font-weight:600}
-.cover{width:100%;max-width:230px;aspect-ratio:1/1.414;background:var(--navy-d);border-radius:7px;
-  border:1px solid rgba(171,206,241,.14);box-shadow:0 24px 60px rgba(27,45,79,.28);
-  padding:30px 24px;position:relative;margin:0 auto}
-.cover__bar{width:28px;height:2.5px;background:var(--amber);margin-bottom:14px}
-.cover__ey{font-size:8px;letter-spacing:.14em;color:var(--amber);font-weight:700;margin-bottom:16px}
-.cover__t{font-family:'Cormorant Garamond',serif;font-size:27px;color:#fff;line-height:1.12;font-weight:700}
-.cover__s{font-size:10.5px;color:#abcef1;margin-top:11px;line-height:1.45}
-.cover__f{position:absolute;bottom:26px;left:24px;right:24px}
-@media(max-width:900px){
-  .lg{grid-template-columns:1fr;gap:36px}
-  .lg__form{position:static;order:-1;padding:26px 22px}
-}
-</style><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
@@ -545,6 +511,54 @@ iframe, embed, object{max-width:100%!important}
   }
 }
 </script>
+<style>
+.lg{display:grid;grid-template-columns:1fr 340px;gap:60px;align-items:start}
+.lg__form{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:34px;box-shadow:0 12px 42px rgba(27,45,79,.08);position:sticky;top:92px}
+.lg__form h3{margin-bottom:8px}
+.lg__form > p{font-size:14.5px;color:var(--muted);margin-bottom:22px;line-height:1.7}
+.fld{margin-bottom:16px}
+.fld label{display:block;font-size:13.5px;font-weight:500;color:var(--navy);margin-bottom:6px}
+.fld input{width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:8px;
+  font-family:'Outfit',sans-serif;font-size:15px;color:var(--text);background:var(--white);
+  transition:border-color .2s;outline:none}
+.fld input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(96,150,186,.12)}
+.lg__form .btn{width:100%;margin-top:6px}
+.lg__legal{font-size:11.5px;color:var(--muted);line-height:1.6;margin-top:14px}
+.lg__legal a{color:var(--blue);border-bottom:1px solid rgba(96,150,186,.35)}
+.sig{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.sig__grp{background:var(--off);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px}
+.sig__grp h3{display:flex;align-items:center;gap:12px;font-size:21px;margin-bottom:6px}
+.sig__ltr{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;
+  border-radius:7px;background:var(--navy);color:var(--amber);font-family:'Outfit',sans-serif;
+  font-size:13px;font-weight:700;flex-shrink:0}
+.sig__int{font-size:14.5px;color:var(--muted);margin-bottom:18px}
+.sig dl{margin:0}
+.sig dt{font-size:15.5px;font-weight:600;color:var(--navy);margin-top:16px;
+  padding-top:16px;border-top:1px solid var(--line)}
+.sig dt:first-of-type{margin-top:0;padding-top:0;border-top:none}
+.sig dd{font-size:15px;line-height:1.72;color:var(--muted);margin-top:5px}
+@media(max-width:860px){.sig{grid-template-columns:1fr;gap:18px}.sig__grp{padding:24px 22px}}
+.toc{list-style:none;counter-reset:t}
+.toc li{counter-increment:t;display:flex;gap:15px;align-items:baseline;
+  padding:13px 0;border-bottom:1px solid var(--line);font-size:16px;color:var(--muted)}
+.toc li:last-child{border-bottom:none}
+.toc li::before{content:counter(t,decimal-leading-zero);font-family:'Cormorant Garamond',serif;
+  font-size:17px;color:var(--amber);font-weight:700;min-width:26px;flex-shrink:0}
+.toc li b{color:var(--navy);font-weight:600}
+.cover{width:100%;max-width:230px;aspect-ratio:1/1.414;background:var(--navy-d);border-radius:7px;
+  border:1px solid rgba(171,206,241,.14);box-shadow:0 24px 60px rgba(27,45,79,.28);
+  padding:30px 24px;position:relative;margin:0 auto}
+.cover__bar{width:28px;height:2.5px;background:var(--amber);margin-bottom:14px}
+.cover__ey{font-size:8px;letter-spacing:.14em;color:var(--amber);font-weight:700;margin-bottom:16px}
+.cover__t{font-family:'Cormorant Garamond',serif;font-size:27px;color:#fff;line-height:1.12;font-weight:700}
+.cover__s{font-size:10.5px;color:#abcef1;margin-top:11px;line-height:1.45}
+.cover__f{position:absolute;bottom:26px;left:24px;right:24px}
+@media(max-width:900px){
+  .lg{grid-template-columns:1fr;gap:36px}
+  .lg__form{position:static;order:-1;padding:26px 22px}
+}
+</style>
 </head>
 <body><header class="nav" id="nav">
   <div class="nav__in">
@@ -658,6 +672,75 @@ iframe, embed, object{max-width:100%!important}
   </div>
 </section>
 
+<section style="padding:82px 0;background:var(--white);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="rv" style="max-width:70ch;margin-bottom:44px">
+      <span class="eyebrow">Die Liste</span>
+      <h2 style="font-size:clamp(26px,3vw,38px);margin-bottom:18px">Die zwölf Frühwarnsignale im Überblick</h2>
+      <p style="color:var(--muted)">Hier stehen alle zwölf Signale, sortiert nach vier Bereichen. Das PDF enthält zusätzlich die Checkliste zum Ausdrucken, die Auswertungsregel und den vollständigen Gesprächsleitfaden.</p>
+      <p style="margin-top:14px;font-weight:500;color:var(--navy)">Ein einzelnes Signal bedeutet nichts. Drei oder mehr bei derselben Person über mehrere Wochen sind ein Muster — und Ihr Handlungsfenster.</p>
+    </div>
+
+    <div class="sig">
+      <div class="sig__grp rv">
+        <h3><span class="sig__ltr">A</span> Beteiligung</h3>
+        <p class="sig__int">Wie jemand sich einbringt — oder aufhört, es zu tun.</p>
+        <dl>
+          <dt>01 · Vorschläge bleiben aus</dt>
+          <dd>Jemand, der früher Ideen eingebracht hat, macht nur noch, was besprochen ist. Kein Widerspruch mehr, keine Initiative — reibungslose Ausführung ohne Gestaltung.</dd>
+          <dt>02 · Rückfragen werden weniger</dt>
+          <dd>Nicht weil alles klar ist, sondern weil das Ergebnis nicht mehr wichtig genug erscheint, um nachzuhaken.</dd>
+          <dt>03 · Meetings ohne Wortmeldung</dt>
+          <dd>Die Person ist anwesend, aber nicht beteiligt. Besonders auffällig, wenn sie früher die treibende Stimme war.</dd>
+        </dl>
+      </div>
+
+      <div class="sig__grp rv">
+        <h3><span class="sig__ltr">B</span> Zeithorizont</h3>
+        <p class="sig__int">Wie weit jemand gedanklich in die Zukunft plant.</p>
+        <dl>
+          <dt>04 · Zurückhaltung bei Langfristthemen</dt>
+          <dd>Bei Projekten, die über das nächste Quartal hinausgehen, hält sich jemand auffällig heraus — oder meldet sich freiwillig nicht mehr.</dd>
+          <dt>05 · Keine Fragen zur eigenen Entwicklung</dt>
+          <dd>Wer bleiben will, fragt nach Perspektive. Wer nicht mehr fragt, hat die Antwort woanders gefunden.</dd>
+          <dt>06 · Urlaubs- und Überstundenabbau</dt>
+          <dd>Resturlaub wird konsequent geplant, Überstundenkonten werden geleert. Oft das konkreteste Signal überhaupt.</dd>
+        </dl>
+      </div>
+
+      <div class="sig__grp rv">
+        <h3><span class="sig__ltr">C</span> Beziehung</h3>
+        <p class="sig__int">Wie jemand mit Team und Führung umgeht.</p>
+        <dl>
+          <dt>07 · Rückzug aus dem Informellen</dt>
+          <dd>Keine Mittagspause mit dem Team, kein Smalltalk, keine Teilnahme an Freiwilligem. Die emotionale Bindung wird vor der vertraglichen gelöst.</dd>
+          <dt>08 · Kritik hört auf</dt>
+          <dd>Wer sich beschwert, ist noch investiert. Wenn jemand plötzlich nichts mehr zu bemängeln hat, ist das selten ein gutes Zeichen.</dd>
+          <dt>09 · Distanz zur Führungskraft</dt>
+          <dd>Gespräche werden kürzer, sachlicher, seltener. Termine werden verschoben statt nachgeholt.</dd>
+        </dl>
+      </div>
+
+      <div class="sig__grp rv">
+        <h3><span class="sig__ltr">D</span> Außenwelt</h3>
+        <p class="sig__int">Woran sichtbar wird, dass es Alternativen gibt.</p>
+        <dl>
+          <dt>10 · Aktualisiertes Profil</dt>
+          <dd>Ein überarbeitetes LinkedIn-Profil oder plötzlich sichtbare Netzwerkaktivität ist selten Zufall.</dd>
+          <dt>11 · Auffällige Abwesenheiten</dt>
+          <dd>Einzelne Tage oder Vormittage ohne konkreten Anlass, kurzfristig angekündigt, ungewöhnlich formell begründet.</dd>
+          <dt>12 · Leistungsabfall nach einem Meilenstein</dt>
+          <dd>Nach dem Jubiläum, dem abgeschlossenen Großprojekt oder der Beförderung, die nicht kam. Der Moment, in dem eine offene Rechnung beglichen wird.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <p class="rv" style="max-width:70ch;margin-top:38px;color:var(--muted);font-size:16px">
+      Wenn Sie ein Muster sehen, ist der häufigste Fehler, es direkt anzusprechen. Wirksamer ist ein Gespräch über die Zukunft der Person — <a href="/blog/mitarbeitergespraech-leitfaden/">die vier Fragen dafür stehen hier</a>. Warum es überhaupt so weit kommt, steht in <a href="/blog/warum-leistungstraeger-kuendigen/">Warum Leistungsträger kündigen</a>; <a href="/rechner/">was Sie jeder Abgang kostet</a>, rechnen Sie in 30 Sekunden aus.
+    </p>
+  </div>
+</section>
+
 <section class="dark cta">
   <span class="dark__glow"></span>
   <div class="wrap">
@@ -720,7 +803,7 @@ iframe, embed, object{max-width:100%!important}
   <div class="wrap">
     <div class="foot__top">
       <div class="foot__brand">
-        <img src="/bilder/logo.png" alt="LeadSimply" width="130" height="24">
+        <img src="/bilder/logo.png" alt="LeadSimply" width="130" height="24" loading="lazy">
         <p>Stefan Bründl hilft Geschäftsführern mittelständischer Unternehmen, ihre Leistungsträger zu halten — bevor die Kündigung auf dem Tisch liegt.</p>
       </div>
       <div class="foot__col">

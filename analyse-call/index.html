@@ -394,7 +394,9 @@ em{font-style:italic}
 .call-grid{display:grid;grid-template-columns:1fr 360px;gap:44px;align-items:start}
 @media(max-width:960px){
   .call-grid{grid-template-columns:1fr;gap:28px}
-  .call-grid aside{order:-1}
+  /* Die Seitenspalte stand hier auf order:-1 und schob die Terminbuchung
+     rund 1.200px nach unten. Wer diese Seite erreicht, hat bereits einen
+     CTA geklickt — die Buchung kommt zuerst, das Wertversprechen darunter. */
 }
 /* TidyCal-Kalender: darf nicht über den Rand laufen */
 .tidycal-embed{max-width:100%;overflow-x:auto}
@@ -426,6 +428,13 @@ iframe, embed, object{max-width:100%!important}
   margin-bottom:0!important;line-height:1.6}
 .consent__legal a{color:var(--blue);border-bottom:1px solid rgba(96,150,186,.35)}
 @media(max-width:860px){.consent{padding:38px 20px}}
+/* Mobil: das dekorative Portraet schiebt die Terminbuchung unter den Fold.
+   Auf dieser Seite ist die Buchung die einzige Handlung — sie hat Vorrang. */
+@media(max-width:860px){
+  .hero .photo-frame{display:none}
+  .hero{padding-top:96px!important;padding-bottom:34px!important}
+  .sec--white{padding-top:34px!important}
+}
 </style>
 <link rel="preload" href="/fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin>
@@ -576,7 +585,7 @@ iframe, embed, object{max-width:100%!important}
         <p class="hero__sub" style="max-width:52ch">45 Minuten. Kein Skript, keine Präsentation. Wir schauen gemeinsam auf Ihre Situation — und Sie gehen mit drei konkreten Erkenntnissen raus.</p>
       </div>
       <div class="photo-frame rv" style="max-width:300px">
-        <img src="/bilder/stefan-hero.png" alt="Stefan Bründl" width="300" height="450">
+        <picture><source srcset="/bilder/stefan-hero.webp" type="image/webp"><img src="/bilder/stefan-hero.png" alt="Stefan Bründl" width="300" height="450"></picture>
       </div>
     </div>
   </div>
@@ -712,7 +721,7 @@ iframe, embed, object{max-width:100%!important}
   <div class="wrap">
     <div class="foot__top">
       <div class="foot__brand">
-        <img src="/bilder/logo.png" alt="LeadSimply" width="130" height="24">
+        <img src="/bilder/logo.png" alt="LeadSimply" width="130" height="24" loading="lazy">
         <p>Stefan Bründl hilft Geschäftsführern mittelständischer Unternehmen, ihre Leistungsträger zu halten — bevor die Kündigung auf dem Tisch liegt.</p>
       </div>
       <div class="foot__col">

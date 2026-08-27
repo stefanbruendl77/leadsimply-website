@@ -1,44 +1,4 @@
-<style>
-.pk{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.pk__item{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
-.pk__item h3{font-size:18px;margin-bottom:12px}
-.copybox{background:var(--off);border:1px solid var(--line);border-radius:10px;
-  padding:20px 22px;position:relative;margin-top:12px}
-.copybox p{font-size:15px;line-height:1.75;color:var(--muted);margin:0}
-.copybox p+p{margin-top:12px}
-.copybox__len{position:absolute;top:12px;right:16px;font-size:10.5px;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:700}
-.dl{display:flex;flex-direction:column;gap:2px;margin-top:14px}
-.dl a,.dl .dl__item{display:flex;justify-content:space-between;align-items:center;gap:14px;
-  padding:13px 0;border-bottom:1px solid var(--line);font-size:15px;
-  color:var(--navy);font-weight:500;transition:color .2s}
-.dl a:last-child,.dl .dl__item:last-child{border-bottom:none}
-.dl a:hover{color:var(--blue)}
-.dl a span,.dl .dl__item span{font-size:12.5px;color:var(--muted);font-weight:400;white-space:nowrap}
-.facts{list-style:none}
-.facts li{display:flex;gap:14px;align-items:baseline;padding:11px 0;
-  border-bottom:1px solid var(--line);font-size:15px;color:var(--muted)}
-.facts li:last-child{border-bottom:none}
-.facts b{color:var(--navy);min-width:150px;flex-shrink:0;font-weight:600;font-size:14px}
-.topic{background:var(--white);border:1px solid var(--line);border-left:3px solid var(--amber);
-  border-radius:10px;padding:24px 26px;margin-bottom:16px}
-.topic h3{font-size:19px;margin-bottom:8px}
-.topic p{font-size:15.5px;color:var(--muted);line-height:1.75}
-.topic__for{display:inline-block;margin-top:12px;font-size:11px;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
-.contact{background:var(--navy-d);border-radius:var(--radius);padding:38px 42px;
-  position:relative;overflow:hidden}
-.contact::before{content:'';position:absolute;inset:0;pointer-events:none;
-  background-image:linear-gradient(rgba(171,206,241,.03) 1px,transparent 1px),
-                   linear-gradient(90deg,rgba(171,206,241,.03) 1px,transparent 1px);background-size:40px 40px}
-.contact > *{position:relative;z-index:1}
-@media(max-width:860px){
-  .pk{grid-template-columns:1fr}
-  .facts li{flex-direction:column;gap:3px}
-  .facts b{min-width:0}
-  .contact{padding:26px 22px}
-}
-</style><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
@@ -546,6 +506,47 @@ iframe, embed, object{max-width:100%!important}
   "description": "Wo über die Arbeit von Stefan Bründl gesprochen wird: Porträt in der WirtschaftsWoche 07/2026 und Podcast-Gespräche."
 }
 </script>
+<style>
+.pk{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.pk__item{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.pk__item h3{font-size:18px;margin-bottom:12px}
+.copybox{background:var(--off);border:1px solid var(--line);border-radius:10px;
+  padding:20px 22px;position:relative;margin-top:12px}
+.copybox p{font-size:15px;line-height:1.75;color:var(--muted);margin:0}
+.copybox p+p{margin-top:12px}
+.copybox__len{position:absolute;top:12px;right:16px;font-size:10.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-weight:700}
+.dl{display:flex;flex-direction:column;gap:2px;margin-top:14px}
+.dl a,.dl .dl__item{display:flex;justify-content:space-between;align-items:center;gap:14px;
+  padding:13px 0;border-bottom:1px solid var(--line);font-size:15px;
+  color:var(--navy);font-weight:500;transition:color .2s}
+.dl a:last-child,.dl .dl__item:last-child{border-bottom:none}
+.dl a:hover{color:var(--blue)}
+.dl a span,.dl .dl__item span{font-size:12.5px;color:var(--muted);font-weight:400;white-space:nowrap}
+.facts{list-style:none}
+.facts li{display:flex;gap:14px;align-items:baseline;padding:11px 0;
+  border-bottom:1px solid var(--line);font-size:15px;color:var(--muted)}
+.facts li:last-child{border-bottom:none}
+.facts b{color:var(--navy);min-width:150px;flex-shrink:0;font-weight:600;font-size:14px}
+.topic{background:var(--white);border:1px solid var(--line);border-left:3px solid var(--amber);
+  border-radius:10px;padding:24px 26px;margin-bottom:16px}
+.topic h3{font-size:19px;margin-bottom:8px}
+.topic p{font-size:15.5px;color:var(--muted);line-height:1.75}
+.topic__for{display:inline-block;margin-top:12px;font-size:11px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.contact{background:var(--navy-d);border-radius:var(--radius);padding:38px 42px;
+  position:relative;overflow:hidden}
+.contact::before{content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(171,206,241,.03) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(171,206,241,.03) 1px,transparent 1px);background-size:40px 40px}
+.contact > *{position:relative;z-index:1}
+@media(max-width:860px){
+  .pk{grid-template-columns:1fr}
+  .facts li{flex-direction:column;gap:3px}
+  .facts b{min-width:0}
+  .contact{padding:26px 22px}
+}
+</style>
 </head>
 <body><header class="nav" id="nav">
   <div class="nav__in">
@@ -779,7 +780,7 @@ iframe, embed, object{max-width:100%!important}
   <div class="wrap">
     <div class="foot__top">
       <div class="foot__brand">
-        <img src="/bilder/logo.png" alt="LeadSimply" width="130" height="24">
+        <img src="/bilder/logo.png" alt="LeadSimply" width="130" height="24" loading="lazy">
         <p>Stefan Bründl hilft Geschäftsführern mittelständischer Unternehmen, ihre Leistungsträger zu halten — bevor die Kündigung auf dem Tisch liegt.</p>
       </div>
       <div class="foot__col">
