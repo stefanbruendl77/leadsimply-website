@@ -515,7 +515,33 @@ iframe, embed, object{max-width:100%!important}
 <style>
 .calc{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
 .calc__head{background:var(--navy);padding:26px 32px}
+.calc__head h2{color:#fff;margin:0;font-size:23px}
 .calc__head h3{color:#fff;margin:0;font-size:23px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.meth{max-width:70ch;margin:0 auto}
+.meth h2{font-size:clamp(24px,2.7vw,34px);margin:52px 0 16px}
+.meth h2:first-child{margin-top:0}
+.meth p{margin-bottom:14px}
+.meth .tblwrap{overflow-x:auto;margin:22px 0;-webkit-overflow-scrolling:touch}
+.meth table{border-collapse:collapse;width:100%;min-width:420px;font-size:15.5px}
+.meth th,.meth td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line)}
+.meth th{font-weight:600;color:var(--navy);font-size:13px;letter-spacing:.04em;
+  text-transform:uppercase;background:var(--off)}
+.meth td:last-child,.meth th:last-child{text-align:right;white-space:nowrap}
+.meth tr:last-child td{border-bottom:none;font-weight:600;color:var(--navy);
+  border-top:2px solid var(--navy)}
+.meth dl{margin:18px 0}
+.meth dt{font-weight:600;color:var(--navy);margin-top:18px;font-size:16px}
+.meth dt:first-of-type{margin-top:0}
+.meth dd{color:var(--muted);margin-top:4px;font-size:15.5px;line-height:1.75}
+/* Schmale Displays: die Satz-Spalte weicht, damit die Betraege sichtbar bleiben.
+   Die Prozentsaetze stehen ohnehin im Fliesstext darueber. */
+@media(max-width:560px){
+  .meth table{min-width:0}
+  .meth th:nth-child(2),.meth td:nth-child(2){display:none}
+  .meth th,.meth td{padding:11px 8px;font-size:15px}
+}
 .calc__head p{color:rgba(255,255,255,.5);font-size:14px;margin-top:5px}
 .calc__body{padding:32px}
 .slider{margin-bottom:26px}
@@ -583,7 +609,7 @@ iframe, embed, object{max-width:100%!important}
   <div class="wrap" style="max-width:880px">
     <div class="calc rv">
       <div class="calc__head">
-        <h3>Ihre Zahlen</h3>
+        <h2>Ihre Zahlen</h2>
         <p>Grobe Werte genügen — es geht um die Größenordnung</p>
       </div>
       <div class="calc__body">
@@ -627,11 +653,64 @@ iframe, embed, object{max-width:100%!important}
       </div>
     </div>
 
-    <div class="note rv" style="margin-top:28px">
-      <span class="note__icon">ℹ️</span>
-      <div><b>Wie gerechnet wird.</b>
-      <p>Die Schätzung folgt gängigen Erfahrungswerten: rund 70 % eines Jahresgehalts für direkte Wiederbesetzungskosten, etwa 25 % für Produktivitätsverluste in der Übergangszeit und rund 30 % für schwer bezifferbare Effekte wie Wissensverlust. Je nach Rolle und Branche liegen die realen Werte darüber oder darunter — für Führungspositionen und Spezialisten meist deutlich darüber.</p>
-<p style="margin-top:14px">Wenn Sie genauer hinschauen wollen: <a href="/blog/fluktuationskosten-berechnen/">so setzen sich die Kosten im Einzelnen zusammen</a>. Und weil das Ergebnis nur so gut ist wie die eingesetzte Quote — <a href="/blog/fluktuationsquote-richtig-messen/">so berechnen Sie Ihre Fluktuationsquote richtig</a>. Warum die Abgänge überhaupt zustande kommen, steht in <a href="/blog/warum-leistungstraeger-kuendigen/">Warum Leistungsträger kündigen</a>.</p></div>
+    <div class="meth rv" style="margin-top:56px">
+
+      <h2>So wird gerechnet</h2>
+      <p>Der Rechner braucht drei Angaben und multipliziert sie mit drei Kostensätzen. Die Formel steht offen da, damit Sie das Ergebnis nachvollziehen und mit Ihren eigenen Werten überschlagen können:</p>
+      <p style="background:var(--off);border-left:3px solid var(--amber);padding:16px 20px;font-weight:500;color:var(--navy)">
+        Abgänge pro Jahr = Mitarbeitende × Fluktuationsquote<br>
+        Kosten pro Jahr = Abgänge × Jahresgehalt × 1,25
+      </p>
+      <p>Der Faktor 1,25 ist die Summe aus 70 % direkten, 25 % indirekten und 30 % versteckten Kosten — bezogen auf ein Jahresgehalt je Abgang.</p>
+
+      <h2>Ein durchgerechnetes Beispiel</h2>
+      <p>Ein Unternehmen mit <b>50 Mitarbeitenden</b>, einer Fluktuationsquote von <b>20 Prozent</b> und einem durchschnittlichen Jahresgehalt von <b>45.000 €</b>. Das sind zehn Abgänge im Jahr:</p>
+      <div class="tblwrap">
+        <table>
+          <caption class="sr-only">Beispielrechnung Fluktuationskosten bei 50 Mitarbeitenden, 20 Prozent Fluktuation und 45.000 € Jahresgehalt</caption>
+          <thead>
+            <tr><th scope="col">Kostenblock</th><th scope="col">Satz</th><th scope="col">Betrag pro Jahr</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Direkte Kosten</td><td>70 % je Abgang</td><td>315.000 €</td></tr>
+            <tr><td>Indirekte Kosten</td><td>25 % je Abgang</td><td>112.500 €</td></tr>
+            <tr><td>Versteckte Kosten</td><td>30 % je Abgang</td><td>135.000 €</td></tr>
+            <tr><td>Gesamt</td><td>125 % je Abgang</td><td>562.500 €</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Pro Abgang sind das <b>56.250 €</b>. Senken Sie die Quote um ein Drittel — von 20 auf rund 13 Prozent —, bleiben etwa <b>168.750 €</b> im Jahr im Unternehmen. Das ist der Betrag, gegen den Sie jede Bindungsmaßnahme rechnen können.</p>
+
+      <h2>Was in den drei Kostenblöcken steckt</h2>
+      <dl>
+        <dt>Direkte Kosten — rund 70 % eines Jahresgehalts</dt>
+        <dd>Stellenanzeigen und Personalberatung, interner Aufwand für Sichtung und Gespräche, Vertragsanbahnung, Einarbeitung und Schulung, gegebenenfalls Abfindung oder Freistellung. Das sind die Posten, die in der Buchhaltung sichtbar werden.</dd>
+        <dt>Indirekte Kosten — rund 25 %</dt>
+        <dd>Die Vakanz selbst: liegengebliebene Aufgaben, Überlastung der verbleibenden Kollegen, Führungsaufwand für Auswahl und Einarbeitung, und die Anlaufzeit, bis die neue Person die volle Leistung bringt. Diese Kosten tauchen nirgends als Rechnung auf, sondern als Verzögerung.</dd>
+        <dt>Versteckte Kosten — rund 30 %</dt>
+        <dd>Wissen, das mit der Person geht. Kundenbeziehungen, die an ihr hingen. Unruhe im Team, die eine Kündigung auslöst — und die Wahrscheinlichkeit, dass sie die nächste nach sich zieht. Der schwerste Block, und der am schlechtesten zu beziffernde.</dd>
+      </dl>
+
+      <h2>Was Ihr Ergebnis bedeutet</h2>
+      <p>Die Zahl ist eine Größenordnung, keine Buchungsposition. Entscheidend ist, was für Rollen hinter Ihren Abgängen stehen:</p>
+      <dl>
+        <dt>Fachkräfte in eingespielten Rollen</dt>
+        <dd>Hier liegen die 125 Prozent realistisch, oft sogar etwas darunter — die Nachbesetzung ist eingeübt, die Einarbeitung planbar.</dd>
+        <dt>Führungskräfte und Spezialisten</dt>
+        <dd>Hier greift die Faustformel nicht mehr. Die Vakanzzeiten sind länger, die Einarbeitung dauert doppelt so lang, und der Wissensverlust wiegt schwerer. Realistisch sind 150 bis 200 Prozent eines Jahresgehalts. Wenn ein spürbarer Teil Ihrer Abgänge in diese Gruppe fällt, unterschätzt der Rechner Sie.</dd>
+        <dt>Abgänge in den ersten sechs Monaten</dt>
+        <dd>Die teuerste Variante: Sie haben die vollen Recruiting- und Einarbeitungskosten getragen und nichts zurückbekommen. <a href="/blog/onboarding-fehler-erste-sechs-monate/">Woran das meist liegt</a>, ist ein eigenes Thema.</dd>
+      </dl>
+      <p>Der eigentliche Nutzen dieser Rechnung liegt nicht in der Nachkommastelle. Er liegt darin, dass sie das Gespräch verändert: Aus „wir haben etwas erhöhte Fluktuation" wird eine sechsstellige Zahl — und sechsstellige Zahlen landen auf der Geschäftsführungsagenda, nicht im Personalbericht.</p>
+
+      <h2>Woher die Prozentsätze kommen</h2>
+      <p>Diese drei Sätze sind <b>Erfahrungswerte aus meiner Praxis</b>, keine Studienergebnisse. Sie stammen aus über zwanzig Jahren Führungsverantwortung und den Jahren als Personaldienstleister, in denen ich Nachbesetzungen von beiden Seiten des Schreibtischs gesehen habe.</p>
+      <p>Ich nenne das offen, weil die in Umlauf befindlichen Zahlen weit auseinandergehen — je nach Branche, Rolle und Erhebungsmethode finden Sie Angaben von 50 bis über 200 Prozent eines Jahresgehalts. Wer Ihnen eine exakte Zahl verspricht, rechnet mit Annahmen, die er nicht offenlegt. Die Sätze hier sind bewusst am unteren Ende gewählt: Wenn die Größenordnung Sie beunruhigt, dann tut es die Realität mit hoher Wahrscheinlichkeit erst recht.</p>
+      <p>Für eine belastbare Zahl brauchen Sie Ihre eigenen Werte — Ihre tatsächlichen Vakanzzeiten, Ihre Recruiting-Kosten, Ihre Einarbeitungsdauer. Genau das ist Teil der <a href="/fluktuation-diagnose/">Fluktuation-Diagnose</a>.</p>
+
+      <h2>Bevor Sie rechnen: stimmt Ihre Quote?</h2>
+      <p>Das Ergebnis ist nur so gut wie die Zahl, die Sie oben eingeben. Bei der Fluktuationsquote wird häufiger falsch gerechnet, als man denkt — <a href="/blog/fluktuationsquote-richtig-messen/">wie Sie sie richtig ermitteln</a>, steht hier. Wenn Sie die Kostenblöcke im Einzelnen aufschlüsseln wollen: <a href="/blog/fluktuationskosten-berechnen/">so setzen sich die Kosten zusammen</a>. Und warum die Abgänge überhaupt zustande kommen, steht in <a href="/blog/warum-leistungstraeger-kuendigen/">Warum Leistungsträger kündigen</a>.</p>
+
     </div>
 
     <div class="rv" style="text-align:center;margin-top:40px">
