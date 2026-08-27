@@ -386,6 +386,24 @@ em{font-style:italic}
   .card,.offer,.quote{padding:24px}
   .photo-frame{max-width:240px}
 }
+.qa{margin:0}
+.qa dt{font-family:'Cormorant Garamond',Georgia,serif;font-size:21px;font-weight:700;
+  color:var(--navy);line-height:1.3;margin-top:30px;padding-top:30px;border-top:1px solid var(--line)}
+.qa dt:first-of-type{margin-top:0;padding-top:0;border-top:none}
+.qa dd{font-size:16.5px;line-height:1.8;color:var(--muted);margin-top:9px}
+.qa dd a{color:var(--blue);border-bottom:1px solid rgba(96,150,186,.35)}
+/* Vergleichstabelle */
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:6px 0 0}
+.tblwrap table{border-collapse:collapse;width:100%;min-width:640px;font-size:15px;background:var(--white);
+  border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.tblwrap th,.tblwrap td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+.tblwrap thead th{background:var(--navy);color:#fff;font-family:'Cormorant Garamond',serif;
+  font-size:18px;font-weight:700;border-bottom:none}
+.tblwrap tbody th{font-weight:600;color:var(--navy);font-size:13px;letter-spacing:.04em;
+  text-transform:uppercase;background:var(--off);white-space:nowrap}
+.tblwrap td{color:var(--muted);line-height:1.65}
+.tblwrap tr:last-child th,.tblwrap tr:last-child td{border-bottom:none}
+@media(max-width:700px){.tblwrap table{min-width:560px;font-size:14px}.tblwrap th,.tblwrap td{padding:11px 12px}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Leistungen", "description": "Drei Formate: Diagnose, 90-Tage-Programm und Sparring-Retainer. Welches passt, klären wir im Erstgespräch.", "url": "https://leadsimply.de/leistungen/", "serviceType": "Unternehmensberatung Mitarbeiterbindung", "provider": {"@id": "https://leadsimply.de/#organisation"}, "areaServed": {"@type": "Country", "name": "Deutschland"}, "audience": {"@type": "BusinessAudience", "name": "Geschäftsführer mittelständischer Unternehmen"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Start", "item": "https://leadsimply.de/"}, {"@type": "ListItem", "position": 2, "name": "Leistungen", "item": "https://leadsimply.de/leistungen/"}]}</script>
@@ -530,6 +548,11 @@ iframe, embed, object{max-width:100%!important}
 
 <section class="sec sec--white">
   <div class="wrap">
+    <div class="sec__head rv">
+      <span class="eyebrow">Die Formate</span>
+      <h2>Drei Formate, die aufeinander aufbauen</h2>
+      <p class="lead">Das sind keine Alternativen, unter denen Sie wählen. Es sind Stufen. Die Diagnose ist der Einstieg und zugleich die Grundlage für alles Weitere — ohne ein Bild Ihrer Ausgangslage wäre jede Maßnahme geraten.</p>
+    </div>
     <div class="grid grid--3">
       <article class="offer rv">
         <span class="offer__tag">Format 1 · Einstieg</span>
@@ -586,6 +609,50 @@ iframe, embed, object{max-width:100%!important}
         <p>Der <a class="textlink" href="/retainer/">Sparring-Retainer</a> hält das Thema auf der Agenda, auch wenn der Alltag wieder übernimmt.</p></div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="sec sec--white">
+  <div class="wrap" style="max-width:74ch">
+    <div class="sec__head rv">
+      <span class="eyebrow">Im Vergleich</span>
+      <h2>Was die drei Formate von Ihnen verlangen</h2>
+      <p class="lead">Der häufigste Grund, warum sich jemand nicht entscheidet, ist nicht der Preis — es ist die Unklarheit darüber, was auf einen zukommt.</p>
+    </div>
+    <div class="tblwrap rv">
+      <table>
+        <thead>
+          <tr><th scope="col"></th><th scope="col">Diagnose</th><th scope="col">90-Tage-Programm</th><th scope="col">Retainer</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Dauer</th><td>2–3 Wochen</td><td>12 Wochen</td><td>laufend, monatlich kündbar</td></tr>
+          <tr><th scope="row">Termine mit mir</th><td>2 (60 + 90 Min.)</td><td>6 Reviews à 90 Min., alle 2 Wochen</td><td>2 Sessions à 60 Min. pro Monat</td></tr>
+          <tr><th scope="row">Ihr Aufwand</th><td>Unterlagen ausfüllen — je nach Größe ein Nachmittag bis mehrere Termine</td><td>Umsetzung im Alltag, 1–2 Ansprechpartner im Haus</td><td>Themen mitbringen</td></tr>
+          <tr><th scope="row">Ergebnis</th><td>Schriftliche Analyse und drei priorisierte Maßnahmen</td><td>Etablierte Führungsroutinen und messbar gesunkene Quote</td><td>Laufendes Monitoring und ein Sparringspartner</td></tr>
+          <tr><th scope="row">Voraussetzung</th><td>keine</td><td>Diagnose — im Programm enthalten</td><td>ein System, das läuft</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sec__head rv" style="margin-top:56px">
+      <span class="eyebrow">Bevor Sie fragen</span>
+      <h2>Was Geschäftsführer vorher wissen wollen</h2>
+    </div>
+    <dl class="qa rv">
+      <dt>Was bringt mir das — was spare ich konkret?</dt>
+      <dd>Das ist die Frage, die im Erstgespräch am häufigsten kommt. Eine belastbare Antwort gibt es erst mit Ihren Zahlen; die Größenordnung können Sie sich vorab selbst ausrechnen: <a href="/rechner/">Was kostet Ihre Fluktuation pro Jahr?</a> Bei fünfzig Mitarbeitenden und zwanzig Prozent Fluktuation steht dort eine sechsstellige Zahl — das ist der Rahmen, gegen den jede Maßnahme zu rechnen ist.</dd>
+
+      <dt>Womit fange ich an?</dt>
+      <dd>Mit der <a href="/fluktuation-diagnose/">Diagnose</a>, in nahezu allen Fällen. Sie ist auch im 90-Tage-Programm enthalten und bildet dort die ersten beiden Wochen. Wer direkt in die Umsetzung will, ohne zu wissen, wo er Leute verliert, baut auf Vermutungen.</dd>
+
+      <dt>Wie viel Zeit kostet mich das?</dt>
+      <dd>Bei der Diagnose zwei Termine mit mir plus das Ausfüllen der Unterlagen — bei zwanzig Mitarbeitenden ein Nachmittag, bei zweihundert mehrere Termine. Im 90-Tage-Programm kommen sechs Reviews à 90 Minuten dazu, alle zwei Wochen. Der Retainer läuft mit zwei Stunden im Monat.</dd>
+
+      <dt>Was kostet das?</dt>
+      <dd>Das hängt von Größe und Ausgangslage ab, deshalb stehen hier keine Preise. Was ich Ihnen sagen kann: Im Analyse-Call nennen wir die Konditionen offen, bevor Sie sich entscheiden müssen — und wenn das Verhältnis zu Ihrer Situation nicht stimmt, sage ich das auch.</dd>
+
+      <dt>Wann sagen Sie ab?</dt>
+      <dd>Wenn das Problem im Kern bestritten wird. Ich hatte Mandate, in denen jede Erkenntnis abgeräumt wurde — „so schlimm ist das nicht", „das sind doch nur die, die immer meckern". Dann ist jede Analyse korrekt und trotzdem wertlos, weil ihr niemand folgt. In so einem Fall sage ich lieber vorher ab als hinterher.</dd>
+    </dl>
   </div>
 </section>
 
