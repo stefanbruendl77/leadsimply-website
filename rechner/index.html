@@ -1,10 +1,43 @@
-<!DOCTYPE html>
+<style>
+.calc{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.calc__head{background:var(--navy);padding:26px 32px}
+.calc__head h3{color:#fff;margin:0;font-size:23px}
+.calc__head p{color:rgba(255,255,255,.5);font-size:14px;margin-top:5px}
+.calc__body{padding:32px}
+.slider{margin-bottom:26px}
+.slider__top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:11px}
+.slider__top label{font-size:14.5px;color:var(--muted);font-weight:400}
+.slider__top b{font-family:'Cormorant Garamond',serif;font-size:23px;color:var(--navy)}
+.slider input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;
+  border-radius:3px;background:var(--pale);outline:none;cursor:pointer}
+.slider input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;
+  width:22px;height:22px;border-radius:50%;background:var(--navy);cursor:pointer;
+  border:3px solid #fff;box-shadow:0 2px 8px rgba(27,45,79,.3)}
+.slider input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;
+  background:var(--navy);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(27,45,79,.3)}
+.calc__hint{font-size:13px;color:var(--blue);font-weight:600;margin-top:6px}
+.bar{margin-bottom:16px}
+.bar__top{display:flex;justify-content:space-between;align-items:baseline;
+  font-size:14.5px;margin-bottom:7px;gap:12px}
+.bar__top span{color:var(--muted)}
+.bar__top b{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--navy);white-space:nowrap}
+.bar__track{height:8px;background:var(--pale);border-radius:4px;overflow:hidden}
+.bar__fill{height:100%;border-radius:4px;transition:width .45s cubic-bezier(.4,0,.2,1)}
+.calc__total{background:var(--navy-d);border-radius:11px;padding:26px 30px;margin-top:28px;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.calc__total span{font-size:14.5px;color:rgba(255,255,255,.55)}
+.calc__total b{font-family:'Cormorant Garamond',serif;font-size:38px;color:var(--amber);line-height:1}
+@media(max-width:860px){.calc__body{padding:24px 20px}.calc__head{padding:22px 20px}
+ .calc__total{flex-direction:column;align-items:flex-start;gap:8px;padding:22px}
+ .calc__total b{font-size:31px}}
+</style><!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fluktuationskosten-Rechner | LeadSimply</title>
 <meta name="description" content="Berechnen Sie in 30 Sekunden, was Ihre Fluktuation pro Jahr kostet. Kostenlos und ohne Anmeldung.">
+<meta name="keywords" content="Fluktuationskosten berechnen, Kosten Mitarbeiterabgang, Fluktuation Rechner, Personalkosten Kündigung">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="author" content="Stefan Bründl">
 <link rel="canonical" href="https://leadsimply.de/rechner/">
@@ -387,7 +420,8 @@ em{font-style:italic}
   .photo-frame{max-width:240px}
 }
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Start", "item": "https://leadsimply.de/"}, {"@type": "ListItem", "position": 2, "name": "Kostenrechner", "item": "https://leadsimply.de/rechner/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Fluktuationskosten-Rechner", "url": "https://leadsimply.de/rechner/", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "inLanguage": "de-DE", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "publisher": {"@type": "Organization", "name": "LeadSimply", "@id": "https://leadsimply.de/#org"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Start", "item": "https://www.leadsimply.de/"}, {"@type": "ListItem", "position": 2, "name": "Kostenrechner", "item": "https://www.leadsimply.de/rechner/"}]}</script>
 <style>
 /* Globale Absicherung gegen überlaufende Rasterinhalte */
 .grid > *, .hero__grid > *, .about > *, .call-grid > *, .lg > *{min-width:0}
@@ -409,173 +443,12 @@ iframe, embed, object{max-width:100%!important}
 @font-face{font-family:'Outfit';font-style:normal;font-weight:100 900;
   font-display:swap;src:url('/fonts/outfit.woff2') format('woff2')}
 </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "ProfessionalService",
-      "@id": "https://leadsimply.de/#organisation",
-      "name": "LeadSimply",
-      "legalName": "Vario Brüdoservice GmbH",
-      "url": "https://leadsimply.de/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://leadsimply.de/bilder/logo.png"
-      },
-      "image": "https://leadsimply.de/og-bild.jpg",
-      "description": "Beratung für Geschäftsführer mittelständischer Unternehmen mit 10 bis 300 Mitarbeitenden zur messbaren Senkung der Fluktuation und zur Bindung von Leistungsträgern.",
-      "email": "info@leadsimply.de",
-      "founder": { "@id": "https://leadsimply.de/#stefan" },
-      "employee": { "@id": "https://leadsimply.de/#stefan" },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Neckarstrasse 2",
-        "postalCode": "71263",
-        "addressLocality": "Weil der Stadt",
-        "addressRegion": "Baden-Württemberg",
-        "addressCountry": "DE"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 48.7503,
-        "longitude": 8.8706
-      },
-      "areaServed": {
-        "@type": "Country",
-        "name": "Deutschland"
-      },
-      "priceRange": "€€€",
-      "knowsLanguage": "de-DE",
-      "sameAs": [
-        "https://www.linkedin.com/in/stefan-bruendl/"
-      ]
-    },
-    {
-      "@type": "Person",
-      "@id": "https://leadsimply.de/#stefan",
-      "name": "Stefan Bründl",
-      "givenName": "Stefan",
-      "familyName": "Bründl",
-      "url": "https://leadsimply.de/ueber-stefan/",
-      "image": "https://leadsimply.de/bilder/stefan-about.jpg",
-      "jobTitle": "Berater für Mitarbeiterbindung und Fluktuation",
-      "description": "Berater mit über 20 Jahren eigener Führungsverantwortung, 1.300+ geführten Mitarbeitenden und 135 Mio. € Umsatzverantwortung. Kennt den Arbeitsmarkt aus drei Rollen: als Führungskraft, als Personaldienstleister und als Einstellender.",
-      "worksFor": { "@id": "https://leadsimply.de/#organisation" },
-      "knowsAbout": [
-        "Fluktuation",
-        "Mitarbeiterbindung",
-        "Führung im Mittelstand",
-        "Leistungsträger halten",
-        "Abwerbung",
-        "Onboarding"
-      ],
-      "alumniOf": [
-        { "@type": "CollegeOrUniversity", "name": "Universität Stuttgart" },
-        { "@type": "CollegeOrUniversity", "name": "Universität Hohenheim" },
-        { "@type": "CollegeOrUniversity", "name": "London Business School" },
-        { "@type": "CollegeOrUniversity", "name": "TIAS School for Business and Society, Tilburg" },
-        { "@type": "CollegeOrUniversity", "name": "INSEAD Paris" }
-      ],
-      "sameAs": [
-        "https://www.linkedin.com/in/stefan-bruendl/"
-      ]
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://leadsimply.de/#website",
-      "url": "https://leadsimply.de/",
-      "name": "LeadSimply",
-      "inLanguage": "de-DE",
-      "publisher": { "@id": "https://leadsimply.de/#organisation" }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "@id": "https://leadsimply.de/rechner/#app",
-  "name": "Fluktuationskosten-Rechner",
-  "url": "https://leadsimply.de/rechner/",
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Web",
-  "inLanguage": "de-DE",
-  "description": "Kostenloser Rechner: Was kostet Fluktuation Ihr Unternehmen pro Jahr? Berücksichtigt direkte, indirekte und versteckte Kosten.",
-  "publisher": { "@id": "https://leadsimply.de/#organisation" },
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "EUR"
-  }
-}
-</script>
-<style>
-.calc{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-.calc__head{background:var(--navy);padding:26px 32px}
-.calc__head h2{color:#fff;margin:0;font-size:23px}
-.calc__head h3{color:#fff;margin:0;font-size:23px}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
-  clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.meth{max-width:70ch;margin:0 auto}
-.meth h2{font-size:clamp(24px,2.7vw,34px);margin:52px 0 16px}
-.meth h2:first-child{margin-top:0}
-.meth p{margin-bottom:14px}
-.meth .tblwrap{overflow-x:auto;margin:22px 0;-webkit-overflow-scrolling:touch}
-.meth table{border-collapse:collapse;width:100%;min-width:420px;font-size:15.5px}
-.meth th,.meth td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line)}
-.meth th{font-weight:600;color:var(--navy);font-size:13px;letter-spacing:.04em;
-  text-transform:uppercase;background:var(--off)}
-.meth td:last-child,.meth th:last-child{text-align:right;white-space:nowrap}
-.meth tr:last-child td{border-bottom:none;font-weight:600;color:var(--navy);
-  border-top:2px solid var(--navy)}
-.meth dl{margin:18px 0}
-.meth dt{font-weight:600;color:var(--navy);margin-top:18px;font-size:16px}
-.meth dt:first-of-type{margin-top:0}
-.meth dd{color:var(--muted);margin-top:4px;font-size:15.5px;line-height:1.75}
-/* Schmale Displays: die Satz-Spalte weicht, damit die Betraege sichtbar bleiben.
-   Die Prozentsaetze stehen ohnehin im Fliesstext darueber. */
-@media(max-width:560px){
-  .meth table{min-width:0}
-  .meth th:nth-child(2),.meth td:nth-child(2){display:none}
-  .meth th,.meth td{padding:11px 8px;font-size:15px}
-}
-.calc__head p{color:rgba(255,255,255,.5);font-size:14px;margin-top:5px}
-.calc__body{padding:32px}
-.slider{margin-bottom:26px}
-.slider__top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:11px}
-.slider__top label{font-size:14.5px;color:var(--muted);font-weight:400}
-.slider__top b{font-family:'Cormorant Garamond',serif;font-size:23px;color:var(--navy)}
-.slider input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;
-  border-radius:3px;background:var(--pale);outline:none;cursor:pointer}
-.slider input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;
-  width:22px;height:22px;border-radius:50%;background:var(--navy);cursor:pointer;
-  border:3px solid #fff;box-shadow:0 2px 8px rgba(27,45,79,.3)}
-.slider input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;
-  background:var(--navy);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 8px rgba(27,45,79,.3)}
-.calc__hint{font-size:13px;color:var(--blue);font-weight:600;margin-top:6px}
-.bar{margin-bottom:16px}
-.bar__top{display:flex;justify-content:space-between;align-items:baseline;
-  font-size:14.5px;margin-bottom:7px;gap:12px}
-.bar__top span{color:var(--muted)}
-.bar__top b{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--navy);white-space:nowrap}
-.bar__track{height:8px;background:var(--pale);border-radius:4px;overflow:hidden}
-.bar__fill{height:100%;border-radius:4px;transition:width .45s cubic-bezier(.4,0,.2,1)}
-.calc__total{background:var(--navy-d);border-radius:11px;padding:26px 30px;margin-top:28px;
-  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-.calc__total span{font-size:14.5px;color:rgba(255,255,255,.55)}
-.calc__total b{font-family:'Cormorant Garamond',serif;font-size:38px;color:var(--amber);line-height:1}
-@media(max-width:860px){.calc__body{padding:24px 20px}.calc__head{padding:22px 20px}
- .calc__total{flex-direction:column;align-items:flex-start;gap:8px;padding:22px}
- .calc__total b{font-size:31px}}
-</style>
 </head>
 <body><header class="nav" id="nav">
   <div class="nav__in">
     <a class="nav__logo" href="/" aria-label="LeadSimply Startseite"><img src="/bilder/logo.png" alt="LeadSimply" width="140" height="25"></a>
     <nav class="nav__links" aria-label="Hauptnavigation">
-      <a href="/abwerber-perspektive/">Die andere Seite</a>
+      <a href="/abwerber-perspektive/">Meine Geschichte</a>
       <a href="/leistungen/">Leistungen</a>
       <a href="/ueber-stefan/">Über Stefan</a>
       <a href="/rechner/" style="color:#fff">Kostenrechner</a>
@@ -587,7 +460,7 @@ iframe, embed, object{max-width:100%!important}
     </button>
   </div>
   <div class="nav__drawer" id="navDrawer">
-    <a href="/abwerber-perspektive/">Die andere Seite</a>
+    <a href="/abwerber-perspektive/">Meine Geschichte</a>
       <a href="/leistungen/">Leistungen</a>
     <a href="/ueber-stefan/">Über Stefan</a>
     <a href="/leitfaden/">Leitfaden</a>
@@ -608,7 +481,7 @@ iframe, embed, object{max-width:100%!important}
   <div class="wrap" style="max-width:880px">
     <div class="calc rv">
       <div class="calc__head">
-        <h2>Ihre Zahlen</h2>
+        <h3>Ihre Zahlen</h3>
         <p>Grobe Werte genügen — es geht um die Größenordnung</p>
       </div>
       <div class="calc__body">
@@ -652,64 +525,10 @@ iframe, embed, object{max-width:100%!important}
       </div>
     </div>
 
-    <div class="meth rv" style="margin-top:56px">
-
-      <h2>So wird gerechnet</h2>
-      <p>Der Rechner braucht drei Angaben und multipliziert sie mit drei Kostensätzen. Die Formel steht offen da, damit Sie das Ergebnis nachvollziehen und mit Ihren eigenen Werten überschlagen können:</p>
-      <p style="background:var(--off);border-left:3px solid var(--amber);padding:16px 20px;font-weight:500;color:var(--navy)">
-        Abgänge pro Jahr = Mitarbeitende × Fluktuationsquote<br>
-        Kosten pro Jahr = Abgänge × Jahresgehalt × 1,25
-      </p>
-      <p>Der Faktor 1,25 ist die Summe aus 70 % direkten, 25 % indirekten und 30 % versteckten Kosten — bezogen auf ein Jahresgehalt je Abgang.</p>
-
-      <h2>Ein durchgerechnetes Beispiel</h2>
-      <p>Ein Unternehmen mit <b>50 Mitarbeitenden</b>, einer Fluktuationsquote von <b>20 Prozent</b> und einem durchschnittlichen Jahresgehalt von <b>45.000 €</b>. Das sind zehn Abgänge im Jahr:</p>
-      <div class="tblwrap">
-        <table>
-          <caption class="sr-only">Beispielrechnung Fluktuationskosten bei 50 Mitarbeitenden, 20 Prozent Fluktuation und 45.000 € Jahresgehalt</caption>
-          <thead>
-            <tr><th scope="col">Kostenblock</th><th scope="col">Satz</th><th scope="col">Betrag pro Jahr</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Direkte Kosten</td><td>70 % je Abgang</td><td>315.000 €</td></tr>
-            <tr><td>Indirekte Kosten</td><td>25 % je Abgang</td><td>112.500 €</td></tr>
-            <tr><td>Versteckte Kosten</td><td>30 % je Abgang</td><td>135.000 €</td></tr>
-            <tr><td>Gesamt</td><td>125 % je Abgang</td><td>562.500 €</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>Pro Abgang sind das <b>56.250 €</b>. Senken Sie die Quote um ein Drittel — von 20 auf rund 13 Prozent —, bleiben etwa <b>168.750 €</b> im Jahr im Unternehmen. Das ist der Betrag, gegen den Sie jede Bindungsmaßnahme rechnen können.</p>
-
-      <h2>Was in den drei Kostenblöcken steckt</h2>
-      <dl>
-        <dt>Direkte Kosten — rund 70 % eines Jahresgehalts</dt>
-        <dd>Stellenanzeigen und Personalberatung, interner Aufwand für Sichtung und Gespräche, Vertragsanbahnung, Einarbeitung und Schulung, gegebenenfalls Abfindung oder Freistellung. Das sind die Posten, die in der Buchhaltung sichtbar werden.</dd>
-        <dt>Indirekte Kosten — rund 25 %</dt>
-        <dd>Die Vakanz selbst: liegengebliebene Aufgaben, Überlastung der verbleibenden Kollegen, Führungsaufwand für Auswahl und Einarbeitung, und die Anlaufzeit, bis die neue Person die volle Leistung bringt. Diese Kosten tauchen nirgends als Rechnung auf, sondern als Verzögerung.</dd>
-        <dt>Versteckte Kosten — rund 30 %</dt>
-        <dd>Wissen, das mit der Person geht. Kundenbeziehungen, die an ihr hingen. Unruhe im Team, die eine Kündigung auslöst — und die Wahrscheinlichkeit, dass sie die nächste nach sich zieht. Der schwerste Block, und der am schlechtesten zu beziffernde.</dd>
-      </dl>
-
-      <h2>Was Ihr Ergebnis bedeutet</h2>
-      <p>Die Zahl ist eine Größenordnung, keine Buchungsposition. Entscheidend ist, was für Rollen hinter Ihren Abgängen stehen:</p>
-      <dl>
-        <dt>Fachkräfte in eingespielten Rollen</dt>
-        <dd>Hier liegen die 125 Prozent realistisch, oft sogar etwas darunter — die Nachbesetzung ist eingeübt, die Einarbeitung planbar.</dd>
-        <dt>Führungskräfte und Spezialisten</dt>
-        <dd>Hier greift die Faustformel nicht mehr. Die Vakanzzeiten sind länger, die Einarbeitung dauert doppelt so lang, und der Wissensverlust wiegt schwerer. Realistisch sind 150 bis 200 Prozent eines Jahresgehalts. Wenn ein spürbarer Teil Ihrer Abgänge in diese Gruppe fällt, unterschätzt der Rechner Sie.</dd>
-        <dt>Abgänge in den ersten sechs Monaten</dt>
-        <dd>Die teuerste Variante: Sie haben die vollen Recruiting- und Einarbeitungskosten getragen und nichts zurückbekommen. <a href="/blog/onboarding-fehler-erste-sechs-monate/">Woran das meist liegt</a>, ist ein eigenes Thema.</dd>
-      </dl>
-      <p>Der eigentliche Nutzen dieser Rechnung liegt nicht in der Nachkommastelle. Er liegt darin, dass sie das Gespräch verändert: Aus „wir haben etwas erhöhte Fluktuation" wird eine sechsstellige Zahl — und sechsstellige Zahlen landen auf der Geschäftsführungsagenda, nicht im Personalbericht.</p>
-
-      <h2>Woher die Prozentsätze kommen</h2>
-      <p>Diese drei Sätze sind <b>Erfahrungswerte aus meiner Praxis</b>, keine Studienergebnisse. Sie stammen aus über zwanzig Jahren Führungsverantwortung und den Jahren als Personaldienstleister, in denen ich Nachbesetzungen von beiden Seiten des Schreibtischs gesehen habe.</p>
-      <p>Ich nenne das offen, weil die in Umlauf befindlichen Zahlen weit auseinandergehen — je nach Branche, Rolle und Erhebungsmethode finden Sie Angaben von 50 bis über 200 Prozent eines Jahresgehalts. Wer Ihnen eine exakte Zahl verspricht, rechnet mit Annahmen, die er nicht offenlegt. Die Sätze hier sind bewusst am unteren Ende gewählt: Wenn die Größenordnung Sie beunruhigt, dann tut es die Realität mit hoher Wahrscheinlichkeit erst recht.</p>
-      <p>Für eine belastbare Zahl brauchen Sie Ihre eigenen Werte — Ihre tatsächlichen Vakanzzeiten, Ihre Recruiting-Kosten, Ihre Einarbeitungsdauer. Genau das ist Teil der <a href="/fluktuation-diagnose/">Fluktuation-Diagnose</a>.</p>
-
-      <h2>Bevor Sie rechnen: stimmt Ihre Quote?</h2>
-      <p>Das Ergebnis ist nur so gut wie die Zahl, die Sie oben eingeben. Bei der Fluktuationsquote wird häufiger falsch gerechnet, als man denkt — <a href="/blog/fluktuationsquote-richtig-messen/">wie Sie sie richtig ermitteln</a>, steht hier. Wenn Sie die Kostenblöcke im Einzelnen aufschlüsseln wollen: <a href="/blog/fluktuationskosten-berechnen/">so setzen sich die Kosten zusammen</a>. Und warum die Abgänge überhaupt zustande kommen, steht in <a href="/blog/warum-leistungstraeger-kuendigen/">Warum Leistungsträger kündigen</a>.</p>
-
+    <div class="note rv" style="margin-top:28px">
+      <span class="note__icon">ℹ️</span>
+      <div><b>Wie gerechnet wird.</b>
+      <p>Die Schätzung folgt gängigen Erfahrungswerten: rund 70 % eines Jahresgehalts für direkte Wiederbesetzungskosten, etwa 25 % für Produktivitätsverluste in der Übergangszeit und rund 30 % für schwer bezifferbare Effekte wie Wissensverlust. Je nach Rolle und Branche liegen die realen Werte darüber oder darunter — für Führungspositionen und Spezialisten meist deutlich darüber.</p></div>
     </div>
 
     <div class="rv" style="text-align:center;margin-top:40px">
@@ -753,7 +572,7 @@ iframe, embed, object{max-width:100%!important}
   <div class="wrap">
     <div class="foot__top">
       <div class="foot__brand">
-        <img src="/bilder/logo.png" alt="LeadSimply" width="130" height="24" loading="lazy">
+        <img src="/bilder/logo.png" alt="LeadSimply" width="130" height="24">
         <p>Stefan Bründl hilft Geschäftsführern mittelständischer Unternehmen, ihre Leistungsträger zu halten — bevor die Kündigung auf dem Tisch liegt.</p>
       </div>
       <div class="foot__col">
