@@ -5,3 +5,6 @@
 
 # SEO-Audit: interne Analyse, nicht deployen
 leadsimply.de-audit/
+
+# Arbeitsdateien fuer die Meta-App, nicht veroeffentlichen
+_meta-app/
